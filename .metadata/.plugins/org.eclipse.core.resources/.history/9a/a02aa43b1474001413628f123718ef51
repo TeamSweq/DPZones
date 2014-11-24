@@ -18,8 +18,6 @@ public class FoodListener implements Listener {
 	    this.plugin = instance;
 	  }
 	
-	//Takes 1 steak away if they player tries to eat it
-	
 	public static void subtractAmount(Player player, int amount)
 	  {
 	    if (player.getItemInHand().getAmount() <= amount)
@@ -28,8 +26,6 @@ public class FoodListener implements Listener {
 	      player.getItemInHand().setAmount(player.getItemInHand().getAmount() - amount);
 	  }
 	
-	//Prevents the player from consuming the steak.
-	
 	@EventHandler
 	public void consumeBlock(PlayerItemConsumeEvent event) {
 		Player player = event.getPlayer();
@@ -37,9 +33,6 @@ public class FoodListener implements Listener {
 			event.setCancelled(true);
 		}
 	}
-	
-	//Checks to see if the player tries to eat the steak 
-	//Adds 4 hearts to their health
 	
 	@EventHandler
 	public void onPlayerInteract(PlayerInteractEvent event) {

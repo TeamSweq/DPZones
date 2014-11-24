@@ -13,7 +13,6 @@ public class DPZones extends JavaPlugin {
 	public void onEnable() {
 		PluginManager pm = getServer().getPluginManager();
 		pm.registerEvents(this.foodListener, this);
-		getServer().getPluginManager().registerEvents(new Teams(), this);
 	}
 	
 	@Override()

@@ -28,7 +28,7 @@ public class FoodListener implements Listener {
 	      player.getItemInHand().setAmount(player.getItemInHand().getAmount() - amount);
 	  }
 	
-	//Prevents the player from consuming the steak.
+	
 	
 	@EventHandler
 	public void consumeBlock(PlayerItemConsumeEvent event) {
@@ -39,6 +39,7 @@ public class FoodListener implements Listener {
 	}
 	
 	//Checks to see if the player tries to eat the steak 
+	//Prevents them from eating the steak
 	//Adds 4 hearts to their health
 	
 	@EventHandler
