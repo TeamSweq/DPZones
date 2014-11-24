@@ -37,8 +37,6 @@ public class Teams implements Listener, CommandExecutor {
 	@EventHandler(priority = EventPriority.HIGH)
 	public void onLogin(PlayerJoinEvent event) {
 		Player player = event.getPlayer();
-		// Random rand = new Random();
-		// int team = rand.nextInt(2) + 1;
 		player.setScoreboard(board);
 		if (!(redTeam.hasPlayer(player)) && !(blueTeam.hasPlayer(player))) {
 			if (redTeam.getSize() >= blueTeam.getSize()) {
@@ -86,7 +84,7 @@ public class Teams implements Listener, CommandExecutor {
 				if (blueTeam.hasPlayer(player)) {
 					sender.sendMessage(ChatColor.BLUE + "You are on Blue Team!");
 				}
-				if (!(blueTeam.hasPlayer(player) || redTeam.hasPlayer(player))){
+				if ( (!(blueTeam.hasPlayer(player)) && (!(redTeam.hasPlayer(player))) )){
 					sender.sendMessage(ChatColor.GOLD + "You are spectating!");
 				}
 			} else {
@@ -117,14 +115,5 @@ public class Teams implements Listener, CommandExecutor {
 		}
 		return false;
 	}
-		
-//	public void joinTeam() {
-//		Player player = event.getPlayer();
-//		Random rand = new Random();
-//		int team = rand.nextInt(2) + 1;
-//		if (!(redTeam.hasPlayer(player) && blueTeam.hasPlayer(player))) {
-//			
-//		}
-//	}
 	
 }
