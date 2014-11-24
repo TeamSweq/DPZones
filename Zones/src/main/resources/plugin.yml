@@ -5,11 +5,11 @@ commands:
   switch:
     description:
     permission: zones.switch
-    permission-message: This game isn’t set up for you to do this!
+    permission-message: You're spectating!
   team:
     description:
     permission: zones.team
-    permission-message: You don’t have a team!
+    permission-message: You're spectating!
   spectate:
     description:
     permission: zones.spectate
@@ -17,12 +17,12 @@ commands:
   classes:
     description:
     permission: zones.classes
-    permission-message: This game isn’t set up for you to do this!
+    permission-message: You're spectating!
   heavy:
     description:
     permission: zones.heavy
-    permission-message: This is a premium class!
+    permission-message: You're spectating!
   archer:
     description:
     permission: zones.archer
-    permission-message: This is a premium class!
+    permission-message: You're spectating!
