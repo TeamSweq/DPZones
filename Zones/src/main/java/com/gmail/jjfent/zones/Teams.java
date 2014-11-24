@@ -48,14 +48,6 @@ public class Teams implements Listener, CommandExecutor {
 				redTeam.addPlayer(player);
 				player.sendMessage(ChatColor.RED + "You joined Red Team!");
 			}
-			// if (((team == 1) && (redTeam.getSize() + 2 > blueTeam.getSize()) || (team == 1) && (redTeam.getSize() + 1 > blueTeam.getSize()) || (team == 1) && (redTeam.getSize() == blueTeam.getSize()) && (redTeam.getSize() > blueTeam.getSize()))) {
-			// 	blueTeam.addPlayer(player);
-			// 	player.sendMessage(ChatColor.BLUE + "You joined Blue Team!");
-			// } 
-			// if (((team == 2) && (redTeam.getSize() < blueTeam.getSize() + 2)) || ((team == 2) && (redTeam.getSize() < blueTeam.getSize() + 1)) || ((team == 2) && (redTeam.getSize() == blueTeam.getSize()) && (redTeam.getSize() < blueTeam.getSize()))){
-			// 	redTeam.addPlayer(player);
-			// 	player.sendMessage(ChatColor.RED + "You joined Red Team!");
-			// }
 		}
 	}
 	
