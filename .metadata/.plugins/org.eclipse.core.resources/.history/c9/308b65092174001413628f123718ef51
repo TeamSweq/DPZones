@@ -6,10 +6,8 @@ import org.bukkit.plugin.java.JavaPlugin;
 public class DPZones extends JavaPlugin {
 	
 	public static DPZones plugin;
-	public final FoodListener fl = new FoodListener(this);
+	public final FoodListener bl = new FoodListener(this);
 	FoodListener foodListener = new FoodListener(this);
-	public final TeamListener tl = new TeamListener(this);
-	TeamListener teamListener = new TeamListener(this);
 	
 	@Override
 	public void onEnable() {
@@ -18,7 +16,7 @@ public class DPZones extends JavaPlugin {
 		this.getCommand("switch").setExecutor(new TeamSwitch(this));
 		this.getCommand("team").setExecutor(new TeamSwitch(this)); //Not sure if I set this up properly, for all three commands
 		pm.registerEvents(this.foodListener, this);
-		pm.registerEvents(this.teamListener, this);
+		getServer().getPluginManager().registerEvents(new Teams(), this); //(new Teams(), this) is an error, not sure how to fix :C
 	}
 	
 	@Override()

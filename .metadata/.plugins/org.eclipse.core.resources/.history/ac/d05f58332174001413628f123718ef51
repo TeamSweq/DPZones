@@ -16,12 +16,6 @@ import org.bukkit.scoreboard.Team;
 
 public class Teams implements CommandExecutor {
 	
-	private final DPZones plugin;
-	
-	public Teams(DPZones plugin) {
-		this.plugin = plugin;
-	}
-	
 	public static ScoreboardManager manager = Bukkit.getScoreboardManager();
 	public static Scoreboard board = manager.getNewScoreboard();
 	

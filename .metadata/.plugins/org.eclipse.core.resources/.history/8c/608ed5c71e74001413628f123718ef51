@@ -8,25 +8,48 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.EventPriority;
+import org.bukkit.event.Listener;
+import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.PlayerInventory;
 import org.bukkit.scoreboard.Scoreboard;
 import org.bukkit.scoreboard.ScoreboardManager;
 import org.bukkit.scoreboard.Team;
 
-public class Teams implements CommandExecutor {
+public class TeamListener implements Listener, CommandExecutor {
 	
-	private final DPZones plugin;
+	DPZones plugin;
 	
-	public Teams(DPZones plugin) {
+	public TeamListener(DPZones plugin) {
 		this.plugin = plugin;
 	}
 	
-	public static ScoreboardManager manager = Bukkit.getScoreboardManager();
-	public static Scoreboard board = manager.getNewScoreboard();
+	ScoreboardManager manager = Bukkit.getScoreboardManager();
+	Scoreboard board = manager.getNewScoreboard();
 	
-	public static Team redTeam = board.registerNewTeam("Red");
-	public static Team blueTeam = board.registerNewTeam("Blue");
+	public Team redTeam = board.registerNewTeam("Red");
+	public Team blueTeam = board.registerNewTeam("Blue");
+	
+	//Whenever the player logs on, they get put on a team
+	
+	@EventHandler(priority = EventPriority.HIGH)
+	public void onLogin(PlayerJoinEvent event) {
+		Player player = event.getPlayer();
+		player.setScoreboard(board);
+		if (!(redTeam.hasPlayer(player)) && !(blueTeam.hasPlayer(player))) {
+			if (redTeam.getSize() >= blueTeam.getSize()) {
+				blueTeam.addPlayer(player);
+				player.sendMessage(ChatColor.BLUE + "You joined Blue Team!");
+			} else {
+				redTeam.addPlayer(player);
+				player.sendMessage(ChatColor.RED + "You joined Red Team!");
+			}
+		}
+	}
+	
+	//
 	
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
 		if (cmd.getName().equalsIgnoreCase("switch")) {

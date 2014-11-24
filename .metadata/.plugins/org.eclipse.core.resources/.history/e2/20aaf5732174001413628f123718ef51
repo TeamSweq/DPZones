@@ -16,8 +16,6 @@ import org.bukkit.scoreboard.Team;
 
 public class Teams implements CommandExecutor {
 	
-	private final DPZones plugin;
-	
 	public Teams(DPZones plugin) {
 		this.plugin = plugin;
 	}

@@ -6,10 +6,8 @@ import org.bukkit.plugin.java.JavaPlugin;
 public class DPZones extends JavaPlugin {
 	
 	public static DPZones plugin;
-	public final FoodListener fl = new FoodListener(this);
+	public final FoodListener bl = new FoodListener(this);
 	FoodListener foodListener = new FoodListener(this);
-	public final TeamListener tl = new TeamListener(this);
-	TeamListener teamListener = new TeamListener(this);
 	
 	@Override
 	public void onEnable() {

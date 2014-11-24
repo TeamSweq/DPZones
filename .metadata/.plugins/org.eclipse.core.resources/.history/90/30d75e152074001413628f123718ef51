@@ -5,7 +5,6 @@ import org.bukkit.ChatColor;
 import org.bukkit.GameMode;
 import org.bukkit.Material;
 import org.bukkit.command.Command;
-import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
@@ -14,19 +13,13 @@ import org.bukkit.scoreboard.Scoreboard;
 import org.bukkit.scoreboard.ScoreboardManager;
 import org.bukkit.scoreboard.Team;
 
-public class Teams implements CommandExecutor {
+public class Teams {
 	
-	private final DPZones plugin;
+	ScoreboardManager manager = Bukkit.getScoreboardManager();
+	Scoreboard board = manager.getNewScoreboard();
 	
-	public Teams(DPZones plugin) {
-		this.plugin = plugin;
-	}
-	
-	public static ScoreboardManager manager = Bukkit.getScoreboardManager();
-	public static Scoreboard board = manager.getNewScoreboard();
-	
-	public static Team redTeam = board.registerNewTeam("Red");
-	public static Team blueTeam = board.registerNewTeam("Blue");
+	public Team redTeam = board.registerNewTeam("Red");
+	public Team blueTeam = board.registerNewTeam("Blue");
 	
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
 		if (cmd.getName().equalsIgnoreCase("switch")) {
