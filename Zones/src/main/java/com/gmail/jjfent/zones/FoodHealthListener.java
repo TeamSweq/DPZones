@@ -15,7 +15,7 @@ public class FoodHealthListener implements Listener {
 	
 	public static void subtractAmount(Player player, int amount)
 	  {
-	    if (player.getItemInHand().getAmount() == amount)
+	    if (player.getItemInHand().getAmount() <= amount)
 	      player.setItemInHand(new ItemStack(Material.AIR));
 	    else
 	      player.getItemInHand().setAmount(player.getItemInHand().getAmount() - amount);
