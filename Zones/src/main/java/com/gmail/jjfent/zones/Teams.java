@@ -37,18 +37,25 @@ public class Teams implements Listener, CommandExecutor {
 	@EventHandler(priority = EventPriority.HIGH)
 	public void onLogin(PlayerJoinEvent event) {
 		Player player = event.getPlayer();
-		Random rand = new Random();
-		int team = rand.nextInt(2) + 1;
+		// Random rand = new Random();
+		// int team = rand.nextInt(2) + 1;
 		player.setScoreboard(board);
-		if (!(redTeam.hasPlayer(player) || blueTeam.hasPlayer(player))) {
-			if (((team == 1) && (redTeam.getSize() + 2 > blueTeam.getSize()) || (team == 1) && (redTeam.getSize() + 1 > blueTeam.getSize()) || (team == 1) && (redTeam.getSize() == blueTeam.getSize()) && (redTeam.getSize() > blueTeam.getSize()))) {
+		if (!(redTeam.hasPlayer(player)) && !(blueTeam.hasPlayer(player))) {
+			if (redTeam.getSize() >= blueTeam.getSize()) {
 				blueTeam.addPlayer(player);
 				player.sendMessage(ChatColor.BLUE + "You joined Blue Team!");
-			} 
-			if (((team == 2) && (redTeam.getSize() < blueTeam.getSize() + 2)) || ((team == 2) && (redTeam.getSize() < blueTeam.getSize() + 1)) || ((team == 2) && (redTeam.getSize() == blueTeam.getSize()) && (redTeam.getSize() < blueTeam.getSize()))){
+			} else {
 				redTeam.addPlayer(player);
 				player.sendMessage(ChatColor.RED + "You joined Red Team!");
 			}
+			// if (((team == 1) && (redTeam.getSize() + 2 > blueTeam.getSize()) || (team == 1) && (redTeam.getSize() + 1 > blueTeam.getSize()) || (team == 1) && (redTeam.getSize() == blueTeam.getSize()) && (redTeam.getSize() > blueTeam.getSize()))) {
+			// 	blueTeam.addPlayer(player);
+			// 	player.sendMessage(ChatColor.BLUE + "You joined Blue Team!");
+			// } 
+			// if (((team == 2) && (redTeam.getSize() < blueTeam.getSize() + 2)) || ((team == 2) && (redTeam.getSize() < blueTeam.getSize() + 1)) || ((team == 2) && (redTeam.getSize() == blueTeam.getSize()) && (redTeam.getSize() < blueTeam.getSize()))){
+			// 	redTeam.addPlayer(player);
+			// 	player.sendMessage(ChatColor.RED + "You joined Red Team!");
+			// }
 		}
 	}
 	
