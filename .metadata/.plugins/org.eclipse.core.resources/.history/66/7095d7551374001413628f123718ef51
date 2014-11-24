@@ -9,14 +9,4 @@ public class DPZones extends JavaPlugin {
 	public final FoodListener bl = new FoodListener(this);
 	FoodListener foodListener = new FoodListener(this);
 	
-	@Override
-	public void onEnable() {
-		PluginManager pm = getServer().getPluginManager();
-	}
-	
-	@Override()
-	public void onDisable() {
-		
-	}
-	
 }

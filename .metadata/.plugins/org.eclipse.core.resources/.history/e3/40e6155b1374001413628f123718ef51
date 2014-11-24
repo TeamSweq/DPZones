@@ -14,9 +14,4 @@ public class DPZones extends JavaPlugin {
 		PluginManager pm = getServer().getPluginManager();
 	}
 	
-	@Override()
-	public void onDisable() {
-		
-	}
-	
 }

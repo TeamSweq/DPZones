@@ -216,3 +216,45 @@ Binding(COMMAND+SHIFT+F,
 		,,true),null),
 	org.eclipse.ui.defaultAcceleratorConfiguration,
 	org.eclipse.wst.sse.ui.structuredTextEditorScope,,,system)
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2014-11-24 13:50:50.138
+!MESSAGE Using platform encoding (US-ASCII actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2014-11-24 13:50:50.141
+!MESSAGE Using platform encoding (US-ASCII actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2014-11-24 13:51:08.680
+!MESSAGE Using platform encoding (US-ASCII actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2014-11-24 13:51:08.682
+!MESSAGE Using platform encoding (US-ASCII actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2014-11-24 13:51:52.276
+!MESSAGE Using platform encoding (US-ASCII actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2014-11-24 13:51:52.282
+!MESSAGE Using platform encoding (US-ASCII actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2014-11-24 13:52:01.112
+!MESSAGE Using platform encoding (US-ASCII actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2014-11-24 13:52:01.115
+!MESSAGE Using platform encoding (US-ASCII actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2014-11-24 13:52:35.751
+!MESSAGE Using platform encoding (US-ASCII actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2014-11-24 13:52:35.754
+!MESSAGE Using platform encoding (US-ASCII actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2014-11-24 13:53:30.435
+!MESSAGE Using platform encoding (US-ASCII actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2014-11-24 13:53:30.438
+!MESSAGE Using platform encoding (US-ASCII actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2014-11-24 13:53:50.006
+!MESSAGE Using platform encoding (US-ASCII actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2014-11-24 13:53:50.010
+!MESSAGE Using platform encoding (US-ASCII actually) to copy filtered resources, i.e. build is platform dependent!
