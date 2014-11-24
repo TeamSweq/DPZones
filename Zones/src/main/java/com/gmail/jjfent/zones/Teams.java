@@ -56,19 +56,17 @@ public class Teams implements Listener, CommandExecutor {
 			Player player = (Player) sender;
 			if (sender instanceof Player) {
 				if (redTeam.hasPlayer(player)) {
-					if ((blueTeam.getSize() + 2 > redTeam.getSize()) || (blueTeam.getSize() + 1 > redTeam.getSize()) || (blueTeam.getSize() == redTeam.getSize()) || (blueTeam.getSize() < redTeam.getSize())) {
-						redTeam.removePlayer(player);
+					if (redTeam.getSize() >= blueTeam.getSize()) {
+						redTeam.removeplayer(player);
 						blueTeam.addPlayer(player);
-						sender.sendMessage(ChatColor.BLUE + "You joined Blue Team!");
 					} else {
 						sender.sendMessage(ChatColor.GRAY + "You cannot switch teams!");
 					}
 				}
 				else if (blueTeam.hasPlayer(player)) {
-					if ((blueTeam.getSize() < redTeam.getSize() + 2) || (blueTeam.getSize() < redTeam.getSize() + 1) || (blueTeam.getSize() == redTeam.getSize()) || (blueTeam.getSize() > redTeam.getSize())) {
+					if (blueTeam.getSize() >= redTeam.getSize()) {
 						blueTeam.removePlayer(player);
 						redTeam.addPlayer(player);
-						sender.sendMessage(ChatColor.RED + "You joined Red Team!");
 					} else {
 						sender.sendMessage(ChatColor.GRAY + "You cannot switch teams!");
 					}
