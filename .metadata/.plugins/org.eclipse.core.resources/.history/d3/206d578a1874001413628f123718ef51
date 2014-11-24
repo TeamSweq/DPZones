@@ -14,7 +14,7 @@ public class DPZones extends JavaPlugin {
 		PluginManager pm = getServer().getPluginManager();
 		this.getCommand("spectate").setExecutor(new Teams(this));
 		this.getCommand("switch").setExecutor(new Teams(this));
-		this.getCommand("team").setExecutor(new Teams(this)); //Not sure if I set this up properly, for all three commands
+		this.getCommand("team").setExecutor(new Teams(this));
 		pm.registerEvents(this.foodListener, this);
 		getServer().getPluginManager().registerEvents(new Teams(), this);
 	}
