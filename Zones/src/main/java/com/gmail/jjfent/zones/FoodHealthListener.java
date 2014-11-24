@@ -1,0 +1,59 @@
+package com.gmail.jjfent.zones;
+
+import org.bukkit.Material;
+import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
+import org.bukkit.event.block.Action;
+import org.bukkit.event.player.PlayerInteractEvent;
+import org.bukkit.event.player.PlayerItemConsumeEvent;
+import org.bukkit.inventory.ItemStack;
+
+public class FoodHealthListener implements Listener {
+	
+	Zones plugin;
+	
+	public static void subtractAmount(Player player, int amount)
+	  {
+	    if (player.getItemInHand().getAmount() == amount)
+	      player.setItemInHand(new ItemStack(Material.AIR));
+	    else
+	      player.getItemInHand().setAmount(player.getItemInHand().getAmount() - amount);
+	  }
+	
+	public FoodHealthListener(Zones instance)
+	  {
+	    this.plugin = instance;
+	  }
+
+	@EventHandler
+	public void consumeBlock(PlayerItemConsumeEvent event) {
+		Player player = event.getPlayer();
+		if (player.getItemInHand().getType() == Material.COOKED_BEEF) {
+			event.setCancelled(true);
+		}
+	}
+	
+	@EventHandler
+	public void onPlayerInteract(PlayerInteractEvent event) {
+		Player player = event.getPlayer();
+		if ((event.getAction() == Action.RIGHT_CLICK_AIR) || (event.getAction() == Action.RIGHT_CLICK_BLOCK)) {
+				if (player.getItemInHand().getType() == Material.COOKED_BEEF) {
+					double health = 8.0D;
+					double playerHealth = player.getHealth();
+					if (!(playerHealth >= 20.0D)) {
+						
+						if (playerHealth >= 13.0D) {
+							player.setHealth(20.0D);
+						}
+						
+						if (playerHealth <= 12.0D) {
+							player.setHealth(playerHealth + health);
+						}
+						event.setCancelled(true);
+						subtractAmount(player, 1);
+					}
+				}
+			}
+		}
+	}
