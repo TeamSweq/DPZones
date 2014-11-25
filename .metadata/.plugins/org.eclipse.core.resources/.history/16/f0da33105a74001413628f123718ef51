@@ -28,7 +28,7 @@ public class Archer implements CommandExecutor {
 		ItemStack archerSteak = new ItemStack (Material.COOKED_BEEF, 4);
 		ItemStack archerBow = new ItemStack (Material.BOW, 1);
 		ItemStack archerArrows = new ItemStack (Material.ARROW, 64);
-		player.setGameMode(GameMode.ADVENTURE);
+		player.setGameMode(GameMode.SURVIVAL);
 		FoodListener.hungerLevel(player, 15, 20.00D);
 		inventory.clear();
 		inventory.setHelmet(archerHelm);
@@ -43,7 +43,7 @@ public class Archer implements CommandExecutor {
 			if (sender instanceof Player) {
 				Player player = (Player) sender;
 				archerClass(player);
-				sender.sendMessage(ChatColor.DARK_BLUE + "You are now an Archer!");
+				sender.sendMessage(ChatColor.MAGIC + "You are now an Archer!");
 			}
 		}
 		return false;

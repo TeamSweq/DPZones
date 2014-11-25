@@ -99,15 +99,13 @@ public class Teams implements CommandExecutor {
 			}
 		}
 		
-		//Allows a player to get out of spectator mode and rejoin a team
-		
 		if (cmd.getName().equalsIgnoreCase("join")) {
 			if (sender instanceof Player) {
 				Player player = (Player) sender;
-				TeamListener.joinTeam(player);
 				Heavy.heavyClass(player);
+				sender.sendMessage(ChatColor.GOLD + "You are now spectating!");
 			} else {
-				sender.sendMessage(ChatColor.DARK_RED + "You have no power here!");
+				sender.sendMessage("Only players can spectate!");
 				return false;
 			}
 		}

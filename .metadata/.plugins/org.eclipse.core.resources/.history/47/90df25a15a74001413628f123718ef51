@@ -18,7 +18,12 @@ public class TeamListener implements Listener {
 	    this.plugin = instance;
 	  }
 	
-	public static void joinTeam(Player player) {
+	//Whenever the player logs on, they get put on a team
+	
+	@EventHandler(priority = EventPriority.HIGH)
+	public void onLogin(PlayerJoinEvent event) {
+		Player player = event.getPlayer();
+		player.setScoreboard(Teams.board);
 		if (!(Teams.redTeam.hasPlayer(player)) && !(Teams.blueTeam.hasPlayer(player))) {
 			if (Teams.redTeam.getSize() >= Teams.blueTeam.getSize()) {
 				Teams.blueTeam.addPlayer(player);
@@ -28,15 +33,6 @@ public class TeamListener implements Listener {
 				player.sendMessage(ChatColor.RED + "You joined Red Team!");
 			}
 		}
-	}
-	
-	//Whenever the player logs on, they get put on a team
-	
-	@EventHandler(priority = EventPriority.HIGH)
-	public void onLogin(PlayerJoinEvent event) {
-		Player player = event.getPlayer();
-		player.setScoreboard(Teams.board);
-		joinTeam(player);
 	}
 	
 }

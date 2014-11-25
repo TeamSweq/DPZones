@@ -14,6 +14,10 @@ commands:
     description:
     permission: dpzones.team
     permission-message: You're spectating!
+  join:
+    description:
+    permission: dpzones.join
+    permission-message: You have no power here!
   classes:
     description:
     permission: dpzones.classes
