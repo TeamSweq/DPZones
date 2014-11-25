@@ -23,9 +23,18 @@ public class ClassListener implements Listener {
             HEAVY_ID = 1,
             ARCHER_ID = 2,
             MEDIC_ID = 3,
-            SOLDIER_ID = 4;                  
+            SOLDIER_ID = 4,
+            ASSASSIN_ID = 5,
+            CHEMIST_ID = 6,
+            DWARF_ID = 7,
+            ENGINEER_ID = 8,
+            FASHIONISTA_ID = 9,
+            MAGE_ID = 10,
+            NECRO_ID = 11,
+            NINJA_ID = 12,
+            PYRO_ID = 13;                  
     
-    private static HashMap<String, Integer> playerClasses;
+    private HashMap<Player, Integer> playerClasses;
 	
 	public ClassListener(DPZones instance) {
 	    this.plugin = instance;
@@ -33,13 +42,8 @@ public class ClassListener implements Listener {
 	  }
     
         public void updatePlayerClass(Player player, int classID) {
-        	String playerName = player.getName();
-            playerClasses.put(playerName, classID);
+            playerClasses.put(player, classID);
         }
         
-        public static void playerReset(Player player, int classID) {
-        	if (playerClasses.containsKey(1)) {
-        		
-        	}
-        }
+        public static void 
 }

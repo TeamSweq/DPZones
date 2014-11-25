@@ -25,7 +25,7 @@ public class ClassListener implements Listener {
             MEDIC_ID = 3,
             SOLDIER_ID = 4;                  
     
-    private static HashMap<String, Integer> playerClasses;
+    private static HashMap<Player, Integer> playerClasses;
 	
 	public ClassListener(DPZones instance) {
 	    this.plugin = instance;
@@ -33,12 +33,11 @@ public class ClassListener implements Listener {
 	  }
     
         public void updatePlayerClass(Player player, int classID) {
-        	String playerName = player.getName();
-            playerClasses.put(playerName, classID);
+            playerClasses.put(player, classID);
         }
         
         public static void playerReset(Player player, int classID) {
-        	if (playerClasses.containsKey(1)) {
+        	if (playerClasses.containsKey(3)) {
         		
         	}
         }

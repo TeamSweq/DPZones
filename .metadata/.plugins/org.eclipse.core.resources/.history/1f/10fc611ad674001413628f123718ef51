@@ -25,7 +25,7 @@ public class ClassListener implements Listener {
             MEDIC_ID = 3,
             SOLDIER_ID = 4;                  
     
-    private static HashMap<String, Integer> playerClasses;
+    private static HashMap<Player, Integer> playerClasses;
 	
 	public ClassListener(DPZones instance) {
 	    this.plugin = instance;

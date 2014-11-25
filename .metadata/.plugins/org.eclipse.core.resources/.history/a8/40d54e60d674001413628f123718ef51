@@ -33,7 +33,7 @@ public class ClassListener implements Listener {
 	  }
     
         public void updatePlayerClass(Player player, int classID) {
-        	String playerName = player.getName();
+        	public String playerName = player.getName();
             playerClasses.put(playerName, classID);
         }
         
