@@ -24,7 +24,7 @@ public class DPZones extends JavaPlugin {
 		this.getCommand("medic").setExecutor(new Medic(this));
 		pm.registerEvents(this.foodListener, this);
 		pm.registerEvents(this.teamListener, this);
-		pm.registerEvents(this.playerListener, this);
+		pm.registerEvents(this.classListener, this);
 	}
 	
 	@Override()
