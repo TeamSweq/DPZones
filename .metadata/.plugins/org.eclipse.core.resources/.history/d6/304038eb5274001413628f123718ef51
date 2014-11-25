@@ -1,6 +1,5 @@
 package io.github.teamsweq.dpzones;
 
-import org.bukkit.ChatColor;
 import org.bukkit.GameMode;
 import org.bukkit.Material;
 import org.bukkit.command.Command;
@@ -41,7 +40,7 @@ public class Heavy implements CommandExecutor{
 			if (sender instanceof Player) {
 				Player player = (Player) sender;
 				heavyClass(player);
-				sender.sendMessage(ChatColor.AQUA + "U r nao a hevy fagit!1!!!1!1");
+				sender.sendMessage("U r nao a hevy fagit!1!!!1!1");
 			} else {
 				sender.sendMessage("Only players can choose classes!");
 				return false;
