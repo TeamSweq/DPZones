@@ -6,11 +6,11 @@ import org.bukkit.plugin.java.JavaPlugin;
 public class DPZones extends JavaPlugin {
 	
 	public static DPZones plugin;
+	public final FoodListener fl = new FoodListener(this);
+	FoodListener foodListener = new FoodListener(this);
+	public final TeamListener tl = new TeamListener(this);
+	TeamListener teamListener = new TeamListener(this);
 	
-	public final FoodListener foodListener = new FoodListener(this);
-	public final TeamListener teamListener = new TeamListener(this);
-	public final ClassListener classListener = new ClassListener(this);
-        
 	@Override
 	public void onEnable() {
 		PluginManager pm = getServer().getPluginManager();
@@ -21,10 +21,8 @@ public class DPZones extends JavaPlugin {
 		this.getCommand("classes").setExecutor(new Classes(this));
 		this.getCommand("heavy").setExecutor(new Heavy(this));
 		this.getCommand("archer").setExecutor(new Archer(this));
-		this.getCommand("medic").setExecutor(new Medic(this));
 		pm.registerEvents(this.foodListener, this);
 		pm.registerEvents(this.teamListener, this);
-		pm.registerEvents(this.playerListener, this);
 	}
 	
 	@Override()

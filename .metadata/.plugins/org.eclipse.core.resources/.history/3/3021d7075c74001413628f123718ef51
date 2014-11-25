@@ -18,10 +18,7 @@ public class TeamListener implements Listener {
 	    this.plugin = instance;
 	  }
 	
-	//Puts a player on a team
-	
 	public static void joinTeam(Player player) {
-		player.setScoreboard(Teams.board);
 		if (!(Teams.redTeam.hasPlayer(player)) && !(Teams.blueTeam.hasPlayer(player))) {
 			if (Teams.redTeam.getSize() >= Teams.blueTeam.getSize()) {
 				Teams.blueTeam.addPlayer(player);
@@ -38,6 +35,7 @@ public class TeamListener implements Listener {
 	@EventHandler(priority = EventPriority.HIGH)
 	public void onLogin(PlayerJoinEvent event) {
 		Player player = event.getPlayer();
+		player.setScoreboard(Teams.board);
 		joinTeam(player);
 	}
 	

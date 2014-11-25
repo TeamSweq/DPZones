@@ -1,0 +1,26 @@
+package io.github.teamsweq.dpzones;
+
+import org.bukkit.ChatColor;
+import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.EventPriority;
+import org.bukkit.event.Listener;
+import org.bukkit.event.player.PlayerInteractEvent;
+import org.bukkit.event.player.PlayerJoinEvent;
+
+public class PlayerListener implements Listener {
+
+	DPZones plugin;
+	
+	public PlayerListener(DPZones instance)
+	  {
+	    this.plugin = instance;
+	  }
+	
+	@EventHandler
+	public void healingSword(PlayerInteractEvent event) {
+		Player player = event.getPlayer();
+		if (player.hasItem())
+	}
+	
+}

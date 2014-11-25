@@ -1,0 +1,14 @@
+package io.github.teamsweq.dpzones;
+
+import org.bukkit.event.Listener;
+
+public class PlayerListener implements Listener {
+
+	DPZones plugin;
+	
+	public PlayerListener(DPZones instance)
+	  {
+	    this.plugin = instance;
+	  }
+	
+}
