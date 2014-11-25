@@ -38,6 +38,7 @@ public class TeamListener implements Listener {
 	@EventHandler(priority = EventPriority.HIGH)
 	public void onLogin(PlayerJoinEvent event) {
 		Player player = event.getPlayer();
+		
 		joinTeam(player);
 	}
 	

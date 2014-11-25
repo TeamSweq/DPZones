@@ -30,3 +30,7 @@ commands:
     description:
     permission: dpzones.archer
     permission-message: This class is premium!
+  medic:
+    description:
+    permission: dpzones.medic
+    permission-message: This class is premium!
