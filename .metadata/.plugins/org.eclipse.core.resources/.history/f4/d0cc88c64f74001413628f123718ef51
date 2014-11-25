@@ -18,17 +18,10 @@ public class FoodListener implements Listener {
 	    this.plugin = instance;
 	  }
 	
-	//Sets players hunger level
-	
-	public static void hungerLevel(Player player, int amount) {
-		player.setFoodLevel(amount);
-		player.setExhaustion(-1);
-		player.setSaturation(100);
-	}
-	
 	//Takes 1 steak away if they player tries to eat it
 	
-	public static void subtractAmount(Player player, int amount) {
+	public static void subtractAmount(Player player, int amount)
+	  {
 	    if (player.getItemInHand().getAmount() <= amount)
 	      player.setItemInHand(new ItemStack(Material.AIR));
 	    else
@@ -44,7 +37,16 @@ public class FoodListener implements Listener {
 			event.setCancelled(true);
 		}
 	}
-
+	
+	//Sets players hunger level
+	
+	public static void hungerHealth (Player player) {
+		
+		player.setFoodLevel(15);
+		player.setExhaustion(-1);
+		player.setSaturation(100);
+		
+	}
 	
 	//Checks to see if the player tries to eat the steak 
 	//Adds 4 hearts to their health

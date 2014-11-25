@@ -6,3 +6,15 @@ commands:
     description:
     permission: dpzones.switch
     permission-message: You're spectating!
+  spectate:
+    description:
+    permission: dpzones.spectate
+    permission-message: You can’t do that!
+  team:
+    description:
+    permission: dpzones.team
+    permission-message: You're spectating!
+  heavy:
+    description:
+    permission: dpzones.heavy
+    permission-message: This class is premium!

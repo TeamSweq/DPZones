@@ -14,12 +14,12 @@ public class DPZones extends JavaPlugin {
 	@Override
 	public void onEnable() {
 		PluginManager pm = getServer().getPluginManager();
-		this.getCommand("spectate").setExecutor(new Teams(this));
-		this.getCommand("switch").setExecutor(new Teams(this));
-		this.getCommand("team").setExecutor(new Teams(this)); //Not sure if I set this up properly, for all three commands
-		this.getCommand("heavy").setExecutor(new Heavy(this));
+		this.getCommand("spectate").setExecutor(new TeamSwitch(this));
+		this.getCommand("switch").setExecutor(new TeamSwitch(this));
+		this.getCommand("team").setExecutor(new TeamSwitch(this)); //Not sure if I set this up properly, for all three commands
 		pm.registerEvents(this.foodListener, this);
 		pm.registerEvents(this.teamListener, this);
+		getServer().getPluginManager().registerEvents(new Teams(), this);
 	}
 	
 	@Override()

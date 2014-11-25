@@ -1,0 +1,19 @@
+package io.github.teamsweq.dpzones;
+
+import org.bukkit.ChatColor;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandExecutor;
+import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
+
+public class Classes implements CommandExecutor {
+	
+	DPZones plugin;
+	
+	public Classes(DPZones plugin) {
+		this.plugin = plugin;
+	}
+	
+	
+	
+}

@@ -1,8 +1,0 @@
-name: DPZones
-main: io.github.teamsweq.dpzones.DPZones
-version: 1.1
-commands:
-  switch:
-    description:
-    permission: dpzones.switch
-    permission-message: You're spectating!
