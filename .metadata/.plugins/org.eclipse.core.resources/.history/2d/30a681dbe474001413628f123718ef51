@@ -23,7 +23,6 @@ public class DPZones extends JavaPlugin {
 		this.getCommand("heavy").setExecutor(new Heavy(this));
 		this.getCommand("archer").setExecutor(new Archer(this));
 		this.getCommand("medic").setExecutor(new Medic(this));
-		this.getCommand("soldier").setExecutor(new Soldier(this));
 		pm.registerEvents(this.foodListener, this);
 		pm.registerEvents(this.teamListener, this);
 		pm.registerEvents(this.classListener, this);

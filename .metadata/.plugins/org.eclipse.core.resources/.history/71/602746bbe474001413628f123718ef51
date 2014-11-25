@@ -42,8 +42,6 @@ public class Soldier implements CommandExecutor{
 				Player player = (Player) sender;
 				soldierClass(player);
 				sender.sendMessage(ChatColor.AQUA + "You are now a soldier!");
-
-				plugin.classListener.updatePlayerClass(player, ClassListener.SOLDIER_ID);
 			} else {
 				sender.sendMessage("Only players can choose classes!");
 				return false;
