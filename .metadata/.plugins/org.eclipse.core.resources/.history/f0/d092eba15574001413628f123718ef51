@@ -27,7 +27,7 @@ public class Heavy implements CommandExecutor{
 		ItemStack heavySword = new ItemStack (Material.DIAMOND_SWORD, 1);
 		ItemStack heavySteak = new ItemStack (Material.COOKED_BEEF, 3);
 		player.setGameMode(GameMode.ADVENTURE);
-		FoodListener.hungerLevel(player, 15, 20.00D);
+		FoodListener.hungerLevel(player, 15);
 		inventory.clear();
 		inventory.setHelmet(heavyHelm);
 		inventory.setChestplate(heavyChest);

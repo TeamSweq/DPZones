@@ -1,0 +1,7 @@
+package io.github.teamsweq.dpzones;
+
+public class Archer extends CommandExecutor {
+	
+	
+	
+}

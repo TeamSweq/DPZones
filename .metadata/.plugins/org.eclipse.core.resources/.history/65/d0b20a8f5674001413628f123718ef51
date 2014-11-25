@@ -20,7 +20,7 @@ public class FoodListener implements Listener {
 	
 	//Sets players hunger level
 	
-	public static void hungerLevel(Player player, int hunger, double health) {
+	public static void hungerLevel(Player player, int hunger, int health) {
 		player.setFoodLevel(hunger);
 		player.setExhaustion(-1);
 		player.setSaturation(100);
