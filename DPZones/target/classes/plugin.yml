@@ -14,6 +14,10 @@ commands:
     description:
     permission: dpzones.team
     permission-message: You're spectating!
+  classes:
+    description:
+    permission: dpzones.classes
+    permission-message: You’re spectating!
   heavy:
     description:
     permission: dpzones.heavy

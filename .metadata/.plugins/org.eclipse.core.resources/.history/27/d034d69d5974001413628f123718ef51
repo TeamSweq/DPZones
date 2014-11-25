@@ -36,7 +36,6 @@ public class Teams implements CommandExecutor {
 					if (redTeam.getSize() >= blueTeam.getSize()) {
 						redTeam.removePlayer(player);
 						blueTeam.addPlayer(player);
-						sender.sendMessage(ChatColor.BLUE + "You are now on Blue Team!");
 					} else {
 						sender.sendMessage(ChatColor.GRAY + "You cannot switch teams!");
 					}
@@ -45,7 +44,6 @@ public class Teams implements CommandExecutor {
 					if (blueTeam.getSize() >= redTeam.getSize()) {
 						blueTeam.removePlayer(player);
 						redTeam.addPlayer(player);
-						sender.sendMessage(ChatColor.RED + "You are now on Red Team!");
 					} else {
 						sender.sendMessage(ChatColor.GRAY + "You cannot switch teams!");
 					}
