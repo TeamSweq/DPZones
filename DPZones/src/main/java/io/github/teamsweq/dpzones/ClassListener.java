@@ -42,4 +42,7 @@ public class ClassListener implements Listener {
 //        		
 //        	}
 //        }
+	public int getClassID(Player player) {
+        	return playerClasses.get(player);
+        }
 }
