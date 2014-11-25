@@ -20,6 +20,7 @@ public class ClassListener implements Listener {
     DPZones plugin;
     
     public static final int
+    		SPECTATE_ID = 0,
             HEAVY_ID = 1,
             ARCHER_ID = 2,
             MEDIC_ID = 3,
@@ -37,11 +38,6 @@ public class ClassListener implements Listener {
             playerClasses.put(playerName, classID);
         }
         
-//        public static void playerReset(Player player, int classID) {
-//        	if () {
-//        		
-//        	}
-//        }
 	public int getClassID(Player player) {
         	return playerClasses.get(player);
         }

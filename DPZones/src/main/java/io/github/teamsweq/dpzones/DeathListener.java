@@ -21,8 +21,18 @@ public class DeathListener implements Listener {
 		final Player player = event.getEntity();
 		plugin.getServer().getScheduler().scheduleSyncDelayedTask(plugin, new Runnable(){ 
 			public void run() {
-		    if(player.isDead())
+		    if(player.isDead()) {
 		        player.setHealth(20);
+		        	if (plugin.classListener.getClassID(player) == ClassListener.SOLDIER_ID) {
+		        		Soldier.soldierClass(player);
+		        	} else if (plugin.classListener.getClassID(player) == ClassListener.MEDIC_ID) {
+		        		Medic.medicClass(player);
+		        	} else if (plugin.classListener.getClassID(player) == ClassListener.HEAVY_ID) {
+		        		Heavy.heavyClass(player);
+		        	} else {
+		        		Archer.archerClass(player);
+		        	}
+		        }
 		}});
 		
 //		Entity player = event.getEntity();
