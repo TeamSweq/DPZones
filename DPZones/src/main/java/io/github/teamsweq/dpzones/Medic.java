@@ -28,7 +28,7 @@ public class Medic implements CommandExecutor {
 		ItemStack medicSteak = new ItemStack (Material.COOKED_BEEF, 6);
 		ItemStack medicSnowballs = new ItemStack (Material.SNOW_BALL, 12);
 		player.setGameMode(GameMode.ADVENTURE);
-		FoodListener.hungerLevel(player, 15, 40.00D);
+		FoodListener.hungerLevel(player, 15, 20.00D);
 		inventory.clear();
 		inventory.setHelmet(medicHelm);
 		inventory.setChestplate(medicChest);
@@ -43,6 +43,9 @@ public class Medic implements CommandExecutor {
 				Player player = (Player) sender;
 				medicClass(player);
 				sender.sendMessage(ChatColor.AQUA + "You are now a medic!");
+			} else {
+				sender.sendMessage("Only players can choose classes!");
+				return false;
 			}
 		}
 		return false;

@@ -44,7 +44,7 @@ public class Heavy implements CommandExecutor{
 				heavyClass(player);
 				sender.sendMessage(ChatColor.AQUA + "U r nao a hevy fagit!1!!!1!1");
                                 
-                                plugin.classListener.updatePlayerClass(player, ClassListener.HEAVY_ID);
+                plugin.classListener.updatePlayerClass(player, ClassListener.HEAVY_ID);
 			} else {
 				sender.sendMessage("Only players can choose classes!");
 				return false;

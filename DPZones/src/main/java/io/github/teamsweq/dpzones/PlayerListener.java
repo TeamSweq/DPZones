@@ -20,7 +20,7 @@ public class PlayerListener implements Listener {
 	public void healingSword(PlayerInteractEvent event) {
 		if ( (event.getAction() == Action.RIGHT_CLICK_BLOCK) || (event.getAction().equals(Action.RIGHT_CLICK_BLOCK))) {
 			if (event.getPlayer().getItemInHand().getType().equals(Material.GOLD_SWORD)) {
-				event.getPlayer().setVelocity(new Vector(0,3,0));
+				event.getPlayer().setVelocity(new Vector(0,1.15,0));
 			}
 		}
 	}

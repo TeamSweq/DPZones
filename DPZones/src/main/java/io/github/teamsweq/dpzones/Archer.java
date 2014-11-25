@@ -50,5 +50,4 @@ public class Archer implements CommandExecutor {
         }
         return false;
     }
-
 }

@@ -1,0 +1,12 @@
+package io.github.teamsweq.dpzones;
+
+public class DeathListener {
+	
+	DPZones plugin;
+	
+	public TeamListener(DPZones instance)
+	  {
+	    this.plugin = instance;
+	  }
+	
+}

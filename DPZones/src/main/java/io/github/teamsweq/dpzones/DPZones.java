@@ -10,7 +10,8 @@ public class DPZones extends JavaPlugin {
 	public final FoodListener foodListener = new FoodListener(this);
 	public final TeamListener teamListener = new TeamListener(this);
 	public final ClassListener classListener = new ClassListener(this);
-        
+	public final DeathListener deathListener = new DeathListener(this);
+	
 	@Override
 	public void onEnable() {
 		PluginManager pm = getServer().getPluginManager();
@@ -25,6 +26,7 @@ public class DPZones extends JavaPlugin {
 		pm.registerEvents(this.foodListener, this);
 		pm.registerEvents(this.teamListener, this);
 		pm.registerEvents(this.classListener, this);
+		pm.registerEvents(this.deathListener, this);
 	}
 	
 	@Override()
