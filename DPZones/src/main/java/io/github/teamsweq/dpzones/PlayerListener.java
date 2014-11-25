@@ -6,6 +6,7 @@ import org.bukkit.entity.Arrow;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
+import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
@@ -23,20 +24,27 @@ public class PlayerListener implements Listener {
 	    this.plugin = instance;
 	  }
 	
+	/*
+	 * 
+	 * SOLDIER CLASS
+	 * 
+	 */
+	
 	//makes soldiers fly
-	@EventHandler
-	public void healingSword(PlayerInteractEvent event) {
+	@EventHandler(priority = EventPriority.NORMAL)
+	public void soldierSword(PlayerInteractEvent event) {
+		Player player = event.getPlayer();
 		if (event.getAction().equals(Action.RIGHT_CLICK_BLOCK)) {
-			if(plugin.classListener.getClassID(event.getPlayer()) == ClassListener.SOLDIER_ID) {
-				if (event.getPlayer().getItemInHand().getType().equals(Material.IRON_SWORD)) {
-					event.getPlayer().setVelocity(new Vector(0,1.15,0));
+			if(plugin.classListener.getClassID(player) == ClassListener.SOLDIER_ID) {
+				if (player.getItemInHand().getType().equals(Material.IRON_SWORD)) {
+					player.setVelocity(new Vector(0,1.15,0));
 				}
 			}
 		}
 	}
 	
 	//turns off fall damage for soldiers
-	@EventHandler
+	@EventHandler(priority = EventPriority.LOW)
 	public void fallDamage(EntityDamageEvent event) {
 		Entity player = event.getEntity();
 		if ( (player instanceof Player) ) {
@@ -48,9 +56,15 @@ public class PlayerListener implements Listener {
 		}
 	}
 	
+	/*
+	 * 
+	 * ARCHER CLASS
+	 * 
+	 */
+	
 	//makes archers able to headshot ppl
-	@EventHandler
-	public void headshot(EntityDamageByEntityEvent event) {
+	@EventHandler(priority = EventPriority.HIGH)
+	public void headShot(EntityDamageByEntityEvent event) {
 		if(event.getEntity() instanceof Player) {
 			Player defender = (Player) event.getEntity();
 			if(event.getDamager() instanceof Arrow) {
@@ -58,7 +72,7 @@ public class PlayerListener implements Listener {
 				if(arrow.getShooter() instanceof Player) {
 					Player attacker = (Player) arrow.getShooter();
 					if(plugin.classListener.getClassID(attacker) == ClassListener.ARCHER_ID) {
-						if(attacker.getLocation().distance(defender.getLocation()) >= 30.0) {
+						if(attacker.getLocation().distance(defender.getLocation()) >= 5.0) {
 							defender.damage(defender.getHealth(), attacker);
 							defender.sendMessage(ChatColor.GOLD + "You were headshotted by " + attacker.getDisplayName() + "!");
 							attacker.sendMessage(ChatColor.GOLD + "You headshotted " + defender.getDisplayName() + "!");
@@ -68,4 +82,16 @@ public class PlayerListener implements Listener {
 			}
 		}
 	}
+	
+	/*
+	 * 
+	 * MEDIC
+	 * 
+	 */
+	
+//	@EventHandler(priority = EventPriority.HIGH)
+//	public void snowballKnockback() {
+//		
+//	}
+	
 }
