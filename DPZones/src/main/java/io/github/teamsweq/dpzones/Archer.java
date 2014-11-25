@@ -12,7 +12,7 @@ import org.bukkit.inventory.PlayerInventory;
 
 public class Archer implements CommandExecutor {
 	
-	DPZones plugin;
+	static DPZones plugin;
 	
 	public Archer(DPZones plugin) {
 		this.plugin = plugin;
@@ -44,6 +44,8 @@ public class Archer implements CommandExecutor {
 				Player player = (Player) sender;
 				archerClass(player);
 				sender.sendMessage(ChatColor.DARK_BLUE + "You are now an Archer!");
+                                
+                                plugin.cl.updatePlayerClass(player, ClassListener.ARCHER_ID);
 			}
 		}
 		return false;

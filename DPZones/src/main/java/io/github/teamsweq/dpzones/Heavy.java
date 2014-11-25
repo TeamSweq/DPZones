@@ -1,5 +1,6 @@
 package io.github.teamsweq.dpzones;
 
+import static io.github.teamsweq.dpzones.Archer.plugin;
 import org.bukkit.ChatColor;
 import org.bukkit.GameMode;
 import org.bukkit.Material;
@@ -42,6 +43,8 @@ public class Heavy implements CommandExecutor{
 				Player player = (Player) sender;
 				heavyClass(player);
 				sender.sendMessage(ChatColor.AQUA + "U r nao a hevy fagit!1!!!1!1");
+                                
+                                plugin.cl.updatePlayerClass(player, ClassListener.HEAVY_ID);
 			} else {
 				sender.sendMessage("Only players can choose classes!");
 				return false;
