@@ -12,6 +12,7 @@ import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.EntityDamageEvent.DamageCause;
 import org.bukkit.event.player.PlayerInteractEvent;
+import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.util.Vector;
 
 public class PlayerListener implements Listener {
@@ -27,7 +28,7 @@ public class PlayerListener implements Listener {
 	@EventHandler
 	public void healingSword(PlayerInteractEvent event) {
 		if (event.getAction().equals(Action.RIGHT_CLICK_BLOCK)) {
-			if(plugin.classListener.getClassID(event.getPlayer()) == ClassListener.SOLDIER_ID) {
+			if(plugin.classListener.getClassID(event.getPlayer().getName()) == ClassListener.SOLDIER_ID) {
 				if (event.getPlayer().getItemInHand().getType().equals(Material.IRON_SWORD)) {
 					event.getPlayer().setVelocity(new Vector(0,1.15,0));
 				}
@@ -40,7 +41,7 @@ public class PlayerListener implements Listener {
 	public void fallDamage(EntityDamageEvent event) {
 		Entity player = event.getEntity();
 		if ( (player instanceof Player) ) {
-			if(plugin.classListener.getClassID((Player) player) == ClassListener.SOLDIER_ID) {
+			if(plugin.classListener.getClassID(((Player)player).getName()) == ClassListener.SOLDIER_ID) {
 				if (event.getCause().equals(DamageCause.FALL)) {
 					event.setCancelled(true);
 				}
@@ -57,7 +58,7 @@ public class PlayerListener implements Listener {
 				Arrow arrow = (Arrow) event.getDamager();
 				if(arrow.getShooter() instanceof Player) {
 					Player attacker = (Player) arrow.getShooter();
-					if(plugin.classListener.getClassID(attacker) == ClassListener.ARCHER_ID) {
+					if(plugin.classListener.getClassID(attacker.getName()) == ClassListener.ARCHER_ID) {
 						if(attacker.getLocation().distance(defender.getLocation()) >= 30.0) {
 							defender.damage(defender.getHealth(), attacker);
 							defender.sendMessage(ChatColor.GOLD + "You were headshotted by " + attacker.getDisplayName() + "!");
@@ -68,4 +69,9 @@ public class PlayerListener implements Listener {
 			}
 		}
 	}
+        
+        @EventHandler
+        public void playerJoin(PlayerJoinEvent event) {
+            plugin.classListener.updatePlayerClass(event.getPlayer(), 0);
+        }
 }
