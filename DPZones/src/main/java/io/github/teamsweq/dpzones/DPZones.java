@@ -11,6 +11,7 @@ public class DPZones extends JavaPlugin {
 	public final TeamListener teamListener = new TeamListener(this);
 	public final ClassListener classListener = new ClassListener(this);
 	public final DeathListener deathListener = new DeathListener(this);
+	public final PlayerListener playerListener = new PlayerListener(this);
 	
 	@Override
 	public void onEnable() {
@@ -28,6 +29,7 @@ public class DPZones extends JavaPlugin {
 		pm.registerEvents(this.teamListener, this);
 		pm.registerEvents(this.classListener, this);
 		pm.registerEvents(this.deathListener, this);
+		pm.registerEvents(this.playerListener, this);
 	}
 	
 	@Override()
