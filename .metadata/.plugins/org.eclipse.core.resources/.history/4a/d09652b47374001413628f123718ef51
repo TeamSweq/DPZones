@@ -7,7 +7,6 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.entity.EntityDamageEvent;
-import org.bukkit.event.entity.EntityDamageEvent.DamageCause;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.util.Vector;
 
@@ -32,10 +31,8 @@ public class PlayerListener implements Listener {
 	@EventHandler
 	public void fallDamage(EntityDamageEvent event) {
 		Entity player = event.getEntity();
-		if ( (player instanceof Player) ) {
-			if (event.getCause().equals(DamageCause.FALL)) {
-				event.isCancelled();
-			}
+		if (player instanceof Player) {
+		Player p = (Player) player;
 		}
 	}
 	

@@ -43,8 +43,6 @@ public class Medic implements CommandExecutor {
 				Player player = (Player) sender;
 				medicClass(player);
 				sender.sendMessage(ChatColor.AQUA + "You are now a medic!");
-				
-				plugin.classListener.updatePlayerClass(player, ClassListener.MEDIC_ID);
 			} else {
 				sender.sendMessage("Only players can choose classes!");
 				return false;

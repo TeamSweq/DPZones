@@ -32,10 +32,9 @@ public class PlayerListener implements Listener {
 	@EventHandler
 	public void fallDamage(EntityDamageEvent event) {
 		Entity player = event.getEntity();
-		if ( (player instanceof Player) ) {
-			if (event.getCause().equals(DamageCause.FALL)) {
-				event.isCancelled();
-			}
+		if (player instanceof Player) {
+		Player p = (Player) player;
+			if (event.getCause().equals(DamageCause.FALL))
 		}
 	}
 	

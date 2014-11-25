@@ -12,7 +12,7 @@ import org.bukkit.inventory.PlayerInventory;
 
 public class Archer implements CommandExecutor {
 
-    DPZones plugin;
+    static DPZones plugin;
 
     public Archer(DPZones plugin) {
         this.plugin = plugin;

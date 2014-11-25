@@ -6,8 +6,9 @@
 
 package io.github.teamsweq.dpzones;
 
+import io.github.teamsweq.dpzones.DPZones;
 import java.util.HashMap;
-
+import org.bukkit.command.CommandExecutor;
 import org.bukkit.entity.Player;
 
 /**

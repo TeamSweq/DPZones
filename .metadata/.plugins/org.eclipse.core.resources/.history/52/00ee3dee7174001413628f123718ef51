@@ -6,8 +6,9 @@
 
 package io.github.teamsweq.dpzones;
 
+import io.github.teamsweq.dpzones.DPZones;
 import java.util.HashMap;
-
+import org.bukkit.command.CommandExecutor;
 import org.bukkit.entity.Player;
 
 /**
@@ -18,19 +19,20 @@ public class ClassListener implements org.bukkit.event.Listener {
     DPZones plugin;
     
     public static final int
-            HEAVY_ID = 1,
-            ARCHER_ID = 2,
-            MEDIC_ID = 3,
-            SOLDIER_ID = 4,
-            ASSASSIN_ID = 5,
-            CHEMIST_ID = 6,
-            DWARF_ID = 7,
-            ENGINEER_ID = 8,
-            FASHIONISTA_ID = 9,
-            MAGE_ID = 10,
-            NECRO_ID = 11,
-            NINJA_ID = 12,
-            PYRO_ID = 13;                  
+            ARCHER_ID = 0,
+            ASSASSIN_ID = 1,
+            CHEMIST_ID = 2,
+            DWARF_ID = 3,
+            ENGINEER_ID = 4,
+            FASHIONISTA_ID = 5,
+            HEAVY_ID = 6,
+            MAGE_ID = 7,
+            MEDIC_ID = 8,
+            NECRO_ID = 9,
+            NINJA_ID = 10,
+            PYRO_ID = 11,
+            SOLDIER_ID = 12;
+                  
     
     private HashMap<Player, Integer> playerClasses;
 	

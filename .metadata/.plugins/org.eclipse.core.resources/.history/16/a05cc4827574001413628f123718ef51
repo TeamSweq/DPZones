@@ -32,7 +32,7 @@ public class ClassListener implements org.bukkit.event.Listener {
             NINJA_ID = 12,
             PYRO_ID = 13;                  
     
-    private HashMap<Player, Integer> playerClasses;
+    public HashMap<Player, Integer> playerClasses;
 	
 	public ClassListener(DPZones instance) {
 	    this.plugin = instance;

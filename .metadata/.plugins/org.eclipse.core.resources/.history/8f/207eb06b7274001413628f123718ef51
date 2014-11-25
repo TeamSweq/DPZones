@@ -1,5 +1,6 @@
 package io.github.teamsweq.dpzones;
 
+import static io.github.teamsweq.dpzones.Archer.plugin;
 import org.bukkit.ChatColor;
 import org.bukkit.GameMode;
 import org.bukkit.Material;
