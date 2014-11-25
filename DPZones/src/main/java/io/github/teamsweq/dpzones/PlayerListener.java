@@ -34,7 +34,7 @@ public class PlayerListener implements Listener {
 		Entity player = event.getEntity();
 		if ( (player instanceof Player) ) {
 			if (event.getCause().equals(DamageCause.FALL)) {
-				event.isCancelled();
+				event.setCancelled(true);
 			}
 		}
 	}

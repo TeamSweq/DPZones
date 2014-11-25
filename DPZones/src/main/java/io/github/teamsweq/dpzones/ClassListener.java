@@ -37,9 +37,9 @@ public class ClassListener implements Listener {
             playerClasses.put(playerName, classID);
         }
         
-        public static void playerReset(Player player, int classID) {
-        	if (playerClasses.containsKey(1)) {
-        		
-        	}
-        }
+//        public static void playerReset(Player player, int classID) {
+//        	if () {
+//        		
+//        	}
+//        }
 }
