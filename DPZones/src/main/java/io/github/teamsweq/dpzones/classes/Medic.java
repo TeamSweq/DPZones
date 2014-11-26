@@ -17,9 +17,9 @@ import io.github.teamsweq.dpzonesv2.ClassManager;
 import io.github.teamsweq.dpzonesv2.ClassUnAssign;
 import io.github.teamsweq.dpzonesv2.ZonesClass;
 
-public class Heavy implements ZonesClass {
+public class Medic implements ZonesClass {
 	
-	private Heavy(){}
+	private Medic(){}
 	
 	@ClassInit
 	public static void onInit(JavaPlugin plugin){
@@ -27,7 +27,7 @@ public class Heavy implements ZonesClass {
 			
 			@EventHandler
 			public void onItemConsume(PlayerItemConsumeEvent event){
-				if(ClassManager.getClass(event.getPlayer()).equals(Heavy.class)){
+				if(ClassManager.getClass(event.getPlayer()).equals(Medic.class)){
 					if(event.getItem().getType()==Material.COOKED_BEEF){
 						event.setCancelled(true);
 					}
@@ -36,7 +36,7 @@ public class Heavy implements ZonesClass {
 			
 			@EventHandler
 			public void onSteak(PlayerInteractEvent event){
-				if(ClassManager.getClass(event.getPlayer()).equals(Heavy.class)){
+				if(ClassManager.getClass(event.getPlayer()).equals(Medic.class)){
 					if(event.getAction()==Action.RIGHT_CLICK_AIR||event.getAction()==Action.RIGHT_CLICK_BLOCK){
 						event.getPlayer().setHealth(Math.min(event.getPlayer().getHealth()+8D, event.getPlayer().getMaxHealth()));
 					}
@@ -48,12 +48,13 @@ public class Heavy implements ZonesClass {
 	@ClassAssign
 	public static void onAssign(Player player){
 		PlayerInventory inventory = player.getInventory();
-		inventory.addItem(new ItemStack(Material.DIAMOND_SWORD),
-				new ItemStack(Material.COOKED_BEEF, 3));
-		inventory.setHelmet(new ItemStack(Material.DIAMOND_HELMET));
-		inventory.setChestplate(new ItemStack(Material.DIAMOND_CHESTPLATE));
-		inventory.setLeggings(new ItemStack(Material.DIAMOND_LEGGINGS));
-		inventory.setBoots(new ItemStack(Material.DIAMOND_BOOTS));
+		inventory.addItem(new ItemStack(Material.GOLD_SWORD),
+				new ItemStack(Material.COOKED_BEEF, 3),
+				new ItemStack(Material.SNOW_BALL, 12));
+		inventory.setHelmet(new ItemStack(Material.GOLD_HELMET));
+		inventory.setChestplate(new ItemStack(Material.GOLD_CHESTPLATE));
+		inventory.setLeggings(new ItemStack(Material.GOLD_LEGGINGS));
+		inventory.setBoots(new ItemStack(Material.GOLD_BOOTS));
 	}
 	
 	@ClassUnAssign
