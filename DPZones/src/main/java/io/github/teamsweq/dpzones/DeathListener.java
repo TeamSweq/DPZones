@@ -23,17 +23,8 @@ public class DeathListener implements Listener {
 			public void run() {
 		    if(player.isDead() || player.getHealth() <= 0.10D) {
 		        player.setHealth(20);
-		        String playerName = player.getName();
-		        	if (plugin.classListener.getClassID(playerName) == ClassListener.SOLDIER_ID) {
-		        		Soldier.soldierClass(player);
-		        	} else if (plugin.classListener.getClassID(playerName) == ClassListener.MEDIC_ID) {
-		        		Medic.medicClass(player);
-		        	} else if (plugin.classListener.getClassID(playerName) == ClassListener.HEAVY_ID) {
-		        		Heavy.heavyClass(player);
-		        	} else {
-		        		Archer.archerClass(player);
-		        	}
-		        }
+		        plugin.classListener.resetPlayerClass(player);
+		    }
 		}});
 		
 //		Entity player = event.getEntity();
