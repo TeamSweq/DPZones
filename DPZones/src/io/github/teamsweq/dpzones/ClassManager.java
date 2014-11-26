@@ -17,6 +17,7 @@ public class ClassManager {
 	private static Map<Class<? extends ZonesClass>, Map<String, List<Method>>> clazzes;
 	
 	static{
+		clazzes = new HashMap<Class<? extends ZonesClass>, Map<String, List<Method>>>();
 		players = new HashMap<Class<? extends ZonesClass>, List<UUID>>();
 	}
 	/**
