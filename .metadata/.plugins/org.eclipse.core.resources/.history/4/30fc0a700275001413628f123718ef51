@@ -38,6 +38,14 @@ public class ClassListener implements Listener {
             playerClasses.put(playerName, classID);
         }
         
+<<<<<<< HEAD
+=======
+//        public static void playerReset(Player player, int classID) {
+//        	if () {
+//        		
+//        	}
+//        }
+>>>>>>> FETCH_HEAD
 	public int getClassID(String playerName) {
         	return playerClasses.get(playerName);
         }
