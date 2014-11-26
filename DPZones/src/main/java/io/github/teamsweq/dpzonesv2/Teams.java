@@ -7,6 +7,7 @@ import java.util.Map;
 import java.util.UUID;
 
 import org.bukkit.DyeColor;
+import org.bukkit.entity.Player;
 
 public class Teams {
 	private static Map<DyeColor, List<UUID>> players;
@@ -19,22 +20,22 @@ public class Teams {
 	 * @param team Color of Team
 	 * @return Old Team - Null if none
 	 */
-	public static DyeColor assignTeam(UUID uuid, DyeColor team){
-		DyeColor oldTeam = getTeam(uuid);
+	public static DyeColor assignTeam(DyeColor team, Player player){
+		DyeColor oldTeam = getTeam(player.getUniqueId());
 		if(oldTeam!=null){
-			removePlayerFromTeam(oldTeam, uuid);
+			removePlayerFromTeam(oldTeam, player);
 		}
 		List<UUID> players = Teams.players.get(team);
 		if(players==null){
 			players = new ArrayList<UUID>();
 		}
-		players.add(uuid);
+		players.add(player.getUniqueId());
 		Teams.players.put(team, players);
 		return oldTeam;
 	}
-	private static void removePlayerFromTeam(DyeColor team, UUID player){
+	private static void removePlayerFromTeam(DyeColor team, Player player){
 		List<UUID> players = Teams.players.get(team);
-		players.remove(player);
+		players.remove(player.getUniqueId());
 		Teams.players.put(team, players);
 	}
 	/**
@@ -54,6 +55,18 @@ public class Teams {
 			}
 		}
 		return null;
+	}
+	/**
+	 * 
+	 * @param team Color of Team
+	 * @return Team Size - -1 If Not Exist
+	 */
+	public static int getTeamSize(DyeColor team){
+		List<UUID> players = Teams.players.get(team);
+		if(players!=null){
+			return players.size();
+		}
+		return -1;
 	}
 	/**
 	 * 
