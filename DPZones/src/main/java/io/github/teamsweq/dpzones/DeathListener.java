@@ -46,4 +46,8 @@ public class DeathListener implements Listener {
 //				Heavy.heavyClass(p);
 //			}
 	}
+        
+        public void spawnPlayer(Player p) {
+            
+        }
 }

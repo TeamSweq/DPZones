@@ -1,5 +1,7 @@
 package io.github.teamsweq.dpzones;
 
+import java.util.ArrayList;
+import org.bukkit.Location;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -12,6 +14,8 @@ public class DPZones extends JavaPlugin {
 	public final ClassListener classListener = new ClassListener(this);
 	public final DeathListener deathListener = new DeathListener(this);
 	public final PlayerListener playerListener = new PlayerListener(this);
+        
+        public final ArrayList<Location> zones = new ArrayList<>();
 	
 	@Override
 	public void onEnable() {
