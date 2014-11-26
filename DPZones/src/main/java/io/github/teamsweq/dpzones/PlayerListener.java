@@ -74,7 +74,7 @@ public class PlayerListener implements Listener {
 					Player attacker = (Player) arrow.getShooter();
 					String playerName = attacker.getName();
 					if(plugin.classListener.getClassID(playerName) == ClassListener.ARCHER_ID) {
-						if(attacker.getLocation().distance(defender.getLocation()) >= 5.0) {
+						if(attacker.getLocation().distance(defender.getLocation()) >= 30.0) {
 							defender.setHealth(0.00D);
 							defender.sendMessage(ChatColor.GOLD + "You were headshotted by " + attacker.getDisplayName() + "!");
 							attacker.sendMessage(ChatColor.GOLD + "You headshotted " + defender.getDisplayName() + "!");
@@ -95,5 +95,24 @@ public class PlayerListener implements Listener {
 //	public void snowballKnockback() {
 //		
 //	}
+
+	//makes medic heal ppl on their team n shit
+	@EventHandler(priority = EventPriority.NORMAL)
+	public void healingSword(EntityDamageByEntityEvent event) {
+		if(event.getEntity() instanceof Player) {
+			Player defender = (Player) event.getEntity();
+			if(event.getDamager() instanceof Player) {
+				Player attacker = (Player) event.getDamager();
+				if(plugin.teamListener.areOnSameTeam(attacker, defender)) {
+					if(plugin.classListener.getClassID(attacker.getDisplayName()) == ClassListener.MEDIC_ID) {
+						event.setDamage(0);
+						plugin.classListener.resetPlayerClass(defender);
+					} else {
+						event.setCancelled(true);
+					}
+				}
+			}
+		}
+	}
 	
 }
