@@ -38,7 +38,7 @@ public class PlayerListener implements Listener {
 		if (event.getAction().equals(Action.RIGHT_CLICK_BLOCK)) {
 			if(plugin.classListener.getClassID(playerName) == ClassListener.SOLDIER_ID) {
 				if (player.getItemInHand().getType().equals(Material.IRON_SWORD)) {
-					player.setVelocity(new Vector(0,.9,0));
+					player.setVelocity(new Vector(0,1.15,0));
 				}
 			}
 		}

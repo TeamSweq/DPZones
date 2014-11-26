@@ -21,7 +21,7 @@ public class DeathListener implements Listener {
 		final Player player = event.getEntity();
 		plugin.getServer().getScheduler().scheduleSyncDelayedTask(plugin, new Runnable(){ 
 			public void run() {
-		    if(player.isDead() || player.getHealth() <= 0.10D) {
+		    if(player.isDead() || player.getHealth() <= 0.00D) {
 		        player.setHealth(20);
 		        String playerName = player.getName();
 		        	if (plugin.classListener.getClassID(playerName) == ClassListener.SOLDIER_ID) {
@@ -46,8 +46,4 @@ public class DeathListener implements Listener {
 //				Heavy.heavyClass(p);
 //			}
 	}
-        
-        public void spawnPlayer(Player p) {
-            
-        }
 }
