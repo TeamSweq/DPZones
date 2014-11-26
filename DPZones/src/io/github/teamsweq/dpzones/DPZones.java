@@ -18,6 +18,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.event.player.PlayerRespawnEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class DPZones extends JavaPlugin implements Listener {
@@ -74,6 +75,11 @@ public class DPZones extends JavaPlugin implements Listener {
 	@EventHandler
 	public void onDeath(PlayerDeathEvent event){
 		event.getDrops().clear();
+	}
+	
+	@EventHandler
+	public void onRespawn(PlayerRespawnEvent event){
+		ClassManager.resetClass(event.getPlayer());
 	}
 	
 	@EventHandler

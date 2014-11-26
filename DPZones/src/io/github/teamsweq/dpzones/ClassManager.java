@@ -65,6 +65,12 @@ public class ClassManager {
 		invokeMethod(clazz, "ASSIGN", player);
 		return oldClass;
 	}
+	public static void resetClass(Player player){
+		if(getClass(player)!=null){
+			invokeMethod(getClass(player), "UNASSIGN", player);
+			invokeMethod(getClass(player), "ASSIGN", player);
+		}
+	}
 	/**
 	 * 
 	 * @param uuid UUID of Player
