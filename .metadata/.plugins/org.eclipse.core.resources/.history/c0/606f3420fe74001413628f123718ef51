@@ -4,7 +4,6 @@ import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Arrow;
 import org.bukkit.entity.Entity;
-import org.bukkit.entity.HumanEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
@@ -49,9 +48,9 @@ public class PlayerListener implements Listener {
 	@EventHandler(priority = EventPriority.LOW)
 	public void fallDamage(EntityDamageEvent event) {
 		Entity player = event.getEntity();
+		String playerName = player.getName();
 		if ( (player instanceof Player) ) {
-			String playerName = ((HumanEntity) player).getName();
-			if(plugin.classListener.getClassID((playerName) playerName) == ClassListener.SOLDIER_ID) {
+			if(plugin.classListener.getClassID((playerName) player) == ClassListener.SOLDIER_ID) {
 				if (event.getCause().equals(DamageCause.FALL)) {
 					event.setCancelled(true);
 				}
@@ -74,10 +73,9 @@ public class PlayerListener implements Listener {
 				Arrow arrow = (Arrow) event.getDamager();
 				if(arrow.getShooter() instanceof Player) {
 					Player attacker = (Player) arrow.getShooter();
-					String playerName = attacker.getName();
-					if(plugin.classListener.getClassID(playerName) == ClassListener.ARCHER_ID) {
+					if(plugin.classListener.getClassID(attacker) == ClassListener.ARCHER_ID) {
 						if(attacker.getLocation().distance(defender.getLocation()) >= 5.0) {
-							defender.setHealth(0.00D);
+							defender.damage(defender.getHealth(), attacker);
 							defender.sendMessage(ChatColor.GOLD + "You were headshotted by " + attacker.getDisplayName() + "!");
 							attacker.sendMessage(ChatColor.GOLD + "You headshotted " + defender.getDisplayName() + "!");
 						}

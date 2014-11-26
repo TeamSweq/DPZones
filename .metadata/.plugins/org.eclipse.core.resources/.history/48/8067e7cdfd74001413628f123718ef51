@@ -39,6 +39,6 @@ public class ClassListener implements Listener {
         }
         
 	public int getClassID(String playerName) {
-        	return playerClasses.get(playerName);
+        	return playerClasses.get(player);
         }
 }
