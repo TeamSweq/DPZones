@@ -4,6 +4,7 @@ import io.github.teamsweq.dpzones.classes.Archer;
 import io.github.teamsweq.dpzones.classes.Heavy;
 import io.github.teamsweq.dpzones.classes.Medic;
 import io.github.teamsweq.dpzones.classes.Soldier;
+import io.github.teamsweq.dpzones.classes.Spectate;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,6 +28,10 @@ public class DPZones extends JavaPlugin implements Listener {
 	static{
 		clazzes = new ArrayList<Class<? extends ZonesClass>>();
 		clazzes.add(Heavy.class);
+		clazzes.add(Soldier.class);
+		clazzes.add(Medic.class);
+		clazzes.add(Archer.class);
+		clazzes.add(Spectate.class);
 	}
 	@Override
 	public void onEnable(){
