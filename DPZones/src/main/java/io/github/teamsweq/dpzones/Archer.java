@@ -35,7 +35,7 @@ public class Archer implements CommandExecutor {
         inventory.setChestplate(archerChest);
         inventory.setLeggings(archerLegs);
         inventory.setBoots(archerBoots);
-        inventory.addItem(archerSword, archerBow, archerSteak, archerArrows, archerArrows);
+        inventory.addItem(archerSword, archerSteak, archerBow, archerArrows, archerArrows);
     }
 
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
