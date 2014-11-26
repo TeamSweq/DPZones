@@ -44,6 +44,8 @@ public class DPZones extends JavaPlugin implements Listener {
 					DyeColor color = DyeColor.valueOf(args[0].toUpperCase());
 					if(color!=null){
 						Teams.assignTeam(color, (Player)sender);
+						sender.sendMessage(ChatColor.AQUA + "You are now on team: "+color.toString().toLowerCase());
+						return true;
 					}
 				}
 			}
@@ -51,57 +53,8 @@ public class DPZones extends JavaPlugin implements Listener {
 			Class<? extends ZonesClass> clazz = ClassManager.getClass(command.getName());
 			if(clazz!=null){
 				ClassManager.assignClass(((Player) sender), clazz);
-				sender.sendMessage(ChatColor.AQUA + "You are now a " + command.getName().toLowerCase() + "!");
+				sender.sendMessage(ChatColor.AQUA + "You are now a(n) " + command.getName().toLowerCase() + "!");
 				return true;
-			}
-			
-			if ( (command.getName().equalsIgnoreCase("class"))||(command.getName().equalsIgnoreCase("classes"))||(command.getName().equalsIgnoreCase("kit"))||(command.getName().equalsIgnoreCase("kits")) ) {
-				if (sender instanceof Player) {
-					sender.sendMessage(ChatColor.GRAY + "Free Classes: /Archer /Heavy /Medic /Soldier");
-				} else {
-					sender.sendMessage("Only players can choose classes!");
-					return false;
-				}
-			}
-			
-			if (command.getName().equalsIgnoreCase("heavy")) {
-				if (sender instanceof Player) {
-					Player player = (Player) sender;
-					Heavy.onAssign(player);
-				} else {
-					sender.sendMessage("Only players can choose classes!");
-					return false;
-				}
-			}
-			
-			if (command.getName().equalsIgnoreCase("archer")) {
-				if (sender instanceof Player) {
-					Player player = (Player) sender;
-					Archer.onAssign(player);
-				} else {
-					sender.sendMessage("Only players can choose classes!");
-					return false;
-				}
-			}
-			
-			if (command.getName().equalsIgnoreCase("soldier")) {
-				if (sender instanceof Player) {
-					Player player = (Player) sender;
-					Soldier.onAssign(player);
-				} else {
-					sender.sendMessage("Only players can choose classes!");
-					return false;
-				}
-			}
-			
-			if (command.getName().equalsIgnoreCase("medic")) {
-				if (sender instanceof Player) {
-					Player player = (Player) sender;
-					Medic.onAssign(player);
-				} else {
-					sender.sendMessage("Only players can choose classes!");
-					return false;
-				}
 			}
 		}
 		return false;
