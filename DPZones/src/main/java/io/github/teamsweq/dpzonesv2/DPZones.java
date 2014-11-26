@@ -35,10 +35,19 @@ public class DPZones extends JavaPlugin implements Listener {
 	@Override
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args){
 		if(sender instanceof Player){
+			if(command.getName().equalsIgnoreCase("team")){
+				if(args.length>0){
+					DyeColor color = DyeColor.valueOf(args[0].toUpperCase());
+					if(color!=null){
+						Teams.assignTeam(color, (Player)sender);
+					}
+				}
+			}
 			Class<? extends ZonesClass> clazz = ClassManager.getClass(command.getName());
 			if(clazz!=null){
 				ClassManager.assignClass(((Player) sender), clazz);
 				sender.sendMessage("You are now: "+command.getName().toLowerCase());
+				return true;
 			}
 		}
 		return false;
@@ -62,6 +71,11 @@ public class DPZones extends JavaPlugin implements Listener {
 			if(Teams.getTeamSize(color)<lowest){
 				team = color;
 				lowest = Teams.getTeamSize(color);
+			}
+			if(Teams.getTeamSize(color)==lowest){
+				if(Math.random()<=0.5D){
+					team = color;
+				}
 			}
 		}
 		return team;
