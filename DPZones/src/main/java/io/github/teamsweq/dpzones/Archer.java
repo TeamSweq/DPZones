@@ -20,7 +20,7 @@ public class Archer implements CommandExecutor {
 
     public static void archerClass(Player player) {
         PlayerInventory inventory = player.getInventory();
-        ItemStack archerHelm = new ItemStack(Material.LEATHER_HELMET, 1);
+        ItemStack archerHelm = new ItemStack(Material.CHAINMAIL_HELMET, 1);
         ItemStack archerChest = new ItemStack(Material.CHAINMAIL_CHESTPLATE, 1);
         ItemStack archerLegs = new ItemStack(Material.CHAINMAIL_LEGGINGS, 1);
         ItemStack archerBoots = new ItemStack(Material.CHAINMAIL_BOOTS, 1);
