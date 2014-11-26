@@ -42,9 +42,17 @@ public class Soldier implements ZonesClass {
 			public void onSteak(PlayerInteractEvent event){
 				if(ClassManager.getClass(event.getPlayer()).equals(Soldier.class)){
 					if(event.getAction()==Action.RIGHT_CLICK_AIR||event.getAction()==Action.RIGHT_CLICK_BLOCK){
-						if(event.getItem().getType()==Material.COOKED_BEEF){
-							event.getPlayer().setHealth(Math.min(event.getPlayer().getHealth()+8D, event.getPlayer().getMaxHealth()));
-							event.getItem().setAmount(event.getItem().getAmount()-1);
+						if(event.getItem()!=null){
+							if(event.getItem().getType()==Material.COOKED_BEEF){
+								if(event.getPlayer().getHealth()<event.getPlayer().getMaxHealth()){
+									event.getPlayer().setHealth(Math.min(event.getPlayer().getHealth()+8D, event.getPlayer().getMaxHealth()));
+									if(event.getItem().getAmount()==1){
+										event.getPlayer().getInventory().remove(Material.COOKED_BEEF);
+									}else{
+										event.getPlayer().setItemInHand(null);
+									}
+								}
+							}
 						}
 					}
 				}
@@ -87,6 +95,7 @@ public class Soldier implements ZonesClass {
 		inventory.setChestplate(new ItemStack(Material.IRON_CHESTPLATE));
 		inventory.setLeggings(new ItemStack(Material.IRON_LEGGINGS));
 		inventory.setBoots(new ItemStack(Material.IRON_BOOTS));
+		player.setFoodLevel(15);
 	}
 	
 	@ClassUnAssign

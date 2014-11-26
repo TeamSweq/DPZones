@@ -39,9 +39,17 @@ public class Archer implements ZonesClass {
 			public void onSteak(PlayerInteractEvent event){
 				if(ClassManager.getClass(event.getPlayer()).equals(Archer.class)){
 					if(event.getAction()==Action.RIGHT_CLICK_AIR||event.getAction()==Action.RIGHT_CLICK_BLOCK){
-						if(event.getItem().getType()==Material.COOKED_BEEF){
-							event.getPlayer().setHealth(Math.min(event.getPlayer().getHealth()+8D, event.getPlayer().getMaxHealth()));
-							event.getItem().setAmount(event.getItem().getAmount()-1);
+						if(event.getItem()!=null){
+							if(event.getItem().getType()==Material.COOKED_BEEF){
+								if(event.getPlayer().getHealth()<event.getPlayer().getMaxHealth()){
+									event.getPlayer().setHealth(Math.min(event.getPlayer().getHealth()+8D, event.getPlayer().getMaxHealth()));
+									if(event.getItem().getAmount()>1){
+										event.getItem().setAmount(event.getItem().getAmount()-1);
+									}else{
+										event.getPlayer().setItemInHand(null);
+									}
+								}
+							}
 						}
 					}
 				}
@@ -56,7 +64,7 @@ public class Archer implements ZonesClass {
 							Player attacker = (Player) arrow.getShooter();
 							if(ClassManager.getClass((Player) arrow.getShooter()).equals(Archer.class)) {
 								if(attacker.getLocation().distance(defender.getLocation()) >= 30.0) {
-									defender.setHealth(0.00D);
+									defender.setHealth(0.0D);
 									defender.sendMessage(ChatColor.GOLD + "You were headshotted by " + attacker.getDisplayName() + "!");
 									attacker.sendMessage(ChatColor.GOLD + "You headshotted " + defender.getDisplayName() + "!");
 								}
@@ -80,6 +88,7 @@ public class Archer implements ZonesClass {
 		inventory.setChestplate(new ItemStack(Material.CHAINMAIL_CHESTPLATE));
 		inventory.setLeggings(new ItemStack(Material.CHAINMAIL_LEGGINGS));
 		inventory.setBoots(new ItemStack(Material.CHAINMAIL_BOOTS));
+		player.setFoodLevel(15);
 	}
 	
 	@ClassUnAssign
