@@ -2,47 +2,21 @@ name: DPZones
 main: io.github.teamsweq.dpzones.DPZones
 version: 1.1
 commands:
-  switch:
-    description:
-    permission: dpzones.switch
+  team:
+    description: Team
     permission-message: You're spectating!
   spectate:
-    description:
-    permission: dpzones.spectate
+    description: Spectate
     permission-message: You can’t do that!
-  team:
-    description:
-    permission: dpzones.team
-    permission-message: You're spectating!
-  class:
-    description:
-    permission: dpzones.class
-    permission-message: You’re spectating!
-  classes:
-    description:
-    permission: dpzones.class
-    permission-message: You’re spectating!
-  kit:
-    description:
-    permission: dpzones.class
-    permission-message: You’re spectating!
-  kits:
-    description:
-    permission: dpzones.class
-    permission-message: You’re spectating!
   heavy:
-    description:
-    permission: dpzones.free
+    description: Heavy
     permission-message: This class is premium!
   archer:
-    description:
-    permission: dpzones.free
+    description: Archer
     permission-message: This class is premium!
   medic:
-    description:
-    permission: dpzones.free
+    description: Medic
     permission-message: This class is premium!
   soldier:
-    description:
-    permission: dpzones.free
+    description: Soldier
     permission-message: This class is premium!
