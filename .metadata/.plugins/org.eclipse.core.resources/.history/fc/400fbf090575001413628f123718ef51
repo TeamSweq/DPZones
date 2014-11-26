@@ -21,9 +21,6 @@ public class DPZones extends JavaPlugin {
 		this.getCommand("team").setExecutor(new Teams(this));
 		this.getCommand("join").setExecutor(new Teams(this));
 		this.getCommand("classes").setExecutor(new Classes(this));
-		this.getCommand("class").setExecutor(new Classes(this));
-		this.getCommand("kit").setExecutor(new Classes(this));
-		this.getCommand("kits").setExecutor(new Classes(this));
 		this.getCommand("heavy").setExecutor(new Heavy(this));
 		this.getCommand("archer").setExecutor(new Archer(this));
 		this.getCommand("medic").setExecutor(new Medic(this));

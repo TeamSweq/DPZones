@@ -18,23 +18,35 @@ commands:
     description:
     permission: dpzones.join
     permission-message: You have no power here!
+  class:
+    description:
+    permission: dpzones.class
+    permission-message: You’re spectating!
   classes:
     description:
-    permission: dpzones.classes
+    permission: dpzones.class
+    permission-message: You’re spectating!
+  kit:
+    description:
+    permission: dpzones.class
+    permission-message: You’re spectating!
+  kits:
+    description:
+    permission: dpzones.class
     permission-message: You’re spectating!
   heavy:
     description:
-    permission: dpzones.heavy
+    permission: dpzones.free
     permission-message: This class is premium!
   archer:
     description:
-    permission: dpzones.archer
+    permission: dpzones.free
     permission-message: This class is premium!
   medic:
     description:
-    permission: dpzones.medic
+    permission: dpzones.free
     permission-message: This class is premium!
   soldier:
     description:
-    permission: dpzones.soldier
+    permission: dpzones.free
     permission-message: This class is premium!
