@@ -11,12 +11,19 @@ public class DPZones extends JavaPlugin implements Listener {
 	public void onEnable(){
 		
 	}
+	
 	@Override
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args){
 		
 		
 		return false;
 	}
+	
+	@Override
+	public void onDisable() {
+		
+	}
+	
 	@EventHandler
 	public void onEvent(){
 		
