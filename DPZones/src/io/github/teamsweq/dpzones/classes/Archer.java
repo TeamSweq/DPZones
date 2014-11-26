@@ -37,9 +37,11 @@ public class Archer implements ZonesClass {
 			}
 			@EventHandler
 			public void onSteak(PlayerInteractEvent event){
-				if(ClassManager.getClass(event.getPlayer()).equals(Archer.class)){
+				if(ClassManager.getClass(event.getPlayer()).equals(Heavy.class)){
 					if(event.getAction()==Action.RIGHT_CLICK_AIR||event.getAction()==Action.RIGHT_CLICK_BLOCK){
-						event.getPlayer().setHealth(Math.min(event.getPlayer().getHealth()+8D, event.getPlayer().getMaxHealth()));
+						if(event.getItem().getType()==Material.COOKED_BEEF){
+							event.getPlayer().setHealth(Math.min(event.getPlayer().getHealth()+8D, event.getPlayer().getMaxHealth()));
+						}
 					}
 				}
 			}
