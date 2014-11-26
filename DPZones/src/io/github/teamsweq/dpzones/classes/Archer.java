@@ -72,7 +72,7 @@ public class Archer implements ZonesClass {
 	public static void onAssign(Player player){
 		PlayerInventory inventory = player.getInventory();
 		inventory.addItem(new ItemStack(Material.STONE_SWORD),
-				new ItemStack(Material.COOKED_BEEF, 3),
+				new ItemStack(Material.COOKED_BEEF, 4),
 				new ItemStack(Material.BOW),
 				new ItemStack(Material.ARROW, 64),
 				new ItemStack(Material.ARROW, 64));

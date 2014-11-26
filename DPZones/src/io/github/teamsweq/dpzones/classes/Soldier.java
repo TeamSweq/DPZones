@@ -82,7 +82,7 @@ public class Soldier implements ZonesClass {
 	public static void onAssign(Player player){
 		PlayerInventory inventory = player.getInventory();
 		inventory.addItem(new ItemStack(Material.IRON_SWORD),
-				new ItemStack(Material.COOKED_BEEF));
+				new ItemStack(Material.COOKED_BEEF, 4));
 		inventory.setHelmet(new ItemStack(Material.IRON_HELMET));
 		inventory.setChestplate(new ItemStack(Material.IRON_CHESTPLATE));
 		inventory.setLeggings(new ItemStack(Material.IRON_LEGGINGS));

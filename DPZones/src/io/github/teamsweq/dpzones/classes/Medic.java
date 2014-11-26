@@ -52,8 +52,8 @@ public class Medic implements ZonesClass {
 	public static void onAssign(Player player){
 		PlayerInventory inventory = player.getInventory();
 		inventory.addItem(new ItemStack(Material.GOLD_SWORD),
-				new ItemStack(Material.COOKED_BEEF, 3),
-				new ItemStack(Material.SNOW_BALL, 12));
+				new ItemStack(Material.COOKED_BEEF, 6),
+				new ItemStack(Material.SNOW_BALL, 5));
 		inventory.setHelmet(new ItemStack(Material.GOLD_HELMET));
 		inventory.setChestplate(new ItemStack(Material.GOLD_CHESTPLATE));
 		inventory.setLeggings(new ItemStack(Material.GOLD_LEGGINGS));
