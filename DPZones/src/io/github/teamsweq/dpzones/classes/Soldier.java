@@ -40,7 +40,7 @@ public class Soldier implements ZonesClass {
 			
 			@EventHandler
 			public void onSteak(PlayerInteractEvent event){
-				if(ClassManager.getClass(event.getPlayer()).equals(Heavy.class)){
+				if(ClassManager.getClass(event.getPlayer()).equals(Soldier.class)){
 					if(event.getAction()==Action.RIGHT_CLICK_AIR||event.getAction()==Action.RIGHT_CLICK_BLOCK){
 						if(event.getItem().getType()==Material.COOKED_BEEF){
 							event.getPlayer().setHealth(Math.min(event.getPlayer().getHealth()+8D, event.getPlayer().getMaxHealth()));
