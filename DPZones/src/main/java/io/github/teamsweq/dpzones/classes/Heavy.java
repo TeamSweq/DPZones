@@ -11,11 +11,11 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.PlayerInventory;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import io.github.teamsweq.dpzonesv2.ClassAssign;
-import io.github.teamsweq.dpzonesv2.ClassInit;
-import io.github.teamsweq.dpzonesv2.ClassManager;
-import io.github.teamsweq.dpzonesv2.ClassUnAssign;
-import io.github.teamsweq.dpzonesv2.ZonesClass;
+import io.github.teamsweq.dpzones.ClassAssign;
+import io.github.teamsweq.dpzones.ClassInit;
+import io.github.teamsweq.dpzones.ClassManager;
+import io.github.teamsweq.dpzones.ClassUnAssign;
+import io.github.teamsweq.dpzones.ZonesClass;
 
 public class Heavy implements ZonesClass {
 	

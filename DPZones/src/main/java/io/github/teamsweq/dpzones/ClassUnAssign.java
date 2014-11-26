@@ -1,4 +1,4 @@
-package io.github.teamsweq.dpzonesv2;
+package io.github.teamsweq.dpzones;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -7,6 +7,6 @@ import java.lang.annotation.Target;
 
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)
-public @interface ClassAssign {
+public @interface ClassUnAssign {
 	
 }
