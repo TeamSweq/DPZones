@@ -1,5 +1,11 @@
 package io.github.teamsweq.dpzones.classes;
 
+import io.github.teamsweq.dpzonesv2.ClassAssign;
+import io.github.teamsweq.dpzonesv2.ClassInit;
+import io.github.teamsweq.dpzonesv2.ClassManager;
+import io.github.teamsweq.dpzonesv2.ClassUnAssign;
+import io.github.teamsweq.dpzonesv2.ZonesClass;
+
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -10,12 +16,6 @@ import org.bukkit.event.player.PlayerItemConsumeEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.PlayerInventory;
 import org.bukkit.plugin.java.JavaPlugin;
-
-import io.github.teamsweq.dpzonesv2.ClassAssign;
-import io.github.teamsweq.dpzonesv2.ClassInit;
-import io.github.teamsweq.dpzonesv2.ClassManager;
-import io.github.teamsweq.dpzonesv2.ClassUnAssign;
-import io.github.teamsweq.dpzonesv2.ZonesClass;
 
 public class Medic implements ZonesClass {
 	
