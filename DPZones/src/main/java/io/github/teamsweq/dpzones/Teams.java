@@ -93,6 +93,8 @@ public class Teams implements CommandExecutor {
 				inventory.setLeggings(empty);
 				player.setGameMode(GameMode.CREATIVE);
 				sender.sendMessage(ChatColor.GOLD + "You are now spectating!");
+				
+				plugin.classListener.updatePlayerClass(player, ClassListener.SPECTATE_ID);
 			} else {
 				sender.sendMessage("Only players can spectate!");
 				return false;

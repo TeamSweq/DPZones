@@ -20,11 +20,11 @@ public class Soldier implements CommandExecutor{
 	
 	public static void soldierClass(Player player) {
 		PlayerInventory inventory = player.getInventory();
-		ItemStack soldierHelm = new ItemStack(Material.GOLD_HELMET, 1);
-		ItemStack soldierChest = new ItemStack (Material.GOLD_CHESTPLATE, 1);
-		ItemStack soldierLegs = new ItemStack (Material.GOLD_LEGGINGS, 1);
-		ItemStack soldierBoots = new ItemStack (Material.GOLD_BOOTS, 1);
-		ItemStack soldierSword = new ItemStack (Material.GOLD_SWORD, 1);
+		ItemStack soldierHelm = new ItemStack(Material.IRON_HELMET, 1);
+		ItemStack soldierChest = new ItemStack (Material.IRON_CHESTPLATE, 1);
+		ItemStack soldierLegs = new ItemStack (Material.IRON_LEGGINGS, 1);
+		ItemStack soldierBoots = new ItemStack (Material.IRON_BOOTS, 1);
+		ItemStack soldierSword = new ItemStack (Material.IRON_SWORD, 1);
 		ItemStack soldierSteak = new ItemStack (Material.COOKED_BEEF, 4);
 		player.setGameMode(GameMode.ADVENTURE);
 		FoodListener.hungerLevel(player, 15, 20.00D);

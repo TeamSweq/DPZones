@@ -51,7 +51,7 @@ public class FoodListener implements Listener {
 	//Adds 4 hearts to their health
 	
 	@EventHandler
-	public void onPlayerInteract(PlayerInteractEvent event) {
+	public void onPlayerSteakEvent(PlayerInteractEvent event) {
 		Player player = event.getPlayer();
 		if ((event.getAction() == Action.RIGHT_CLICK_AIR) || (event.getAction() == Action.RIGHT_CLICK_BLOCK)) {
 				if (player.getItemInHand().getType() == Material.COOKED_BEEF) {

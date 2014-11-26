@@ -34,3 +34,7 @@ commands:
     description:
     permission: dpzones.medic
     permission-message: This class is premium!
+  soldier:
+    description:
+    permission: dpzones.soldier
+    permission-message: This class is premium!

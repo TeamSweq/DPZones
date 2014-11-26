@@ -6,6 +6,7 @@ import org.bukkit.entity.Arrow;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
+import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
@@ -24,9 +25,16 @@ public class PlayerListener implements Listener {
 	    this.plugin = instance;
 	  }
 	
+	/*
+	 * 
+	 * SOLDIER CLASS
+	 * 
+	 */
+	
 	//makes soldiers fly
-	@EventHandler
-	public void healingSword(PlayerInteractEvent event) {
+	@EventHandler(priority = EventPriority.NORMAL)
+	public void soldierSword(PlayerInteractEvent event) {
+		Player player = event.getPlayer();
 		if (event.getAction().equals(Action.RIGHT_CLICK_BLOCK)) {
 			if(plugin.classListener.getClassID(event.getPlayer().getName()) == ClassListener.SOLDIER_ID) {
 				if (event.getPlayer().getItemInHand().getType().equals(Material.IRON_SWORD)) {
@@ -37,7 +45,7 @@ public class PlayerListener implements Listener {
 	}
 	
 	//turns off fall damage for soldiers
-	@EventHandler
+	@EventHandler(priority = EventPriority.LOW)
 	public void fallDamage(EntityDamageEvent event) {
 		Entity player = event.getEntity();
 		if ( (player instanceof Player) ) {
@@ -49,9 +57,15 @@ public class PlayerListener implements Listener {
 		}
 	}
 	
+	/*
+	 * 
+	 * ARCHER CLASS
+	 * 
+	 */
+	
 	//makes archers able to headshot ppl
-	@EventHandler
-	public void headshot(EntityDamageByEntityEvent event) {
+	@EventHandler(priority = EventPriority.HIGH)
+	public void headShot(EntityDamageByEntityEvent event) {
 		if(event.getEntity() instanceof Player) {
 			Player defender = (Player) event.getEntity();
 			if(event.getDamager() instanceof Arrow) {
@@ -74,4 +88,16 @@ public class PlayerListener implements Listener {
         public void playerJoin(PlayerJoinEvent event) {
             plugin.classListener.updatePlayerClass(event.getPlayer(), 0);
         }
+	
+	/*
+	 * 
+	 * MEDIC
+	 * 
+	 */
+	
+//	@EventHandler(priority = EventPriority.HIGH)
+//	public void snowballKnockback() {
+//		
+//	}
+	
 }
