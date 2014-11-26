@@ -33,6 +33,15 @@ public class TeamListener implements Listener {
 		}
 	}
 	
+	//checks if two players are on the same team
+	
+	public boolean areOnSameTeam(Player p1, Player p2) {
+		if( (Teams.blueTeam.hasPlayer(p1) && Teams.blueTeam.hasPlayer(p2)) 
+		   || (Teams.redTeam.hasPlayer(p1) && Teams.redTeam.hasPlayer(p2)) )
+			return true;
+		return false;
+	}
+	
 	//Whenever the player logs on, they get put on a team
 	
 	@EventHandler(priority = EventPriority.HIGH)
