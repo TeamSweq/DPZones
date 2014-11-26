@@ -94,8 +94,12 @@ public class ClassManager {
 		return null;
 	}
 	private static void invokeMethod(Class<? extends ZonesClass> clazz, String methodName, Object... arguments){
-		for(Method method: clazzes.get(clazz).get(methodName)){
-			ReflectionUtil.invokePublicMethod(method, null, arguments);
+		if(clazzes.get(clazz)!=null){
+			if(clazzes.get(clazz).get(methodName)!=null){
+				for(Method method: clazzes.get(clazz).get(methodName)){
+					ReflectionUtil.invokePublicMethod(method, null, arguments);
+				}
+			}
 		}
 	}
 }
