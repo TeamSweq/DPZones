@@ -20,7 +20,7 @@ public class ClassListener implements Listener {
     DPZones plugin;
     
     public static final int
-    		SPECTATE_ID = 0,
+    	    SPECTATE_ID = 0,
             HEAVY_ID = 1,
             ARCHER_ID = 2,
             MEDIC_ID = 3,
@@ -28,17 +28,34 @@ public class ClassListener implements Listener {
     
     private static HashMap<String, Integer> playerClasses;
 	
-	public ClassListener(DPZones instance) {
-	    this.plugin = instance;
-            playerClasses = new HashMap<>();
-	  }
+    public ClassListener(DPZones instance) {
+	this.plugin = instance;
+        playerClasses = new HashMap<>();
+    }
     
-        public void updatePlayerClass(Player player, int classID) {
-        	String playerName = player.getName();
-            playerClasses.put(playerName, classID);
-        }
+    public void updatePlayerClass(Player player, int classID) {
+        playerClasses.put(player.getName(), classID);
+    }
+    public void updatePlayerClass(String playerName, int classID) {
+    	playerClasses.put(playerName, classID);
+    }
         
-	public int getClassID(String playerName) {
-        	return playerClasses.get(playerName);
-        }
+    public int getClassID(Player player) {
+        return playerClasses.get(player.getName());
+    }
+    public int getClassID(String playerName) {
+	return playerClasses.get(playerName);
+    }
+	
+    public void resetPlayerClass(Player player) {
+	if (this.getClassID(player) == SOLDIER_ID) {
+    		Soldier.soldierClass(player);
+    	} else if (this.getClassID(player) == MEDIC_ID) {
+    		Medic.medicClass(player);
+    	} else if (this.getClassID(player) == HEAVY_ID) {
+    		Heavy.heavyClass(player);
+    	} else {
+    		Archer.archerClass(player);
+    	}
+    }
 }
