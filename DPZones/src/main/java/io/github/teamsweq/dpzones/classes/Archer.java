@@ -1,6 +1,7 @@
 package io.github.teamsweq.dpzones.classes;
 
 import org.bukkit.ChatColor;
+import org.bukkit.GameMode;
 import org.bukkit.Material;
 import org.bukkit.entity.Arrow;
 import org.bukkit.entity.Player;
@@ -37,16 +38,18 @@ public class Archer implements ZonesClass {
 			}
 			@EventHandler
 			public void onSteak(PlayerInteractEvent event){
-				if(ClassManager.getClass(event.getPlayer()).equals(Archer.class)){
-					if(event.getAction()==Action.RIGHT_CLICK_AIR||event.getAction()==Action.RIGHT_CLICK_BLOCK){
-						if(event.getItem()!=null){
-							if(event.getItem().getType()==Material.COOKED_BEEF){
-								if(event.getPlayer().getHealth()<event.getPlayer().getMaxHealth()){
-									event.getPlayer().setHealth(Math.min(event.getPlayer().getHealth()+8D, event.getPlayer().getMaxHealth()));
-									if(event.getItem().getAmount()==1){
-										event.getPlayer().setItemInHand(null);
-									}else{
-										event.getItem().setAmount(event.getItem().getAmount()-1);
+				if(ClassManager.getClass(event.getPlayer())!=null){
+					if(ClassManager.getClass(event.getPlayer()).equals(Archer.class)){
+						if(event.getAction()==Action.RIGHT_CLICK_AIR||event.getAction()==Action.RIGHT_CLICK_BLOCK){
+							if(event.getItem()!=null){
+								if(event.getItem().getType()==Material.COOKED_BEEF){
+									if(event.getPlayer().getHealth()<event.getPlayer().getMaxHealth()){
+										event.getPlayer().setHealth(Math.min(event.getPlayer().getHealth()+8D, event.getPlayer().getMaxHealth()));
+										if(event.getItem().getAmount()==1){
+											event.getPlayer().setItemInHand(null);
+										}else{
+											event.getItem().setAmount(event.getItem().getAmount()-1);
+										}
 									}
 								}
 							}
@@ -89,6 +92,7 @@ public class Archer implements ZonesClass {
 		inventory.setChestplate(new ItemStack(Material.CHAINMAIL_CHESTPLATE));
 		inventory.setLeggings(new ItemStack(Material.CHAINMAIL_LEGGINGS));
 		inventory.setBoots(new ItemStack(Material.CHAINMAIL_BOOTS));
+		player.setGameMode(GameMode.ADVENTURE);
 		player.setFoodLevel(15);
 	}
 	

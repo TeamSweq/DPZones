@@ -41,16 +41,18 @@ public class Soldier implements ZonesClass {
 			
 			@EventHandler
 			public void onSteak(PlayerInteractEvent event){
-				if(ClassManager.getClass(event.getPlayer()).equals(Soldier.class)){
-					if(event.getAction()==Action.RIGHT_CLICK_AIR||event.getAction()==Action.RIGHT_CLICK_BLOCK){
-						if(event.getItem()!=null){
-							if(event.getItem().getType()==Material.COOKED_BEEF){
-								if(event.getPlayer().getHealth()<event.getPlayer().getMaxHealth()){
-									event.getPlayer().setHealth(Math.min(event.getPlayer().getHealth()+8D, event.getPlayer().getMaxHealth()));
-									if(event.getItem().getAmount()==1){
-										event.getPlayer().setItemInHand(null);
-									}else{
-										event.getItem().setAmount(event.getItem().getAmount()-1);
+				if(ClassManager.getClass(event.getPlayer())!=null){
+					if(ClassManager.getClass(event.getPlayer()).equals(Soldier.class)){
+						if(event.getAction()==Action.RIGHT_CLICK_AIR||event.getAction()==Action.RIGHT_CLICK_BLOCK){
+							if(event.getItem()!=null){
+								if(event.getItem().getType()==Material.COOKED_BEEF){
+									if(event.getPlayer().getHealth()<event.getPlayer().getMaxHealth()){
+										event.getPlayer().setHealth(Math.min(event.getPlayer().getHealth()+8D, event.getPlayer().getMaxHealth()));
+										if(event.getItem().getAmount()==1){
+											event.getPlayer().setItemInHand(null);
+										}else{
+											event.getItem().setAmount(event.getItem().getAmount()-1);
+										}
 									}
 								}
 							}
@@ -63,9 +65,11 @@ public class Soldier implements ZonesClass {
 			public void soldierSword(PlayerInteractEvent event) {
 				Player player = event.getPlayer();
 				if (event.getAction().equals(Action.RIGHT_CLICK_BLOCK)) {
-					if(ClassManager.getClass(event.getPlayer()).equals(Soldier.class)) {
-						if (player.getItemInHand().getType().equals(Material.IRON_SWORD)) {
-							player.setVelocity(new Vector(0,.9,0));
+					if(ClassManager.getClass(event.getPlayer())!=null){
+						if(ClassManager.getClass(event.getPlayer()).equals(Soldier.class)) {
+							if (player.getItemInHand().getType().equals(Material.IRON_SWORD)) {
+								player.setVelocity(new Vector(0,.9,0));
+							}
 						}
 					}
 				}
@@ -75,10 +79,12 @@ public class Soldier implements ZonesClass {
 			@EventHandler
 			public void fallDamage(EntityDamageEvent event) {
 				Entity player = event.getEntity();
-				if ( (player instanceof Player) ) {
-					if(ClassManager.getClass((Player)event.getEntity()).equals(Soldier.class)) {
-						if (event.getCause().equals(DamageCause.FALL)) {
-							event.setCancelled(true);
+				if ((player instanceof Player)) {
+					if(ClassManager.getClass((Player)event.getEntity())!=null){
+						if(ClassManager.getClass((Player)event.getEntity()).equals(Soldier.class)) {
+							if (event.getCause().equals(DamageCause.FALL)) {
+								event.setCancelled(true);
+							}
 						}
 					}
 				}
@@ -97,8 +103,8 @@ public class Soldier implements ZonesClass {
 		inventory.setChestplate(new ItemStack(Material.IRON_CHESTPLATE));
 		inventory.setLeggings(new ItemStack(Material.IRON_LEGGINGS));
 		inventory.setBoots(new ItemStack(Material.IRON_BOOTS));
-		player.setFoodLevel(15);
 		player.setGameMode(GameMode.ADVENTURE);
+		player.setFoodLevel(15);
 	}
 	
 	@ClassUnAssign

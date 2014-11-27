@@ -37,16 +37,18 @@ public class Medic implements ZonesClass {
 			
 			@EventHandler
 			public void onSteak(PlayerInteractEvent event){
-				if(ClassManager.getClass(event.getPlayer()).equals(Medic.class)){
-					if(event.getAction()==Action.RIGHT_CLICK_AIR||event.getAction()==Action.RIGHT_CLICK_BLOCK){
-						if(event.getItem()!=null){
-							if(event.getItem().getType()==Material.COOKED_BEEF){
-								if(event.getPlayer().getHealth()<event.getPlayer().getMaxHealth()){
-									event.getPlayer().setHealth(Math.min(event.getPlayer().getHealth()+8D, event.getPlayer().getMaxHealth()));
-									if(event.getItem().getAmount()==1){
-										event.getPlayer().setItemInHand(null);
-									}else{
-										event.getItem().setAmount(event.getItem().getAmount()-1);
+				if(ClassManager.getClass(event.getPlayer())!=null){
+					if(ClassManager.getClass(event.getPlayer()).equals(Medic.class)){
+						if(event.getAction()==Action.RIGHT_CLICK_AIR||event.getAction()==Action.RIGHT_CLICK_BLOCK){
+							if(event.getItem()!=null){
+								if(event.getItem().getType()==Material.COOKED_BEEF){
+									if(event.getPlayer().getHealth()<event.getPlayer().getMaxHealth()){
+										event.getPlayer().setHealth(Math.min(event.getPlayer().getHealth()+8D, event.getPlayer().getMaxHealth()));
+										if(event.getItem().getAmount()==1){
+											event.getPlayer().setItemInHand(null);
+										}else{
+											event.getItem().setAmount(event.getItem().getAmount()-1);
+										}
 									}
 								}
 							}
@@ -68,8 +70,8 @@ public class Medic implements ZonesClass {
 		inventory.setChestplate(new ItemStack(Material.GOLD_CHESTPLATE));
 		inventory.setLeggings(new ItemStack(Material.GOLD_LEGGINGS));
 		inventory.setBoots(new ItemStack(Material.GOLD_BOOTS));
-		player.setFoodLevel(15);
 		player.setGameMode(GameMode.ADVENTURE);
+		player.setFoodLevel(15);
 	}
 	
 	@ClassUnAssign

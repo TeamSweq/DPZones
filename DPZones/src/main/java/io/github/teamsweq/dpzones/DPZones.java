@@ -91,7 +91,9 @@ public class DPZones extends JavaPlugin implements Listener {
 	
 	@EventHandler
 	public void onFood(FoodLevelChangeEvent event){
-		event.setCancelled(true);
+		if(ClassManager.getClass((Player)event.getEntity())!=null){
+			event.setCancelled(true);
+		}
 	}
 	
 	public DyeColor getLowestPlayerTeam(){
