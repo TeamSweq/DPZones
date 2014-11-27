@@ -23,5 +23,6 @@ public class Spectate implements ZonesClass {
 	public static void onUnAssign(Player player){
 		PlayerInventory inventory = player.getInventory();
 		inventory.clear();
+		player.setGameMode(GameMode.SURVIVAL);
 	}
 }
