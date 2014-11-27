@@ -59,6 +59,7 @@ public class Heavy implements ZonesClass {
 	@ClassAssign
 	public static void onAssign(Player player){
 		PlayerInventory inventory = player.getInventory();
+		inventory.clear();
 		inventory.addItem(new ItemStack(Material.DIAMOND_SWORD),
 				new ItemStack(Material.COOKED_BEEF, 3));
 		inventory.setHelmet(new ItemStack(Material.DIAMOND_HELMET));

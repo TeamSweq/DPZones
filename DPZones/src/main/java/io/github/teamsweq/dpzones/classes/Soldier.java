@@ -6,6 +6,7 @@ import io.github.teamsweq.dpzones.ClassManager;
 import io.github.teamsweq.dpzones.ClassUnAssign;
 import io.github.teamsweq.dpzones.ZonesClass;
 
+import org.bukkit.GameMode;
 import org.bukkit.Material;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
@@ -89,6 +90,7 @@ public class Soldier implements ZonesClass {
 	@ClassAssign
 	public static void onAssign(Player player){
 		PlayerInventory inventory = player.getInventory();
+		inventory.clear();
 		inventory.addItem(new ItemStack(Material.IRON_SWORD),
 				new ItemStack(Material.COOKED_BEEF, 4));
 		inventory.setHelmet(new ItemStack(Material.IRON_HELMET));
@@ -96,6 +98,7 @@ public class Soldier implements ZonesClass {
 		inventory.setLeggings(new ItemStack(Material.IRON_LEGGINGS));
 		inventory.setBoots(new ItemStack(Material.IRON_BOOTS));
 		player.setFoodLevel(15);
+		player.setGameMode(GameMode.ADVENTURE);
 	}
 	
 	@ClassUnAssign
