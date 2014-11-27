@@ -43,9 +43,9 @@ public class Medic implements ZonesClass {
 								if(event.getPlayer().getHealth()<event.getPlayer().getMaxHealth()){
 									event.getPlayer().setHealth(Math.min(event.getPlayer().getHealth()+8D, event.getPlayer().getMaxHealth()));
 									if(event.getItem().getAmount()==1){
-										event.getPlayer().getInventory().remove(Material.COOKED_BEEF);
-									}else{
 										event.getPlayer().setItemInHand(null);
+									}else{
+										event.getItem().setAmount(event.getItem().getAmount()-1);
 									}
 								}
 							}

@@ -43,10 +43,10 @@ public class Archer implements ZonesClass {
 							if(event.getItem().getType()==Material.COOKED_BEEF){
 								if(event.getPlayer().getHealth()<event.getPlayer().getMaxHealth()){
 									event.getPlayer().setHealth(Math.min(event.getPlayer().getHealth()+8D, event.getPlayer().getMaxHealth()));
-									if(event.getItem().getAmount()>1){
-										event.getItem().setAmount(event.getItem().getAmount()-1);
-									}else{
+									if(event.getItem().getAmount()==1){
 										event.getPlayer().setItemInHand(null);
+									}else{
+										event.getItem().setAmount(event.getItem().getAmount()-1);
 									}
 								}
 							}
