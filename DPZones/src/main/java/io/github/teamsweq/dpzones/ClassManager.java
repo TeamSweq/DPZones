@@ -55,8 +55,10 @@ public class ClassManager {
 	 */
 	public static Class<? extends ZonesClass> assignClass(Player player, Class<? extends ZonesClass> clazz){
 		Class<? extends ZonesClass> oldClass = getClass(player);
-		removeClass(player, oldClass);
-		invokeMethod(oldClass, "UNASSIGN", player);
+		if(oldClass!=null){
+			removeClass(player, oldClass);
+			invokeMethod(oldClass, "UNASSIGN", player);
+		}
 		List<UUID> players = ClassManager.players.get(clazz);
 		if(players==null){
 			players = new ArrayList<UUID>();
@@ -68,7 +70,9 @@ public class ClassManager {
 	}
 	private static void removeClass(Player player, Class<? extends ZonesClass> clazz){
 		List<UUID> players = ClassManager.players.get(clazz);
-		players.remove(player.getUniqueId());
+		if(players!=null){
+			players.remove(player.getUniqueId());
+		}
 		ClassManager.players.put(clazz, players);
 	}
 	public static void resetClass(Player player){
