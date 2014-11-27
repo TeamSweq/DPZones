@@ -6,6 +6,7 @@ import io.github.teamsweq.dpzones.ClassManager;
 import io.github.teamsweq.dpzones.ClassUnAssign;
 import io.github.teamsweq.dpzones.ZonesClass;
 
+import org.bukkit.GameMode;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -59,6 +60,7 @@ public class Medic implements ZonesClass {
 	@ClassAssign
 	public static void onAssign(Player player){
 		PlayerInventory inventory = player.getInventory();
+		inventory.clear();
 		inventory.addItem(new ItemStack(Material.GOLD_SWORD),
 				new ItemStack(Material.COOKED_BEEF, 6),
 				new ItemStack(Material.SNOW_BALL, 5));
@@ -67,6 +69,7 @@ public class Medic implements ZonesClass {
 		inventory.setLeggings(new ItemStack(Material.GOLD_LEGGINGS));
 		inventory.setBoots(new ItemStack(Material.GOLD_BOOTS));
 		player.setFoodLevel(15);
+		player.setGameMode(GameMode.ADVENTURE);
 	}
 	
 	@ClassUnAssign
