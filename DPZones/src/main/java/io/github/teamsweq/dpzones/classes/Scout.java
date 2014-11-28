@@ -4,6 +4,7 @@ import org.bukkit.GameMode;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.entity.Entity;
+import org.bukkit.entity.Fish;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -11,6 +12,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.EntityDamageEvent.DamageCause;
+import org.bukkit.event.entity.ProjectileLaunchEvent;
 import org.bukkit.event.player.PlayerFishEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.PlayerInventory;
@@ -37,6 +39,7 @@ public class Scout implements ZonesClass {
 					if(ClassManager.getClass(attacker) != null){
 						if(ClassManager.getClass(attacker).equals(Scout.class)){
 							if(attacker.getItemInHand().getType()==Material.STONE_SWORD){
+								System.out.println("HIT: "+event.getEntityType().toString());
 								((LivingEntity) event.getEntity()).addPotionEffect(new PotionEffect(PotionEffectType.POISON, 4, 1, true));
 							}
 						}
@@ -56,6 +59,12 @@ public class Scout implements ZonesClass {
 							}
 						}
 					}
+				}
+			}
+			@EventHandler
+			public void onLaunch(ProjectileLaunchEvent event){
+				if(event.getEntity() instanceof Fish){
+					event.getEntity().setVelocity(event.getEntity().getVelocity().multiply(1.2D));
 				}
 			}
 			@EventHandler
