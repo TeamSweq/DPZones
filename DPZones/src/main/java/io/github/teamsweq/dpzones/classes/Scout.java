@@ -1,9 +1,7 @@
 package io.github.teamsweq.dpzones.classes;
 
-import org.bukkit.ChatColor;
 import org.bukkit.GameMode;
 import org.bukkit.Material;
-import org.bukkit.entity.Arrow;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -11,6 +9,8 @@ import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.PlayerInventory;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.potion.PotionEffect;
+import org.bukkit.potion.PotionEffectType;
 
 import io.github.teamsweq.dpzones.ClassAssign;
 import io.github.teamsweq.dpzones.ClassInit;
@@ -18,29 +18,22 @@ import io.github.teamsweq.dpzones.ClassManager;
 import io.github.teamsweq.dpzones.ClassUnAssign;
 import io.github.teamsweq.dpzones.ZonesClass;
 
-public class Archer implements ZonesClass {
+public class Scout implements ZonesClass {
 	
-	private Archer(){}
+	private Scout(){}
 	
 	@ClassInit
 	public static void onInit(JavaPlugin plugin){
 		plugin.getServer().getPluginManager().registerEvents(new Listener(){
 			@EventHandler
 			public void headshot(EntityDamageByEntityEvent event) {
-				if(event.getEntity() instanceof Player) {
+				if(event.getEntity() instanceof Player && event.getDamager() instanceof Player) {
+					Player attacker = (Player) event.getDamager();
 					Player defender = (Player) event.getEntity();
-					if(event.getDamager() instanceof Arrow) {
-						Arrow arrow = (Arrow) event.getDamager();
-						if(arrow.getShooter() instanceof Player) {
-							Player attacker = (Player) arrow.getShooter();
-							if(ClassManager.getClass(attacker) != null){
-								if(ClassManager.getClass(attacker).equals(Archer.class)) {
-									if(attacker.getLocation().distance(defender.getLocation()) >= 30.0) {
-										event.setDamage(Double.MAX_VALUE);
-										defender.sendMessage(ChatColor.GOLD + "You were headshotted by " + attacker.getDisplayName() + "!");
-										attacker.sendMessage(ChatColor.GOLD + "You headshotted " + defender.getDisplayName() + "!");
-									}
-								}
+					if(ClassManager.getClass(attacker) != null){
+						if(ClassManager.getClass(attacker).equals(Scout.class)){
+							if(attacker.getItemInHand().getType()==Material.STONE_SWORD){
+								defender.addPotionEffect(new PotionEffect(PotionEffectType.POISON, 4, 1, true));
 							}
 						}
 					}
@@ -55,15 +48,14 @@ public class Archer implements ZonesClass {
 		inventory.clear();
 		inventory.addItem(new ItemStack(Material.STONE_SWORD),
 				new ItemStack(Material.COOKED_BEEF, 4),
-				new ItemStack(Material.BOW),
-				new ItemStack(Material.ARROW, 64),
-				new ItemStack(Material.ARROW, 64));
-		inventory.setHelmet(new ItemStack(Material.CHAINMAIL_HELMET));
+				new ItemStack(Material.FISHING_ROD));
+		inventory.setHelmet(new ItemStack(Material.LEATHER_HELMET));
 		inventory.setChestplate(new ItemStack(Material.CHAINMAIL_CHESTPLATE));
 		inventory.setLeggings(new ItemStack(Material.CHAINMAIL_LEGGINGS));
-		inventory.setBoots(new ItemStack(Material.CHAINMAIL_BOOTS));
+		inventory.setBoots(new ItemStack(Material.LEATHER_BOOTS));
 		player.setGameMode(GameMode.ADVENTURE);
 		player.setFoodLevel(15);
+		player.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, Integer.MAX_VALUE, 0, true));
 	}
 	
 	@ClassUnAssign
@@ -71,5 +63,6 @@ public class Archer implements ZonesClass {
 		PlayerInventory inventory = player.getInventory();
 		inventory.clear();
 		player.setGameMode(GameMode.SURVIVAL);
+		player.removePotionEffect(PotionEffectType.SPEED);
 	}
 }
