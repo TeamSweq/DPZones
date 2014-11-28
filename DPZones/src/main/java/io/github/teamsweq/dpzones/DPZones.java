@@ -42,6 +42,9 @@ public class DPZones extends JavaPlugin implements Listener {
 		for(Class<? extends ZonesClass> clazz: clazzes){
 			ClassManager.registerZonesClass(clazz, this);
 		}
+		for(Player player: this.getServer().getOnlinePlayers()){
+			autoAssign(player);
+		}
 	}
 	
 	@Override
@@ -85,8 +88,7 @@ public class DPZones extends JavaPlugin implements Listener {
 	
 	@EventHandler
 	public void onJoin(PlayerJoinEvent event){
-		Teams.assignTeam(getLowestPlayerTeam(), event.getPlayer());
-		ClassManager.assignClass(event.getPlayer(), clazzes.get(0));
+		autoAssign(event.getPlayer());
 	}
 	
 	@EventHandler
@@ -94,6 +96,11 @@ public class DPZones extends JavaPlugin implements Listener {
 		if(ClassManager.getClass((Player)event.getEntity())!=null){
 			event.setCancelled(true);
 		}
+	}
+	
+	public void autoAssign(Player player){
+		Teams.assignTeam(getLowestPlayerTeam(), player);
+		ClassManager.assignClass(player, clazzes.get(0));
 	}
 	
 	public DyeColor getLowestPlayerTeam(){
