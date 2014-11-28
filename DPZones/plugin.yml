@@ -1,4 +1,4 @@
-name: DPZones
+﻿name: DPZones
 main: io.github.teamsweq.dpzones.DPZones
 version: 1.1
 commands:
@@ -24,5 +24,9 @@ commands:
     permission-message: This class is premium!
   soldier:
     description: Soldier
+    permission: dpzones.free
+    permission-message: This class is premium!
+  scout:
+    description: Scout
     permission: dpzones.free
     permission-message: This class is premium!

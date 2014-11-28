@@ -54,7 +54,6 @@ public class Soldier implements ZonesClass {
 					}
 				}
 			}
-			
 		}, plugin);
 	}
 	

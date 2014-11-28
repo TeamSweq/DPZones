@@ -3,6 +3,7 @@ package io.github.teamsweq.dpzones;
 import io.github.teamsweq.dpzones.classes.Archer;
 import io.github.teamsweq.dpzones.classes.Heavy;
 import io.github.teamsweq.dpzones.classes.Medic;
+import io.github.teamsweq.dpzones.classes.Scout;
 import io.github.teamsweq.dpzones.classes.Soldier;
 import io.github.teamsweq.dpzones.classes.Spectate;
 
@@ -34,6 +35,7 @@ public class DPZones extends JavaPlugin implements Listener {
 		clazzes.add(Medic.class);
 		clazzes.add(Archer.class);
 		clazzes.add(Spectate.class);
+		clazzes.add(Scout.class);
 	}
 	@Override
 	public void onEnable(){
