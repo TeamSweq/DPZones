@@ -50,7 +50,7 @@ public class ClassManager {
 								if(event.getPlayer().getHealth()<event.getPlayer().getMaxHealth()){
 									event.getPlayer().setHealth(Math.min(event.getPlayer().getHealth()+8D, event.getPlayer().getMaxHealth()));
 									if(event.getItem().getAmount()==1){
-										event.getPlayer().setItemInHand(null);
+										event.getPlayer().getInventory().removeItem(event.getItem());
 									}else{
 										event.getItem().setAmount(event.getItem().getAmount()-1);
 									}
