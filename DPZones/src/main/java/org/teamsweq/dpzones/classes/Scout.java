@@ -1,4 +1,4 @@
-package io.github.teamsweq.dpzones.classes;
+package org.teamsweq.dpzones.classes;
 
 import org.bukkit.GameMode;
 import org.bukkit.Location;
@@ -21,11 +21,11 @@ import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 import org.bukkit.util.Vector;
 
-import io.github.teamsweq.dpzones.ClassAssign;
-import io.github.teamsweq.dpzones.ClassInit;
-import io.github.teamsweq.dpzones.ClassManager;
-import io.github.teamsweq.dpzones.ClassUnAssign;
-import io.github.teamsweq.dpzones.ZonesClass;
+import org.teamsweq.dpzones.ClassAssign;
+import org.teamsweq.dpzones.ClassInit;
+import org.teamsweq.dpzones.ClassManager;
+import org.teamsweq.dpzones.ClassUnAssign;
+import org.teamsweq.dpzones.ZonesClass;
 
 public class Scout implements ZonesClass {
 	private Scout(){}

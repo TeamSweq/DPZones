@@ -1,5 +1,5 @@
-﻿name: DPZones
-main: io.github.teamsweq.dpzones.DPZones
+name: DPZones
+main: org.teamsweq.dpzones.DPZones
 version: 1.1
 commands:
   team:

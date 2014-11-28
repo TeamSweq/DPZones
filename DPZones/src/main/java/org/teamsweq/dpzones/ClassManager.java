@@ -1,4 +1,4 @@
-package io.github.teamsweq.dpzones;
+package org.teamsweq.dpzones;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;

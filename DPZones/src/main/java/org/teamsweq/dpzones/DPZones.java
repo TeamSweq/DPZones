@@ -1,11 +1,11 @@
-package io.github.teamsweq.dpzones;
+package org.teamsweq.dpzones;
 
-import io.github.teamsweq.dpzones.classes.Archer;
-import io.github.teamsweq.dpzones.classes.Heavy;
-import io.github.teamsweq.dpzones.classes.Medic;
-import io.github.teamsweq.dpzones.classes.Scout;
-import io.github.teamsweq.dpzones.classes.Soldier;
-import io.github.teamsweq.dpzones.classes.Spectate;
+import org.teamsweq.dpzones.classes.Archer;
+import org.teamsweq.dpzones.classes.Heavy;
+import org.teamsweq.dpzones.classes.Medic;
+import org.teamsweq.dpzones.classes.Scout;
+import org.teamsweq.dpzones.classes.Soldier;
+import org.teamsweq.dpzones.classes.Spectate;
 
 import java.util.ArrayList;
 import java.util.List;

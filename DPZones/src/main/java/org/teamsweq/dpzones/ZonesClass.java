@@ -1,4 +1,4 @@
-package io.github.teamsweq.dpzones;
+package org.teamsweq.dpzones;
 
 public interface ZonesClass {
 	//Empty Class

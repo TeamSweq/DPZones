@@ -1,9 +1,9 @@
-package io.github.teamsweq.dpzones.classes;
+package org.teamsweq.dpzones.classes;
 
-import io.github.teamsweq.dpzones.ClassAssign;
-import io.github.teamsweq.dpzones.ClassInit;
-import io.github.teamsweq.dpzones.ClassUnAssign;
-import io.github.teamsweq.dpzones.ZonesClass;
+import org.teamsweq.dpzones.ClassAssign;
+import org.teamsweq.dpzones.ClassInit;
+import org.teamsweq.dpzones.ClassUnAssign;
+import org.teamsweq.dpzones.ZonesClass;
 
 import org.bukkit.GameMode;
 import org.bukkit.Material;

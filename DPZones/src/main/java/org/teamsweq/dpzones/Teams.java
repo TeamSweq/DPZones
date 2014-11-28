@@ -1,4 +1,4 @@
-package io.github.teamsweq.dpzones;
+package org.teamsweq.dpzones;
 
 import java.util.ArrayList;
 import java.util.HashMap;
