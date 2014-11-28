@@ -39,8 +39,9 @@ public class DPZones extends JavaPlugin implements Listener {
 	@Override
 	public void onEnable(){
 		this.getServer().getPluginManager().registerEvents(this, this);
+		ClassManager.init(this);
 		for(Class<? extends ZonesClass> clazz: clazzes){
-			ClassManager.registerZonesClass(clazz, this);
+			ClassManager.registerClass(clazz, this);
 		}
 		for(Player player: this.getServer().getOnlinePlayers()){
 			autoAssign(player);
@@ -60,7 +61,6 @@ public class DPZones extends JavaPlugin implements Listener {
 					}
 				}
 			}
-			
 			Class<? extends ZonesClass> clazz = ClassManager.getClass(command.getName());
 			if(clazz!=null){
 				ClassManager.assignClass(((Player) sender), clazz);
@@ -73,7 +73,7 @@ public class DPZones extends JavaPlugin implements Listener {
 	
 	@Override
 	public void onDisable() {
-		
+		//TODO
 	}
 	
 	@EventHandler

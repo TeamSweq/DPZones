@@ -9,7 +9,13 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
+import org.bukkit.Material;
 import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
+import org.bukkit.event.block.Action;
+import org.bukkit.event.player.PlayerInteractEvent;
+import org.bukkit.event.player.PlayerItemConsumeEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class ClassManager {
@@ -20,11 +26,47 @@ public class ClassManager {
 		clazzes = new HashMap<Class<? extends ZonesClass>, Map<String, List<Method>>>();
 		players = new HashMap<Class<? extends ZonesClass>, List<UUID>>();
 	}
+	
+	/**
+	 * Initializes ClassManager
+	 * @param plugin
+	 */
+	public static void init(JavaPlugin plugin){
+		plugin.getServer().getPluginManager().registerEvents(new Listener(){
+			@EventHandler
+			public void onItemConsume(PlayerItemConsumeEvent event){
+				if(ClassManager.getClass(event.getPlayer())!=null){
+					if(event.getItem().getType()==Material.COOKED_BEEF){
+						event.setCancelled(true);
+					}
+				}
+			}
+			@EventHandler
+			public void onSteak(PlayerInteractEvent event){
+				if(ClassManager.getClass(event.getPlayer())!=null){
+					if(event.getAction()==Action.RIGHT_CLICK_AIR||event.getAction()==Action.RIGHT_CLICK_BLOCK){
+						if(event.getItem()!=null){
+							if(event.getItem().getType()==Material.COOKED_BEEF){
+								if(event.getPlayer().getHealth()<event.getPlayer().getMaxHealth()){
+									event.getPlayer().setHealth(Math.min(event.getPlayer().getHealth()+8D, event.getPlayer().getMaxHealth()));
+									if(event.getItem().getAmount()==1){
+										event.getPlayer().setItemInHand(null);
+									}else{
+										event.getItem().setAmount(event.getItem().getAmount()-1);
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}, plugin);
+	}
 	/**
 	 * Register a class
 	 * @param clazz Class to register
 	 */
-	public static void registerZonesClass(Class<? extends ZonesClass> clazz, JavaPlugin plugin){
+	public static void registerClass(Class<? extends ZonesClass> clazz, JavaPlugin plugin){
 		Map<String, List<Method>> clazzMethods = clazzes.get(clazz);
 		if(clazzMethods==null){
 			clazzMethods = new HashMap<String, List<Method>>();
@@ -75,6 +117,10 @@ public class ClassManager {
 		}
 		ClassManager.players.put(clazz, players);
 	}
+	/**
+	 * Reset Class
+	 * @param player Player
+	 */
 	public static void resetClass(Player player){
 		if(getClass(player)!=null){
 			invokeMethod(getClass(player), "UNASSIGN", player);

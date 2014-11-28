@@ -16,7 +16,6 @@ import org.bukkit.event.block.Action;
 import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.EntityDamageEvent.DamageCause;
 import org.bukkit.event.player.PlayerInteractEvent;
-import org.bukkit.event.player.PlayerItemConsumeEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.PlayerInventory;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -29,38 +28,6 @@ public class Soldier implements ZonesClass {
 	@ClassInit
 	public static void onInit(JavaPlugin plugin){
 		plugin.getServer().getPluginManager().registerEvents(new Listener(){
-			
-			@EventHandler
-			public void onItemConsume(PlayerItemConsumeEvent event){
-				if(ClassManager.getClass(event.getPlayer()).equals(Soldier.class)){
-					if(event.getItem().getType()==Material.COOKED_BEEF){
-						event.setCancelled(true);
-					}
-				}
-			}
-			
-			@EventHandler
-			public void onSteak(PlayerInteractEvent event){
-				if(ClassManager.getClass(event.getPlayer())!=null){
-					if(ClassManager.getClass(event.getPlayer()).equals(Soldier.class)){
-						if(event.getAction()==Action.RIGHT_CLICK_AIR||event.getAction()==Action.RIGHT_CLICK_BLOCK){
-							if(event.getItem()!=null){
-								if(event.getItem().getType()==Material.COOKED_BEEF){
-									if(event.getPlayer().getHealth()<event.getPlayer().getMaxHealth()){
-										event.getPlayer().setHealth(Math.min(event.getPlayer().getHealth()+8D, event.getPlayer().getMaxHealth()));
-										if(event.getItem().getAmount()==1){
-											event.getPlayer().setItemInHand(null);
-										}else{
-											event.getItem().setAmount(event.getItem().getAmount()-1);
-										}
-									}
-								}
-							}
-						}
-					}
-				}
-			}
-			
 			@EventHandler
 			public void soldierSword(PlayerInteractEvent event) {
 				Player player = event.getPlayer();
@@ -74,8 +41,6 @@ public class Soldier implements ZonesClass {
 					}
 				}
 			}
-			
-			//turns off fall damage for soldiers
 			@EventHandler
 			public void fallDamage(EntityDamageEvent event) {
 				Entity player = event.getEntity();
@@ -111,5 +76,6 @@ public class Soldier implements ZonesClass {
 	public static void onUnAssign(Player player){
 		PlayerInventory inventory = player.getInventory();
 		inventory.clear();
+		player.setGameMode(GameMode.SURVIVAL);
 	}
 }

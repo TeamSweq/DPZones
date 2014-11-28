@@ -7,10 +7,7 @@ import org.bukkit.entity.Arrow;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.event.block.Action;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
-import org.bukkit.event.player.PlayerInteractEvent;
-import org.bukkit.event.player.PlayerItemConsumeEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.PlayerInventory;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -29,36 +26,7 @@ public class Archer implements ZonesClass {
 	public static void onInit(JavaPlugin plugin){
 		plugin.getServer().getPluginManager().registerEvents(new Listener(){
 			@EventHandler
-			public void onItemConsume(PlayerItemConsumeEvent event){
-				if(ClassManager.getClass(event.getPlayer()).equals(Archer.class)){
-					if(event.getItem().getType()==Material.COOKED_BEEF){
-						event.setCancelled(true);
-					}
-				}
-			}
-			@EventHandler
-			public void onSteak(PlayerInteractEvent event){
-				if(ClassManager.getClass(event.getPlayer())!=null){
-					if(ClassManager.getClass(event.getPlayer()).equals(Archer.class)){
-						if(event.getAction()==Action.RIGHT_CLICK_AIR||event.getAction()==Action.RIGHT_CLICK_BLOCK){
-							if(event.getItem()!=null){
-								if(event.getItem().getType()==Material.COOKED_BEEF){
-									if(event.getPlayer().getHealth()<event.getPlayer().getMaxHealth()){
-										event.getPlayer().setHealth(Math.min(event.getPlayer().getHealth()+8D, event.getPlayer().getMaxHealth()));
-										if(event.getItem().getAmount()==1){
-											event.getPlayer().setItemInHand(null);
-										}else{
-											event.getItem().setAmount(event.getItem().getAmount()-1);
-										}
-									}
-								}
-							}
-						}
-					}
-				}
-			}
-			@EventHandler
-			public void headShot(EntityDamageByEntityEvent event) {
+			public void headshot(EntityDamageByEntityEvent event) {
 				if(event.getEntity() instanceof Player) {
 					Player defender = (Player) event.getEntity();
 					if(event.getDamager() instanceof Arrow) {
@@ -100,5 +68,6 @@ public class Archer implements ZonesClass {
 	public static void onUnAssign(Player player){
 		PlayerInventory inventory = player.getInventory();
 		inventory.clear();
+		player.setGameMode(GameMode.SURVIVAL);
 	}
 }
