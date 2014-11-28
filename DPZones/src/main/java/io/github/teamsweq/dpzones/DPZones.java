@@ -16,7 +16,6 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.event.entity.FoodLevelChangeEvent;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerRespawnEvent;
@@ -47,7 +46,6 @@ public class DPZones extends JavaPlugin implements Listener {
 			autoAssign(player);
 		}
 	}
-	
 	@Override
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args){
 		if(sender instanceof Player){
@@ -70,39 +68,26 @@ public class DPZones extends JavaPlugin implements Listener {
 		}
 		return false;
 	}
-	
 	@Override
 	public void onDisable() {
 		//TODO
 	}
-	
 	@EventHandler
 	public void onDeath(PlayerDeathEvent event){
 		event.getDrops().clear();
 	}
-	
 	@EventHandler
 	public void onRespawn(PlayerRespawnEvent event){
 		ClassManager.resetClass(event.getPlayer());
 	}
-	
 	@EventHandler
 	public void onJoin(PlayerJoinEvent event){
 		autoAssign(event.getPlayer());
 	}
-	
-	@EventHandler
-	public void onFood(FoodLevelChangeEvent event){
-		if(ClassManager.getClass((Player)event.getEntity())!=null){
-			event.setCancelled(true);
-		}
-	}
-	
 	public void autoAssign(Player player){
 		Teams.assignTeam(getLowestPlayerTeam(), player);
 		ClassManager.assignClass(player, clazzes.get(0));
 	}
-	
 	public DyeColor getLowestPlayerTeam(){
 		DyeColor team = null;
 		int lowest = 0;

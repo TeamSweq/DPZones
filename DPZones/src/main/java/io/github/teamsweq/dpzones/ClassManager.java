@@ -14,6 +14,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
+import org.bukkit.event.entity.FoodLevelChangeEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerItemConsumeEvent;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -58,6 +59,12 @@ public class ClassManager {
 							}
 						}
 					}
+				}
+			}
+			@EventHandler
+			public void onFood(FoodLevelChangeEvent event){
+				if(ClassManager.getClass((Player)event.getEntity())!=null){
+					event.setCancelled(true);
 				}
 			}
 		}, plugin);
