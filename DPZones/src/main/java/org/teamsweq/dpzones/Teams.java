@@ -10,10 +10,13 @@ import org.bukkit.DyeColor;
 import org.bukkit.entity.Player;
 
 public class Teams {
+	
 	private static Map<DyeColor, List<UUID>> players;
+	
 	static{
 		players = new HashMap<DyeColor, List<UUID>>();
 	}
+	
 	private Teams(){}
 	
 	/**
@@ -33,11 +36,13 @@ public class Teams {
 		Teams.players.put(team, players);
 		return oldTeam;
 	}
+	
 	private static void removePlayerFromTeam(DyeColor team, Player player){
 		List<UUID> players = Teams.players.get(team);
 		players.remove(player.getUniqueId());
 		Teams.players.put(team, players);
 	}
+	
 	/**
 	 * 
 	 * @param uuid Player
@@ -56,6 +61,7 @@ public class Teams {
 		}
 		return null;
 	}
+	
 	/**
 	 * 
 	 * @param team Color of Team
@@ -68,6 +74,7 @@ public class Teams {
 		}
 		return -1;
 	}
+	
 	/**
 	 * 
 	 * @param uuid Player
