@@ -88,7 +88,9 @@ public class DPZones extends JavaPlugin implements Listener {
 	public void onDisable() {
 		plugin = null; //Do not put anything below this statement.
 	}
-
+<<<<<<< HEAD
+	
+=======
 	public void setupTeamScoreboard(){
 		ScoreboardManager manager = getServer().getScoreboardManager();
 		scoreboard = manager.getNewScoreboard();
@@ -102,7 +104,7 @@ public class DPZones extends JavaPlugin implements Listener {
 			team.setAllowFriendlyFire(false);
 		}
 	}
-	
+>>>>>>> FETCH_HEAD
 	@EventHandler
 	public void onDeath(PlayerDeathEvent event){
 		event.getDrops().clear();
@@ -123,7 +125,9 @@ public class DPZones extends JavaPlugin implements Listener {
 	public void onJoin(PlayerJoinEvent event){
 		autoAssign(event.getPlayer());
 	}
-
+<<<<<<< HEAD
+	
+=======
 	public void assignTeam(Player player, DyeColor team){
 		if(scoreboard.getPlayerTeam(player)!=null){
 			scoreboard.getPlayerTeam(player).removePlayer(player);
@@ -131,7 +135,7 @@ public class DPZones extends JavaPlugin implements Listener {
 		scoreboard.getTeam(team.toString()).addPlayer(player);
 		Teams.assignTeam(team, player);
 	}
-
+>>>>>>> FETCH_HEAD
 	public void autoAssign(Player player){
 		assignTeam(player, getLowestPlayerTeam());
 		ClassManager.assignClass(player, clazzes.get(0));
