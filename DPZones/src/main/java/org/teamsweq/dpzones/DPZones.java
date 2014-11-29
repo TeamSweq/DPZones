@@ -54,10 +54,10 @@ public class DPZones extends JavaPlugin implements Listener {
 		for(Class<? extends ZonesClass> clazz: clazzes){
 			ClassManager.registerClass(clazz, this);
 		}
+		setupTeamScoreboard();
 		for(Player player: this.getServer().getOnlinePlayers()){
 			autoAssign(player);
 		}
-		setupTeamScoreboard();
 	}
 	
 	@Override
