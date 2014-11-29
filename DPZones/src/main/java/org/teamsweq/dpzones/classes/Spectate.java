@@ -1,12 +1,12 @@
 package org.teamsweq.dpzones.classes;
 
-import org.teamsweq.dpzones.ClassAssign;
-import org.teamsweq.dpzones.ClassUnAssign;
-import org.teamsweq.dpzones.ZonesClass;
-
+import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.PlayerInventory;
+import org.teamsweq.dpzones.ClassAssign;
+import org.teamsweq.dpzones.ClassUnAssign;
+import org.teamsweq.dpzones.ZonesClass;
 
 public class Spectate implements ZonesClass {
 	
@@ -17,6 +17,10 @@ public class Spectate implements ZonesClass {
 		PlayerInventory inventory = player.getInventory();
 		inventory.clear();
 		player.setGameMode(GameMode.CREATIVE);
+		for (Player players : Bukkit.getOnlinePlayers()) {
+			//Going to make it so people with certain permissions or other spectators can see eachother
+			players.hidePlayer(player);
+		}
 	}
 	
 	@ClassUnAssign

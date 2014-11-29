@@ -23,12 +23,16 @@ import org.bukkit.event.player.PlayerRespawnEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class DPZones extends JavaPlugin implements Listener {
+	
+	public static DPZones plugin;
+	
 	private static final List<Class<? extends ZonesClass>> clazzes;
 	private static final DyeColor[] teamColors = new DyeColor[]{
 		DyeColor.RED, 
 		DyeColor.BLUE
 	};
-	static{
+	
+	static {
 		clazzes = new ArrayList<Class<? extends ZonesClass>>();
 		clazzes.add(Heavy.class);
 		clazzes.add(Soldier.class);
@@ -37,8 +41,10 @@ public class DPZones extends JavaPlugin implements Listener {
 		clazzes.add(Spectate.class);
 		clazzes.add(Scout.class);
 	}
+	
 	@Override
 	public void onEnable(){
+		plugin = this; //Do not put anything above this statement
 		this.getServer().getPluginManager().registerEvents(this, this);
 		ClassManager.init(this);
 		for(Class<? extends ZonesClass> clazz: clazzes){
@@ -48,6 +54,7 @@ public class DPZones extends JavaPlugin implements Listener {
 			autoAssign(player);
 		}
 	}
+	
 	@Override
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args){
 		if(sender instanceof Player){
@@ -70,26 +77,38 @@ public class DPZones extends JavaPlugin implements Listener {
 		}
 		return false;
 	}
+	
 	@Override
 	public void onDisable() {
-		//TODO
+		plugin = null; //Do not put anything below this statement.
 	}
+	
 	@EventHandler
 	public void onDeath(PlayerDeathEvent event){
 		event.getDrops().clear();
+		final Player player = event.getEntity();
+				plugin.getServer().getScheduler().scheduleSyncDelayedTask(plugin, new Runnable(){ 
+					public void run() {
+				    if(player.isDead())
+				        player.setHealth(20);
+		}});
 	}
+	
 	@EventHandler
 	public void onRespawn(PlayerRespawnEvent event){
 		ClassManager.resetClass(event.getPlayer());
 	}
+	
 	@EventHandler
 	public void onJoin(PlayerJoinEvent event){
 		autoAssign(event.getPlayer());
 	}
+	
 	public void autoAssign(Player player){
 		Teams.assignTeam(getLowestPlayerTeam(), player);
 		ClassManager.assignClass(player, clazzes.get(0));
 	}
+	
 	public DyeColor getLowestPlayerTeam(){
 		DyeColor team = null;
 		int lowest = 0;
