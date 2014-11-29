@@ -106,12 +106,6 @@ public class DPZones extends JavaPlugin implements Listener {
 	@EventHandler
 	public void onDeath(PlayerDeathEvent event){
 		event.getDrops().clear();
-		final Player player = event.getEntity();
-				plugin.getServer().getScheduler().scheduleSyncDelayedTask(plugin, new Runnable(){ 
-					public void run() {
-				    if(player.isDead())
-				        player.setHealth(20);
-		}});
 	}
 	
 	@EventHandler

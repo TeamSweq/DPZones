@@ -63,7 +63,7 @@ public class Scout implements ZonesClass {
 			@EventHandler
 			public void onLaunch(ProjectileLaunchEvent event){
 				if(event.getEntity() instanceof Fish){
-					event.getEntity().setVelocity(event.getEntity().getVelocity().multiply(3D).setY(event.getEntity().getVelocity().getY()));
+					event.getEntity().setVelocity(event.getEntity().getVelocity().multiply(1.8D).setY(event.getEntity().getVelocity().multiply(1.65D).getY()));
 				}
 			}
 			@EventHandler
@@ -107,7 +107,7 @@ public class Scout implements ZonesClass {
 		for(int x=-1;x<=1;++x){
 			for(int y=-1;y<=1;++y){
 				for(int z=-1;z<=1;++z){
-					if(location.add(x, y, z).getBlock().getType()!=Material.AIR){
+					if(location.add(x, y, z).getBlock().getType().isSolid()){
 						return true;
 					}
 				}
