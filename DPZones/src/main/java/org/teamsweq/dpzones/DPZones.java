@@ -21,9 +21,13 @@ import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerRespawnEvent;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.scoreboard.Scoreboard;
+import org.bukkit.scoreboard.ScoreboardManager;
+import org.bukkit.scoreboard.Team;
 
 public class DPZones extends JavaPlugin implements Listener {
 	private static final List<Class<? extends ZonesClass>> clazzes;
+	private static Scoreboard scoreboard;
 	private static final DyeColor[] teamColors = new DyeColor[]{
 		DyeColor.RED, 
 		DyeColor.BLUE
@@ -47,15 +51,17 @@ public class DPZones extends JavaPlugin implements Listener {
 		for(Player player: this.getServer().getOnlinePlayers()){
 			autoAssign(player);
 		}
+		setupTeamScoreboard();
 	}
 	@Override
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args){
 		if(sender instanceof Player){
+			Player player = (Player)sender;
 			if(command.getName().equalsIgnoreCase("team")){
 				if(args.length>0){
 					DyeColor color = DyeColor.valueOf(args[0].toUpperCase());
 					if(color!=null){
-						Teams.assignTeam(color, (Player)sender);
+						assignTeam(player, color);
 						sender.sendMessage(ChatColor.AQUA + "You are now on team: "+color.toString().toLowerCase());
 						return true;
 					}
@@ -63,7 +69,7 @@ public class DPZones extends JavaPlugin implements Listener {
 			}
 			Class<? extends ZonesClass> clazz = ClassManager.getClass(command.getName());
 			if(clazz!=null){
-				ClassManager.assignClass(((Player) sender), clazz);
+				ClassManager.assignClass(player, clazz);
 				sender.sendMessage(ChatColor.AQUA + "You are now a(n) " + command.getName().toLowerCase() + "!");
 				return true;
 			}
@@ -73,6 +79,19 @@ public class DPZones extends JavaPlugin implements Listener {
 	@Override
 	public void onDisable() {
 		//TODO
+	}
+	public void setupTeamScoreboard(){
+		ScoreboardManager manager = getServer().getScoreboardManager();
+		scoreboard = manager.getNewScoreboard();
+		for(DyeColor teamColor: teamColors){
+			Team team = scoreboard.registerNewTeam(teamColor.toString());
+			for(Player player: getServer().getOnlinePlayers()){
+				team.addPlayer(player);
+			}
+			team.setPrefix(ChatColor.valueOf(teamColor.toString()).toString());
+			team.setCanSeeFriendlyInvisibles(true);
+			team.setAllowFriendlyFire(false);
+		}
 	}
 	@EventHandler
 	public void onDeath(PlayerDeathEvent event){
@@ -86,8 +105,15 @@ public class DPZones extends JavaPlugin implements Listener {
 	public void onJoin(PlayerJoinEvent event){
 		autoAssign(event.getPlayer());
 	}
+	public void assignTeam(Player player, DyeColor team){
+		if(scoreboard.getPlayerTeam(player)!=null){
+			scoreboard.getPlayerTeam(player).removePlayer(player);
+		}
+		scoreboard.getTeam(team.toString()).addPlayer(player);
+		Teams.assignTeam(team, player);
+	}
 	public void autoAssign(Player player){
-		Teams.assignTeam(getLowestPlayerTeam(), player);
+		assignTeam(player, getLowestPlayerTeam());
 		ClassManager.assignClass(player, clazzes.get(0));
 	}
 	public DyeColor getLowestPlayerTeam(){
