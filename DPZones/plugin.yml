@@ -1,0 +1,32 @@
+name: DPZones
+main: org.teamsweq.dpzones.DPZones
+version: 1.1
+commands:
+  team:
+    description: Team
+    permission: dpzones.team
+    permission-message: You're spectating!
+  spectate:
+    description: Spectate
+    permission: dpzones.spectate
+    permission-message: You cannot do that!
+  heavy:
+    description: Heavy
+    permission: dpzones.free
+    permission-message: This class is premium!
+  archer:
+    description: Archer
+    permission: dpzones.free
+    permission-message: This class is premium!
+  medic:
+    description: Medic
+    permission: dpzones.free
+    permission-message: This class is premium!
+  soldier:
+    description: Soldier
+    permission: dpzones.free
+    permission-message: This class is premium!
+  scout:
+    description: Scout
+    permission: dpzones.free
+    permission-message: This class is premium!
