@@ -39,8 +39,7 @@ public class Scout implements ZonesClass {
 					if(ClassManager.getClass(attacker) != null){
 						if(ClassManager.getClass(attacker).equals(Scout.class)){
 							if(attacker.getItemInHand().getType()==Material.STONE_SWORD){
-								System.out.println("HIT: "+event.getEntityType().toString());
-								((LivingEntity) event.getEntity()).addPotionEffect(new PotionEffect(PotionEffectType.POISON, 4, 1, true));
+								((LivingEntity) event.getEntity()).addPotionEffect(new PotionEffect(PotionEffectType.POISON, 4*20, 1, true));
 							}
 						}
 					}
@@ -64,7 +63,7 @@ public class Scout implements ZonesClass {
 			@EventHandler
 			public void onLaunch(ProjectileLaunchEvent event){
 				if(event.getEntity() instanceof Fish){
-					event.getEntity().setVelocity(event.getEntity().getVelocity().multiply(1.2D));
+					event.getEntity().setVelocity(event.getEntity().getVelocity().multiply(3D).setY(event.getEntity().getVelocity().getY()));
 				}
 			}
 			@EventHandler
