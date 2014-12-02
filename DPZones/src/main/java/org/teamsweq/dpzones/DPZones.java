@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
+import java.util.UUID;
 
-import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.DyeColor;
 import org.bukkit.Location;
@@ -69,20 +69,24 @@ public class DPZones extends JavaPlugin implements Listener {
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args){
 		if(sender instanceof Player){
 			Player player = (Player)sender;
+			UUID uuid = player.getUniqueId();
 			if(command.getName().equalsIgnoreCase("team")){
 				if(args.length>0){
 					DyeColor color = DyeColor.valueOf(args[0].toUpperCase());
-					if(color!=null){
+					int lowest = 0;
+					if(color!=null && Teams.getTeamSize(Teams.getTeam(uuid))<=lowest){
 						assignTeam(player, color);
-						sender.sendMessage(ChatColor.AQUA + "You are now on team: "+color.toString().toLowerCase());
+						sender.sendMessage(ChatColor.AQUA + "You are now on the " + color.toString().toLowerCase() + " team!");
 						return true;
 					}
+				} else if (args.length == 0) {
+					sender.sendMessage(ChatColor.AQUA + "You are currently on the " + Teams.getTeam(uuid).toString().toLowerCase() + " team!");
 				}
 			}
 			Class<? extends ZonesClass> clazz = ClassManager.getClass(command.getName());
 			if(clazz!=null){
 				ClassManager.assignClass(player, clazz);
-				sender.sendMessage(ChatColor.AQUA + "You are now a(n) " + command.getName().toLowerCase() + "!");
+				sender.sendMessage(ChatColor.AQUA + "You have chosen the " + command.getName().toLowerCase() + " class!");
 				return true;
 			}
 		}

@@ -1,0 +1,190 @@
+package org.teamsweq.dpzones;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Random;
+import java.util.UUID;
+
+import org.bukkit.ChatColor;
+import org.bukkit.DyeColor;
+import org.bukkit.Location;
+import org.bukkit.Material;
+import org.bukkit.block.Block;
+import org.bukkit.block.BlockFace;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
+import org.bukkit.event.entity.PlayerDeathEvent;
+import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.scoreboard.Scoreboard;
+import org.bukkit.scoreboard.ScoreboardManager;
+import org.bukkit.scoreboard.Team;
+import org.teamsweq.dpzones.classes.Archer;
+import org.teamsweq.dpzones.classes.Heavy;
+import org.teamsweq.dpzones.classes.Medic;
+import org.teamsweq.dpzones.classes.Scout;
+import org.teamsweq.dpzones.classes.Soldier;
+import org.teamsweq.dpzones.classes.Spectate;
+
+public class DPZones extends JavaPlugin implements Listener {
+	
+	public static DPZones plugin;
+	
+	private static final List<Class<? extends ZonesClass>> clazzes;
+	private static Scoreboard scoreboard;
+	private static final DyeColor[] teamColors = new DyeColor[]{
+		DyeColor.RED, 
+		DyeColor.BLUE
+	};
+	
+	static {
+		clazzes = new ArrayList<Class<? extends ZonesClass>>();
+		clazzes.add(Heavy.class);
+		clazzes.add(Soldier.class);
+		clazzes.add(Medic.class);
+		clazzes.add(Archer.class);
+		clazzes.add(Spectate.class);
+		clazzes.add(Scout.class);
+	}
+	
+	@Override
+	public void onEnable(){
+		plugin = this; //Do not put anything above this statement
+		this.getServer().getPluginManager().registerEvents(this, this);
+		ClassManager.init(this);
+		for(Class<? extends ZonesClass> clazz: clazzes){
+			ClassManager.registerClass(clazz, this);
+		}
+		setupTeamScoreboard();
+		for(Player player: this.getServer().getOnlinePlayers()){
+			autoAssign(player);
+		}
+	}
+	
+	@Override
+	public boolean onCommand(CommandSender sender, Command command, String label, String[] args){
+		if(sender instanceof Player){
+			Player player = (Player)sender;
+			UUID uuid = player.getUniqueId();
+			if(command.getName().equalsIgnoreCase("team")){
+				if(args.length>0){
+					DyeColor color = DyeColor.valueOf(args[0].toUpperCase());
+					int lowest = 0;
+					if(color!=null && Teams.getTeamSize(Teams.getTeam(uuid))<=lowest){
+						lowest = Teams.getTeamSize(color);
+						assignTeam(player, color);
+						sender.sendMessage(ChatColor.AQUA + "You are now on the " + color.toString().toLowerCase() + " team!");
+						return true;
+					} 
+				} else if (args.length == 0) {
+					sender.sendMessage(ChatColor.AQUA + "You are currently on the " + Teams.getTeam(uuid).toString().toLowerCase() + " team!");
+				}
+			}
+			Class<? extends ZonesClass> clazz = ClassManager.getClass(command.getName());
+			if(clazz!=null){
+				ClassManager.assignClass(player, clazz);
+				sender.sendMessage(ChatColor.AQUA + "You have chosen the " + command.getName().toLowerCase() + " class!");
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	@Override
+	public void onDisable() {
+		plugin = null; //Do not put anything below this statement.
+	}
+
+	public void setupTeamScoreboard(){
+		ScoreboardManager manager = getServer().getScoreboardManager();
+		scoreboard = manager.getNewScoreboard();
+		for(DyeColor teamColor: teamColors){
+			Team team = scoreboard.registerNewTeam(teamColor.toString());
+			for(Player player: getServer().getOnlinePlayers()){
+				team.addPlayer(player);
+			}
+			team.setPrefix(ChatColor.valueOf(teamColor.toString()).toString());
+			team.setCanSeeFriendlyInvisibles(true);
+			team.setAllowFriendlyFire(false);
+		}
+	}
+	
+	@EventHandler
+	public void onDeath(final PlayerDeathEvent event){
+		final Player player = event.getEntity();
+		final Location spawnLocation = new Location(player.getWorld(), 0, 0, 0);
+		//Randomizes the spawnLocation
+		Random r = new Random();
+		int x = r.nextInt(1000);
+		int z = r.nextInt(1000);
+		spawnLocation.setX(x);
+		spawnLocation.setZ(z);
+		spawnLocation.setY(player.getWorld().getHighestBlockAt(spawnLocation.getBlockX(), spawnLocation.getBlockZ() ).getY() ); // Get the Highest Block for a safe spawn
+		
+		event.getDrops().clear();
+		player.setHealth(20);
+		player.teleport(spawnLocation);
+	}
+	
+/*
+ * checks if a certain location is safe to teleport to
+ * @param location The location to check
+ * @return true if it's safe, otherwise false
+ */
+	public boolean isSafe(Location location) {
+		Block feet = location.getBlock();
+		Block head = feet.getRelative(BlockFace.UP);
+		Block below = feet.getRelative(BlockFace.DOWN);
+		//Blocks the player is allowed to spawn in
+		ArrayList<Material> canSpawnIn = new ArrayList<Material>(Arrays.asList(Material.WOOD_DOOR, Material.WOODEN_DOOR, Material.SIGN_POST, Material.WALL_SIGN, Material.STONE_PLATE, Material.WOOD_PLATE, Material.IRON_DOOR_BLOCK, Material.TRAP_DOOR, Material.REDSTONE_LAMP_OFF, Material.DRAGON_EGG, Material.GOLD_PLATE, Material.IRON_PLATE, Material.AIR));
+		//Blocks the player isn't allowed to spawn on top of
+		ArrayList<Material> cannotSpawnOn = new ArrayList<Material>(Arrays.asList(Material.PISTON_EXTENSION, Material.LEAVES, Material.LEAVES_2, Material.WATER, Material.STATIONARY_WATER, Material.SIGN_POST, Material.WALL_SIGN, Material.STONE_PLATE, Material.WOOD_PLATE, Material.GOLD_PLATE, Material.IRON_PLATE, Material.IRON_DOOR_BLOCK, Material.TRAP_DOOR, Material.WOOL, Material.STATIONARY_LAVA, Material.LAVA, Material.CACTUS, Material.BEACON, Material.AIR));
+		if ((feet.getType().isSolid() && !canSpawnIn.contains(feet.getType())) || feet.isLiquid()) {
+			return false;
+		} else if ((head.getType().isSolid() && !canSpawnIn.contains(below.getType())) || head.isLiquid()) {
+			return false;
+		} else if (!below.getType().isSolid() || cannotSpawnOn.contains(below.getType()) || below.isLiquid()) {
+			return false;
+		}
+		return true;
+	}
+	
+	@EventHandler
+	public void onJoin(PlayerJoinEvent event){
+		autoAssign(event.getPlayer());
+	}
+
+	public void assignTeam(Player player, DyeColor team){
+		if(scoreboard.getPlayerTeam(player)!=null){
+			scoreboard.getPlayerTeam(player).removePlayer(player);
+		}
+		scoreboard.getTeam(team.toString()).addPlayer(player);
+		Teams.assignTeam(team, player);
+	}
+
+	public void autoAssign(Player player){
+		assignTeam(player, getLowestPlayerTeam());
+		ClassManager.assignClass(player, clazzes.get(0));
+	}
+	
+	public DyeColor getLowestPlayerTeam(){
+		DyeColor team = null;
+		int lowest = 0;
+		for(DyeColor color: teamColors){
+			if(Teams.getTeamSize(color)<lowest){
+				team = color;
+				lowest = Teams.getTeamSize(color);
+			}
+			if(Teams.getTeamSize(color)==lowest){
+				if(Math.random()<=0.5D){
+					team = color;
+				}
+			}
+		}
+		return team;
+	}
+}

@@ -1,0 +1,27 @@
+name: DPZones
+main: org.teamsweq.dpzones.DPZones
+version: 0.11
+commands:
+  team:
+    description: Switch your team or find out what team you're on!
+    permission-message: You're spectating!
+  spectate:
+    description: Become invisible to watch the game!
+    permission: dpzones.mod
+    permission-message: You cannot do that!
+  heavy:
+    description: This is the Heavy class!
+    permission-message: This class is premium!
+  archer:
+    description: This is the Archer class!
+    permission-message: This class is premium!
+  medic:
+    description: This is the Medic class!
+    permission-message: This class is premium!
+  soldier:
+    description: This is the Soldier class!
+    permission-message: This class is premium!
+  scout:
+    description: This is the Scout class!
+    permission: dpzones.scout
+    permission-message: This class is premium!

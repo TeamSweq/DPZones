@@ -367,3 +367,172 @@
 2014-11-29 03:07:20,128 [Worker-39] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
 2014-11-29 03:07:20,130 [Worker-39] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (US-ASCII actually) to copy filtered resources, i.e. build is platform dependent!
 2014-11-29 03:07:20,130 [Worker-39] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2014-12-01 21:16:18,422 [Worker-78] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: org.teamsweq:DPZones:0.0.1-SNAPSHOT @ /Users/Josh/TeamSweq/DPZones/DPZones/pom.xml.
+2014-12-01 21:16:18,704 [Worker-78] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (US-ASCII actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-01 21:16:18,705 [Worker-78] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2014-12-01 21:16:18,709 [Worker-78] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (US-ASCII actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-01 21:16:18,710 [Worker-78] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Josh/TeamSweq/DPZones/DPZones/src/test/resources
+2014-12-01 21:24:03,304 [Worker-6] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (US-ASCII actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-01 21:24:03,317 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2014-12-01 21:24:03,330 [Worker-6] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (US-ASCII actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-01 21:24:03,331 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Josh/TeamSweq/DPZones/DPZones/src/test/resources
+2014-12-01 22:13:45,338 [Worker-1] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (US-ASCII actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-01 22:13:45,348 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2014-12-01 22:13:45,352 [Worker-1] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (US-ASCII actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-01 22:13:45,353 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Josh/TeamSweq/DPZones/DPZones/src/test/resources
+2014-12-01 22:22:25,434 [Worker-15] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (US-ASCII actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-01 22:22:25,436 [Worker-15] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2014-12-01 22:22:25,439 [Worker-15] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (US-ASCII actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-01 22:22:25,440 [Worker-15] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Josh/TeamSweq/DPZones/DPZones/src/test/resources
+2014-12-01 22:22:30,555 [Worker-15] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (US-ASCII actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-01 22:22:30,556 [Worker-15] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2014-12-01 22:22:30,560 [Worker-15] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (US-ASCII actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-01 22:22:30,561 [Worker-15] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Josh/TeamSweq/DPZones/DPZones/src/test/resources
+2014-12-01 22:22:47,552 [Worker-16] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (US-ASCII actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-01 22:22:47,554 [Worker-16] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2014-12-01 22:22:47,557 [Worker-16] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (US-ASCII actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-01 22:22:47,557 [Worker-16] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Josh/TeamSweq/DPZones/DPZones/src/test/resources
+2014-12-01 22:23:36,310 [Worker-13] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (US-ASCII actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-01 22:23:36,312 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2014-12-01 22:23:36,315 [Worker-13] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (US-ASCII actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-01 22:23:36,315 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Josh/TeamSweq/DPZones/DPZones/src/test/resources
+2014-12-01 22:23:42,482 [Worker-17] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (US-ASCII actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-01 22:23:42,484 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2014-12-01 22:23:42,487 [Worker-17] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (US-ASCII actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-01 22:23:42,487 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Josh/TeamSweq/DPZones/DPZones/src/test/resources
+2014-12-01 22:23:58,211 [Worker-16] INFO  o.e.m.i.launch.MavenLaunchDelegate - /Users/Josh/TeamSweq/DPZones/DPZones
+2014-12-01 22:23:58,211 [Worker-16] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn  -B clean
+2014-12-01 22:24:26,117 [Worker-14] INFO  o.e.m.i.launch.MavenLaunchDelegate - /Users/Josh/TeamSweq/DPZones/DPZones
+2014-12-01 22:24:26,117 [Worker-14] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn  -B install
+2014-12-01 22:44:11,038 [Worker-23] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (US-ASCII actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-01 22:44:11,040 [Worker-23] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2014-12-01 22:44:11,042 [Worker-23] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (US-ASCII actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-01 22:44:11,043 [Worker-23] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Josh/TeamSweq/DPZones/DPZones/src/test/resources
+2014-12-01 22:44:12,059 [Worker-22] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (US-ASCII actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-01 22:44:12,060 [Worker-22] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2014-12-01 22:44:12,062 [Worker-22] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (US-ASCII actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-01 22:44:12,062 [Worker-22] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Josh/TeamSweq/DPZones/DPZones/src/test/resources
+2014-12-01 22:45:29,050 [Worker-19] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (US-ASCII actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-01 22:45:29,051 [Worker-19] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2014-12-01 22:45:29,055 [Worker-19] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (US-ASCII actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-01 22:45:29,055 [Worker-19] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Josh/TeamSweq/DPZones/DPZones/src/test/resources
+2014-12-01 22:45:52,371 [Worker-19] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (US-ASCII actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-01 22:45:52,372 [Worker-19] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2014-12-01 22:45:52,374 [Worker-19] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (US-ASCII actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-01 22:45:52,375 [Worker-19] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Josh/TeamSweq/DPZones/DPZones/src/test/resources
+2014-12-01 22:46:25,794 [Worker-23] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (US-ASCII actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-01 22:46:25,796 [Worker-23] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2014-12-01 22:46:25,798 [Worker-23] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (US-ASCII actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-01 22:46:25,798 [Worker-23] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Josh/TeamSweq/DPZones/DPZones/src/test/resources
+2014-12-01 22:48:36,350 [Worker-25] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (US-ASCII actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-01 22:48:36,352 [Worker-25] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2014-12-01 22:48:36,353 [Worker-25] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (US-ASCII actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-01 22:48:36,353 [Worker-25] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Josh/TeamSweq/DPZones/DPZones/src/test/resources
+2014-12-01 22:52:31,685 [Worker-27] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (US-ASCII actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-01 22:52:31,686 [Worker-27] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2014-12-01 22:52:31,688 [Worker-27] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (US-ASCII actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-01 22:52:31,688 [Worker-27] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Josh/TeamSweq/DPZones/DPZones/src/test/resources
+2014-12-01 22:55:10,761 [Worker-22] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (US-ASCII actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-01 22:55:10,763 [Worker-22] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2014-12-01 22:55:10,767 [Worker-22] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (US-ASCII actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-01 22:55:10,768 [Worker-22] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Josh/TeamSweq/DPZones/DPZones/src/test/resources
+2014-12-01 22:56:58,744 [Worker-31] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (US-ASCII actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-01 22:56:58,746 [Worker-31] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2014-12-01 22:56:58,749 [Worker-31] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (US-ASCII actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-01 22:56:58,750 [Worker-31] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Josh/TeamSweq/DPZones/DPZones/src/test/resources
+2014-12-01 22:57:05,772 [Worker-31] INFO  o.e.m.i.launch.MavenLaunchDelegate - /Users/Josh/TeamSweq/DPZones/DPZones
+2014-12-01 22:57:05,772 [Worker-31] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn  -B clean
+2014-12-01 22:57:23,697 [Worker-22] INFO  o.e.m.i.launch.MavenLaunchDelegate - /Users/Josh/TeamSweq/DPZones/DPZones
+2014-12-01 22:57:23,697 [Worker-22] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn  -B install
+2014-12-01 22:58:25,933 [Worker-22] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (US-ASCII actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-01 22:58:25,934 [Worker-22] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2014-12-01 22:58:25,936 [Worker-22] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (US-ASCII actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-01 22:58:25,936 [Worker-22] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Josh/TeamSweq/DPZones/DPZones/src/test/resources
+2014-12-01 22:58:26,948 [Worker-30] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (US-ASCII actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-01 22:58:26,950 [Worker-30] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2014-12-01 22:58:26,952 [Worker-30] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (US-ASCII actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-01 22:58:26,953 [Worker-30] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Josh/TeamSweq/DPZones/DPZones/src/test/resources
+2014-12-01 22:59:02,366 [Worker-25] INFO  o.e.m.i.launch.MavenLaunchDelegate - /Users/Josh/TeamSweq/DPZones/DPZones
+2014-12-01 22:59:02,366 [Worker-25] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn  -B clean
+2014-12-01 22:59:22,944 [Worker-27] INFO  o.e.m.i.launch.MavenLaunchDelegate - /Users/Josh/TeamSweq/DPZones/DPZones
+2014-12-01 22:59:22,945 [Worker-27] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn  -B install
+2014-12-01 22:59:28,972 [Worker-27] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (US-ASCII actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-01 22:59:28,974 [Worker-27] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2014-12-01 22:59:28,977 [Worker-27] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (US-ASCII actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-01 22:59:28,978 [Worker-27] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Josh/TeamSweq/DPZones/DPZones/src/test/resources
+2014-12-01 23:05:33,950 [Worker-34] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (US-ASCII actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-01 23:05:33,951 [Worker-34] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2014-12-01 23:05:33,953 [Worker-34] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (US-ASCII actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-01 23:05:33,954 [Worker-34] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Josh/TeamSweq/DPZones/DPZones/src/test/resources
+2014-12-01 23:06:05,309 [Worker-33] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (US-ASCII actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-01 23:06:05,310 [Worker-33] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2014-12-01 23:06:05,311 [Worker-33] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (US-ASCII actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-01 23:06:05,311 [Worker-33] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Josh/TeamSweq/DPZones/DPZones/src/test/resources
+2014-12-01 23:07:23,911 [Worker-37] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (US-ASCII actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-01 23:07:23,912 [Worker-37] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2014-12-01 23:07:23,913 [Worker-37] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (US-ASCII actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-01 23:07:23,914 [Worker-37] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Josh/TeamSweq/DPZones/DPZones/src/test/resources
+2014-12-01 23:07:39,622 [Worker-33] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (US-ASCII actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-01 23:07:39,623 [Worker-33] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2014-12-01 23:07:39,626 [Worker-33] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (US-ASCII actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-01 23:07:39,929 [Worker-33] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Josh/TeamSweq/DPZones/DPZones/src/test/resources
+2014-12-01 23:07:45,194 [Worker-37] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (US-ASCII actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-01 23:07:45,195 [Worker-37] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2014-12-01 23:07:45,198 [Worker-37] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (US-ASCII actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-01 23:07:45,199 [Worker-37] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Josh/TeamSweq/DPZones/DPZones/src/test/resources
+2014-12-01 23:12:53,181 [Worker-33] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (US-ASCII actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-01 23:12:53,182 [Worker-33] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2014-12-01 23:12:53,184 [Worker-33] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (US-ASCII actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-01 23:12:53,184 [Worker-33] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Josh/TeamSweq/DPZones/DPZones/src/test/resources
+2014-12-01 23:15:21,579 [Worker-43] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (US-ASCII actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-01 23:15:21,580 [Worker-43] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2014-12-01 23:15:21,583 [Worker-43] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (US-ASCII actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-01 23:15:21,584 [Worker-43] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Josh/TeamSweq/DPZones/DPZones/src/test/resources
+2014-12-01 23:15:35,835 [Worker-45] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (US-ASCII actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-01 23:15:35,836 [Worker-45] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2014-12-01 23:15:35,837 [Worker-45] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (US-ASCII actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-01 23:15:35,837 [Worker-45] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Josh/TeamSweq/DPZones/DPZones/src/test/resources
+2014-12-01 23:16:42,056 [Worker-33] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (US-ASCII actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-01 23:16:42,058 [Worker-33] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2014-12-01 23:16:42,060 [Worker-33] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (US-ASCII actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-01 23:16:42,061 [Worker-33] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Josh/TeamSweq/DPZones/DPZones/src/test/resources
+2014-12-01 23:16:48,951 [Worker-45] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (US-ASCII actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-01 23:16:48,953 [Worker-45] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2014-12-01 23:16:48,955 [Worker-45] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (US-ASCII actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-01 23:16:48,956 [Worker-45] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Josh/TeamSweq/DPZones/DPZones/src/test/resources
+2014-12-01 23:16:53,448 [Worker-43] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (US-ASCII actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-01 23:16:53,449 [Worker-43] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2014-12-01 23:16:53,450 [Worker-43] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (US-ASCII actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-01 23:16:53,451 [Worker-43] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Josh/TeamSweq/DPZones/DPZones/src/test/resources
+2014-12-01 23:17:02,054 [Worker-45] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (US-ASCII actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-01 23:17:02,056 [Worker-45] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2014-12-01 23:17:02,058 [Worker-45] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (US-ASCII actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-01 23:17:02,059 [Worker-45] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Josh/TeamSweq/DPZones/DPZones/src/test/resources
+2014-12-01 23:17:13,258 [Worker-45] INFO  o.e.m.i.launch.MavenLaunchDelegate - /Users/Josh/TeamSweq/DPZones/DPZones
+2014-12-01 23:17:13,258 [Worker-45] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn  -B clean
+2014-12-01 23:17:16,034 [Worker-33] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (US-ASCII actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-01 23:17:16,036 [Worker-33] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2014-12-01 23:17:16,043 [Worker-33] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (US-ASCII actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-01 23:17:16,044 [Worker-33] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Josh/TeamSweq/DPZones/DPZones/src/test/resources
+2014-12-01 23:17:18,301 [Worker-46] INFO  o.e.m.i.launch.MavenLaunchDelegate - /Users/Josh/TeamSweq/DPZones/DPZones
+2014-12-01 23:17:18,302 [Worker-46] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn  -B install
+2014-12-01 23:17:24,713 [Worker-43] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (US-ASCII actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-01 23:17:24,715 [Worker-43] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2014-12-01 23:17:24,718 [Worker-43] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (US-ASCII actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-01 23:17:24,719 [Worker-43] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Josh/TeamSweq/DPZones/DPZones/src/test/resources
+2014-12-01 23:18:25,980 [Worker-43] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (US-ASCII actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-01 23:18:25,981 [Worker-43] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2014-12-01 23:18:25,983 [Worker-43] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (US-ASCII actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-01 23:18:25,984 [Worker-43] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Josh/TeamSweq/DPZones/DPZones/src/test/resources
+2014-12-01 23:18:31,228 [Worker-44] INFO  o.e.m.i.launch.MavenLaunchDelegate - /Users/Josh/TeamSweq/DPZones/DPZones
+2014-12-01 23:18:31,229 [Worker-44] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn  -B clean
+2014-12-01 23:18:34,075 [Worker-46] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (US-ASCII actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-01 23:18:34,077 [Worker-46] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2014-12-01 23:18:34,081 [Worker-46] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (US-ASCII actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-01 23:18:34,095 [Worker-46] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Josh/TeamSweq/DPZones/DPZones/src/test/resources
+2014-12-01 23:18:35,125 [Worker-41] INFO  o.e.m.i.launch.MavenLaunchDelegate - /Users/Josh/TeamSweq/DPZones/DPZones
+2014-12-01 23:18:35,125 [Worker-41] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn  -B install
+2014-12-01 23:18:41,734 [Worker-48] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (US-ASCII actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-01 23:18:41,736 [Worker-48] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2014-12-01 23:18:41,739 [Worker-48] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (US-ASCII actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-01 23:18:41,740 [Worker-48] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/Josh/TeamSweq/DPZones/DPZones/src/test/resources
