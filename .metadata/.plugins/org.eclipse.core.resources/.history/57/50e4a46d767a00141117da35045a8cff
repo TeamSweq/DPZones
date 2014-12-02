@@ -101,6 +101,7 @@ public class Scout implements ZonesClass {
 	public static void onUnAssign(Player player){
 		PlayerInventory inventory = player.getInventory();
 		inventory.clear();
+		player.setGameMode(GameMode.SURVIVAL);
 		player.removePotionEffect(PotionEffectType.SPEED);
 	}
 	private static boolean hasSurroundingBlocks(Location location){

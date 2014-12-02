@@ -94,13 +94,13 @@ public class Scout implements ZonesClass {
 		inventory.setBoots(new ItemStack(Material.LEATHER_BOOTS));
 		player.setGameMode(GameMode.ADVENTURE);
 		player.setFoodLevel(15);
-		player.setHealth(20);
 		player.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, Integer.MAX_VALUE, 0, true));
 	}
 	@ClassUnAssign
 	public static void onUnAssign(Player player){
 		PlayerInventory inventory = player.getInventory();
 		inventory.clear();
+		player.setGameMode(GameMode.SURVIVAL);
 		player.removePotionEffect(PotionEffectType.SPEED);
 	}
 	private static boolean hasSurroundingBlocks(Location location){

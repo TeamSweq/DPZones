@@ -37,12 +37,12 @@ public class Medic implements ZonesClass {
 		inventory.setBoots(new ItemStack(Material.GOLD_BOOTS));
 		player.setGameMode(GameMode.ADVENTURE);
 		player.setFoodLevel(15);
-		player.setHealth(20);
 	}
 	
 	@ClassUnAssign
 	public static void onUnAssign(Player player){
 		PlayerInventory inventory = player.getInventory();
 		inventory.clear();
+		player.setGameMode(GameMode.SURVIVAL);
 	}
 }

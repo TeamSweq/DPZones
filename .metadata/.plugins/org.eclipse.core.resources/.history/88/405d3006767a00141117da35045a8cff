@@ -162,16 +162,14 @@ public class DPZones extends JavaPlugin implements Listener {
 	@EventHandler
 	public void onNameTag(AsyncPlayerReceiveNameTagEvent event) {
 			UUID uuid = event.getPlayer().getUniqueId();
-			//Player player = event.getPlayer();
+			Player player = event.getPlayer();
 			if (Teams.getTeam(uuid) == DyeColor.RED) {
 				event.setTag(ChatColor.RED + event.getPlayer().getName());
-				//player.setPlayerListName(ChatColor.RED + player.getName());
+				player.setPlayerListName(ChatColor.YELLOW + player.getName());
 			} else if (Teams.getTeam(uuid) == DyeColor.BLUE) {
 				event.setTag(ChatColor.BLUE + event.getPlayer().getName());
-				//player.setPlayerListName(ChatColor.BLUE + player.getName());
 			} else {
 				event.setTag(ChatColor.WHITE + event.getPlayer().getName());
-				//player.setPlayerListName(ChatColor.WHITE + player.getName());
 			}
 	}
 

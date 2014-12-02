@@ -24,7 +24,6 @@ import org.bukkit.scoreboard.Scoreboard;
 import org.bukkit.scoreboard.ScoreboardManager;
 import org.bukkit.scoreboard.Team;
 import org.kitteh.tag.AsyncPlayerReceiveNameTagEvent;
-import org.kitteh.tag.TagAPI;
 import org.teamsweq.dpzones.classes.Archer;
 import org.teamsweq.dpzones.classes.Heavy;
 import org.teamsweq.dpzones.classes.Medic;
@@ -161,18 +160,9 @@ public class DPZones extends JavaPlugin implements Listener {
 	
 	@EventHandler
 	public void onNameTag(AsyncPlayerReceiveNameTagEvent event) {
-			UUID uuid = event.getPlayer().getUniqueId();
-			//Player player = event.getPlayer();
-			if (Teams.getTeam(uuid) == DyeColor.RED) {
-				event.setTag(ChatColor.RED + event.getPlayer().getName());
-				//player.setPlayerListName(ChatColor.RED + player.getName());
-			} else if (Teams.getTeam(uuid) == DyeColor.BLUE) {
-				event.setTag(ChatColor.BLUE + event.getPlayer().getName());
-				//player.setPlayerListName(ChatColor.BLUE + player.getName());
-			} else {
-				event.setTag(ChatColor.WHITE + event.getPlayer().getName());
-				//player.setPlayerListName(ChatColor.WHITE + player.getName());
-			}
+		for(DyeColor color: teamColors){
+			event.setTag(ChatColor.color + event.getPlayer().getName());
+		}
 	}
 
 	public void assignTeam(Player player, DyeColor team){
@@ -181,7 +171,6 @@ public class DPZones extends JavaPlugin implements Listener {
 		}
 		scoreboard.getTeam(team.toString()).addPlayer(player);
 		Teams.assignTeam(team, player);
-		TagAPI.refreshPlayer(player);
 	}
 
 	public void autoAssign(Player player){
