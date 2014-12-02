@@ -1,17 +1,17 @@
 package org.teamsweq.dpzones;
 
-import org.teamsweq.dpzones.classes.Archer;
-import org.teamsweq.dpzones.classes.Heavy;
-import org.teamsweq.dpzones.classes.Medic;
-import org.teamsweq.dpzones.classes.Scout;
-import org.teamsweq.dpzones.classes.Soldier;
-import org.teamsweq.dpzones.classes.Spectate;
-
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
 
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.DyeColor;
+import org.bukkit.Location;
+import org.bukkit.Material;
+import org.bukkit.block.Block;
+import org.bukkit.block.BlockFace;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -19,11 +19,16 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
-import org.bukkit.event.player.PlayerRespawnEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scoreboard.Scoreboard;
 import org.bukkit.scoreboard.ScoreboardManager;
 import org.bukkit.scoreboard.Team;
+import org.teamsweq.dpzones.classes.Archer;
+import org.teamsweq.dpzones.classes.Heavy;
+import org.teamsweq.dpzones.classes.Medic;
+import org.teamsweq.dpzones.classes.Scout;
+import org.teamsweq.dpzones.classes.Soldier;
+import org.teamsweq.dpzones.classes.Spectate;
 
 public class DPZones extends JavaPlugin implements Listener {
 	
@@ -104,13 +109,43 @@ public class DPZones extends JavaPlugin implements Listener {
 	}
 	
 	@EventHandler
-	public void onDeath(PlayerDeathEvent event){
+	public void onDeath(final PlayerDeathEvent event){
+		final Player player = event.getEntity();
+		final Location spawnLocation = new Location(player.getWorld(), 0, 0, 0);
+		//Randomizes the spawnLocation
+		Random r = new Random();
+		int x = r.nextInt(1000);
+		int z = r.nextInt(1000);
+		spawnLocation.setX(x);
+		spawnLocation.setZ(z);
+		spawnLocation.setY(player.getWorld().getHighestBlockAt(spawnLocation.getBlockX(), spawnLocation.getBlockZ() ).getY() ); // Get the Highest Block for a safe spawn
+		
 		event.getDrops().clear();
+		player.setHealth(20);
+		player.teleport(spawnLocation);
 	}
 	
-	@EventHandler
-	public void onRespawn(PlayerRespawnEvent event){
-		ClassManager.resetClass(event.getPlayer());
+/*
+ * checks if a certain location is safe to teleport to
+ * @param location The location to check
+ * @return true if it's safe, otherwise false
+ */
+	public boolean isSafe(Location location) {
+		Block feet = location.getBlock();
+		Block head = feet.getRelative(BlockFace.UP);
+		Block below = feet.getRelative(BlockFace.DOWN);
+		//Blocks the player is allowed to spawn in
+		ArrayList<Material> canSpawnIn = new ArrayList<Material>(Arrays.asList(Material.WOOD_DOOR, Material.WOODEN_DOOR, Material.SIGN_POST, Material.WALL_SIGN, Material.STONE_PLATE, Material.WOOD_PLATE, Material.IRON_DOOR_BLOCK, Material.TRAP_DOOR, Material.REDSTONE_LAMP_OFF, Material.DRAGON_EGG, Material.GOLD_PLATE, Material.IRON_PLATE, Material.AIR));
+		//Blocks the player isn't allowed to spawn on top of
+		ArrayList<Material> cannotSpawnOn = new ArrayList<Material>(Arrays.asList(Material.PISTON_EXTENSION, Material.LEAVES, Material.LEAVES_2, Material.WATER, Material.STATIONARY_WATER, Material.SIGN_POST, Material.WALL_SIGN, Material.STONE_PLATE, Material.WOOD_PLATE, Material.GOLD_PLATE, Material.IRON_PLATE, Material.IRON_DOOR_BLOCK, Material.TRAP_DOOR, Material.WOOL, Material.STATIONARY_LAVA, Material.LAVA, Material.CACTUS, Material.BEACON, Material.AIR));
+		if ((feet.getType().isSolid() && !canSpawnIn.contains(feet.getType())) || feet.isLiquid()) {
+			return false;
+		} else if ((head.getType().isSolid() && !canSpawnIn.contains(below.getType())) || head.isLiquid()) {
+			return false;
+		} else if (!below.getType().isSolid() || cannotSpawnOn.contains(below.getType()) || below.isLiquid()) {
+			return false;
+		}
+		return true;
 	}
 	
 	@EventHandler
