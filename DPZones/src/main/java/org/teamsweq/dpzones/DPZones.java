@@ -32,8 +32,6 @@ import org.teamsweq.dpzones.classes.Spectate;
 
 public class DPZones extends JavaPlugin implements Listener {
 	
-	public static DPZones plugin;
-	
 	private static final List<Class<? extends ZonesClass>> clazzes;
 	private static Scoreboard scoreboard;
 	private static final DyeColor[] teamColors = new DyeColor[]{
@@ -53,7 +51,6 @@ public class DPZones extends JavaPlugin implements Listener {
 	
 	@Override
 	public void onEnable(){
-		plugin = this; //Do not put anything above this statement
 		this.getServer().getPluginManager().registerEvents(this, this);
 		ClassManager.init(this);
 		for(Class<? extends ZonesClass> clazz: clazzes){
@@ -62,6 +59,7 @@ public class DPZones extends JavaPlugin implements Listener {
 		setupTeamScoreboard();
 		for(Player player: this.getServer().getOnlinePlayers()){
 			autoAssign(player);
+			player.setScoreboard(scoreboard);
 		}
 	}
 	
@@ -95,7 +93,7 @@ public class DPZones extends JavaPlugin implements Listener {
 	
 	@Override
 	public void onDisable() {
-		plugin = null; //Do not put anything below this statement.
+		//Nothin
 	}
 
 	public void setupTeamScoreboard(){
@@ -114,8 +112,8 @@ public class DPZones extends JavaPlugin implements Listener {
 	
 	@EventHandler
 	public void onDeath(final PlayerDeathEvent event){
-		final Player player = event.getEntity();
-		final Location spawnLocation = new Location(player.getWorld(), 0, 0, 0);
+		Player player = event.getEntity();
+		Location spawnLocation = new Location(player.getWorld(), 0, 0, 0);
 		//Randomizes the spawnLocation
 		Random r = new Random();
 		int x = r.nextInt(1000);
@@ -127,13 +125,14 @@ public class DPZones extends JavaPlugin implements Listener {
 		event.getDrops().clear();
 		player.setHealth(20);
 		player.teleport(spawnLocation);
+		ClassManager.resetClass(player);
 	}
 	
-/*
- * checks if a certain location is safe to teleport to
- * @param location The location to check
- * @return true if it's safe, otherwise false
- */
+	/**
+	 * checks if a certain location is safe to teleport to
+	 * @param location The location to check
+	 * @return true if it's safe, otherwise false
+	 */
 	public boolean isSafe(Location location) {
 		Block feet = location.getBlock();
 		Block head = feet.getRelative(BlockFace.UP);
@@ -155,6 +154,7 @@ public class DPZones extends JavaPlugin implements Listener {
 	@EventHandler
 	public void onJoin(PlayerJoinEvent event){
 		autoAssign(event.getPlayer());
+		event.getPlayer().setScoreboard(scoreboard);
 	}
 
 	public void assignTeam(Player player, DyeColor team){
