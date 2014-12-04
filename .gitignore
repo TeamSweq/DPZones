@@ -12,7 +12,7 @@
 hs_err_pid*
 
 /DPZones/.classpath
-/DPZones/.metadata
+.metadata/**
 *.index
 
 *.cfs
