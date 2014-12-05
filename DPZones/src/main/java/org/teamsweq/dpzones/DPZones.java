@@ -118,9 +118,9 @@ public class DPZones extends JavaPlugin implements Listener {
 		Random r = new Random();
 		int x = r.nextInt(1000);
 		int z = r.nextInt(1000);
-		spawnLocation.setX(x);
-		spawnLocation.setZ(z);
-		spawnLocation.setY(player.getWorld().getHighestBlockAt(spawnLocation.getBlockX(), spawnLocation.getBlockZ() ).getY() ); // Get the Highest Block for a safe spawn
+		spawnLocation.setX(x-500);
+		spawnLocation.setZ(z-500);
+		spawnLocation.setY(player.getWorld().getHighestBlockAt(spawnLocation.getBlockX(), spawnLocation.getBlockZ()).getY()); // Get the Highest Block for a safe spawn
 		
 		event.getDrops().clear();
 		player.setHealth(20);
