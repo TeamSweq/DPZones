@@ -1,0 +1,10 @@
+Zones:
+  - Test
+  - Test2
+Test:
+  Blocks:
+    - 10-3-10
+  Wools:
+Test2:
+  Blocks:
+  Wools:

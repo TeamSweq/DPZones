@@ -31,15 +31,16 @@ import org.teamsweq.dpzones.classes.Soldier;
 import org.teamsweq.dpzones.classes.Spectate;
 
 public class DPZones extends JavaPlugin implements Listener {
-	
 	private static final List<Class<? extends ZonesClass>> clazzes;
 	private static Scoreboard scoreboard;
+	private static List<Zone> zones;
 	private static final DyeColor[] teamColors = new DyeColor[]{
 		DyeColor.RED, 
 		DyeColor.BLUE
 	};
 	
 	static {
+		zones = new ArrayList<Zone>();
 		clazzes = new ArrayList<Class<? extends ZonesClass>>();
 		clazzes.add(Heavy.class);
 		clazzes.add(Soldier.class);
@@ -61,6 +62,7 @@ public class DPZones extends JavaPlugin implements Listener {
 			autoAssign(player);
 			player.setScoreboard(scoreboard);
 		}
+		setupZones();
 	}
 	
 	@Override
@@ -87,6 +89,11 @@ public class DPZones extends JavaPlugin implements Listener {
 				sender.sendMessage(ChatColor.AQUA + "You have chosen the " + command.getName().toLowerCase() + " class!");
 				return true;
 			}
+			if(command.getName().equalsIgnoreCase("reload")){
+				this.reloadConfig();
+				setupZones();
+				sender.sendMessage(ChatColor.GREEN + "Reloaded Config!");
+			}
 		}
 		return false;
 	}
@@ -110,8 +117,23 @@ public class DPZones extends JavaPlugin implements Listener {
 		}
 	}
 	
+	public void setupZones(){
+		zones.clear();
+		List<String> names = this.getConfig().getStringList("Zones");
+		for(String name: names){
+			List<String> blocks = this.getConfig().getStringList(name+".Blocks");
+			for(String block: blocks){
+				
+			}
+			List<String> wools = this.getConfig().getStringList(name+".Wools");
+			for(String wool: wools){
+				
+			}
+		}
+	}
+	
 	@EventHandler
-	public void onDeath(final PlayerDeathEvent event){
+	public void onDeath(PlayerDeathEvent event){
 		Player player = event.getEntity();
 		Location spawnLocation = new Location(player.getWorld(), 0, 0, 0);
 		//Randomizes the spawnLocation
@@ -126,29 +148,6 @@ public class DPZones extends JavaPlugin implements Listener {
 		player.setHealth(20);
 		player.teleport(spawnLocation);
 		ClassManager.resetClass(player);
-	}
-	
-	/**
-	 * checks if a certain location is safe to teleport to
-	 * @param location The location to check
-	 * @return true if it's safe, otherwise false
-	 */
-	public boolean isSafe(Location location) {
-		Block feet = location.getBlock();
-		Block head = feet.getRelative(BlockFace.UP);
-		Block below = feet.getRelative(BlockFace.DOWN);
-		//Blocks the player is allowed to spawn in
-		ArrayList<Material> canSpawnIn = new ArrayList<Material>(Arrays.asList(Material.WOOD_DOOR, Material.WOODEN_DOOR, Material.SIGN_POST, Material.WALL_SIGN, Material.STONE_PLATE, Material.WOOD_PLATE, Material.IRON_DOOR_BLOCK, Material.TRAP_DOOR, Material.REDSTONE_LAMP_OFF, Material.DRAGON_EGG, Material.GOLD_PLATE, Material.IRON_PLATE, Material.AIR));
-		//Blocks the player isn't allowed to spawn on top of
-		ArrayList<Material> cannotSpawnOn = new ArrayList<Material>(Arrays.asList(Material.PISTON_EXTENSION, Material.LEAVES, Material.LEAVES_2, Material.WATER, Material.STATIONARY_WATER, Material.SIGN_POST, Material.WALL_SIGN, Material.STONE_PLATE, Material.WOOD_PLATE, Material.GOLD_PLATE, Material.IRON_PLATE, Material.IRON_DOOR_BLOCK, Material.TRAP_DOOR, Material.WOOL, Material.STATIONARY_LAVA, Material.LAVA, Material.CACTUS, Material.BEACON, Material.AIR));
-		if ((feet.getType().isSolid() && !canSpawnIn.contains(feet.getType())) || feet.isLiquid()) {
-			return false;
-		} else if ((head.getType().isSolid() && !canSpawnIn.contains(below.getType())) || head.isLiquid()) {
-			return false;
-		} else if (!below.getType().isSolid() || cannotSpawnOn.contains(below.getType()) || below.isLiquid()) {
-			return false;
-		}
-		return true;
 	}
 	
 	@EventHandler
@@ -184,5 +183,37 @@ public class DPZones extends JavaPlugin implements Listener {
 			}
 		}
 		return team;
+	}
+	
+	/**
+	 * checks if a certain location is safe to teleport to
+	 * @param location The location to check
+	 * @return true if it's safe, otherwise false
+	 */
+	public boolean isSafe(Location location) {
+		Block feet = location.getBlock();
+		Block head = feet.getRelative(BlockFace.UP);
+		Block below = feet.getRelative(BlockFace.DOWN);
+		//Blocks the player is allowed to spawn in
+		ArrayList<Material> canSpawnIn = new ArrayList<Material>(Arrays.asList(Material.WOOD_DOOR, Material.WOODEN_DOOR, Material.SIGN_POST, 
+				Material.WALL_SIGN, Material.STONE_PLATE, Material.WOOD_PLATE, 
+				Material.IRON_DOOR_BLOCK, Material.TRAP_DOOR, Material.REDSTONE_LAMP_OFF, 
+				Material.DRAGON_EGG, Material.GOLD_PLATE, Material.IRON_PLATE, Material.AIR));
+		//Blocks the player isn't allowed to spawn on top of
+		ArrayList<Material> cannotSpawnOn = new ArrayList<Material>(Arrays.asList(Material.PISTON_EXTENSION, 
+				Material.LEAVES, Material.LEAVES_2, Material.WATER, 
+				Material.STATIONARY_WATER, Material.SIGN_POST, Material.WALL_SIGN, 
+				Material.STONE_PLATE, Material.WOOD_PLATE, Material.GOLD_PLATE, 
+				Material.IRON_PLATE, Material.IRON_DOOR_BLOCK, Material.TRAP_DOOR, 
+				Material.WOOL, Material.STATIONARY_LAVA, Material.LAVA, 
+				Material.CACTUS, Material.BEACON, Material.AIR));
+		if ((feet.getType().isSolid() && !canSpawnIn.contains(feet.getType())) || feet.isLiquid()) {
+			return false;
+		} else if ((head.getType().isSolid() && !canSpawnIn.contains(below.getType())) || head.isLiquid()) {
+			return false;
+		} else if (!below.getType().isSolid() || cannotSpawnOn.contains(below.getType()) || below.isLiquid()) {
+			return false;
+		}
+		return true;
 	}
 }

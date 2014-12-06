@@ -4,7 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
+import org.bukkit.DyeColor;
 import org.bukkit.Location;
+import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
@@ -12,13 +14,14 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.plugin.java.JavaPlugin;
-import org.bukkit.scheduler.BukkitRunnable;
 
 public class Zone {
-	private List<Block> blocks;
+	private List<Block> blocks; // Blocks that are possible to be in
+	private List<Block> wools; //Wool that changes
 	private List<UUID> players; //Players that are in this Zone
 	public Zone(){
 		blocks = new ArrayList<Block>();
+		wools = new ArrayList<Block>();
 		players = new ArrayList<UUID>();
 	}
 	public void init(JavaPlugin plugin){
@@ -36,12 +39,20 @@ public class Zone {
 				players.remove(event.getEntity().getUniqueId());
 			}
 		}, plugin);
-		new BukkitRunnable(){
-			@Override
-			public void run() {
-				//TODO
-			}
-		}.runTaskTimerAsynchronously(plugin, 0, 20);
+		reset();
+	}
+	public void setRatio(DyeColor color, double ratio){
+		reset();
+		for(int i=0;i<=wools.size()*ratio;++i){
+			wools.get(i).setType(Material.WOOL);
+			wools.get(i).setData(color.getData());
+		}
+	}
+	public void reset(){
+		for(Block block: wools){
+			block.setType(Material.WOOL);
+			block.setData(DyeColor.WHITE.getData());
+		}
 	}
 	public boolean inZone(Location location){
 		for(Block block: blocks){
@@ -50,5 +61,8 @@ public class Zone {
 			}
 		}
 		return false;
+	}
+	public List<UUID> getPlayers(){
+		return players;
 	}
 }
