@@ -49,7 +49,7 @@ public class Scout implements ZonesClass {
 			public void onFish(PlayerFishEvent event){
 				if(ClassManager.getClass(event.getPlayer())!=null){
 					if(ClassManager.getClass(event.getPlayer()).equals(Scout.class)){
-						if(event.getState()==PlayerFishEvent.State.IN_GROUND){
+						if(event.getState()==PlayerFishEvent.State.IN_GROUND || event.getState() == PlayerFishEvent.State.CAUGHT_ENTITY){
 							launch(event.getPlayer(), event.getHook().getLocation());
 						}
 						if(event.getState()==PlayerFishEvent.State.FAILED_ATTEMPT){

@@ -136,17 +136,20 @@ public class DPZones extends JavaPlugin implements Listener {
 	public void onDeath(PlayerDeathEvent event){
 		Player player = event.getEntity();
 		Location spawnLocation = new Location(player.getWorld(), 0, 0, 0);
-		//Randomizes the spawnLocation
-		Random r = new Random();
-		int x = r.nextInt(1000);
-		int z = r.nextInt(1000);
-		spawnLocation.setX(x-500);
-		spawnLocation.setZ(z-500);
-		spawnLocation.setY(player.getWorld().getHighestBlockAt(spawnLocation.getBlockX(), spawnLocation.getBlockZ()).getY()); // Get the Highest Block for a safe spawn
+		Location spawn = new Location(player.getWorld(), 29, 70, 9);
 		
 		event.getDrops().clear();
 		player.setHealth(20);
-		player.teleport(spawnLocation);
+		if (player.isDead() && isSafe(spawnLocation) == true){
+			player.teleport(spawnLocation);
+		} else {
+			Random r = new Random();
+			int x = r.nextInt(200);
+			int z = r.nextInt(200);
+			spawnLocation.setX(x);
+			spawnLocation.setZ(z);
+			spawnLocation.setY(player.getWorld().getHighestBlockAt(spawnLocation.getBlockX(), spawnLocation.getBlockZ()).getY()); // Get the Highest Block for a safe spawn
+		}
 		ClassManager.resetClass(player);
 	}
 	

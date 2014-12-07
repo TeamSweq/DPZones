@@ -11,7 +11,6 @@ import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.PlayerInventory;
 import org.bukkit.plugin.java.JavaPlugin;
-
 import org.teamsweq.dpzones.ClassAssign;
 import org.teamsweq.dpzones.ClassInit;
 import org.teamsweq.dpzones.ClassManager;
@@ -36,7 +35,7 @@ public class Archer implements ZonesClass {
 							if(ClassManager.getClass(attacker) != null){
 								if(ClassManager.getClass(attacker).equals(Archer.class)) {
 									if(attacker.getLocation().distance(defender.getLocation()) >= 30.0) {
-										event.setDamage(Double.MAX_VALUE);
+										defender.damage(20);
 										defender.sendMessage(ChatColor.GOLD + "You were headshotted by " + attacker.getDisplayName() + "!");
 										attacker.sendMessage(ChatColor.GOLD + "You headshotted " + defender.getDisplayName() + "!");
 									}

@@ -1,2 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<qualifiedTypeNameHistroy/>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="org.kitteh.tag.AsyncPlayerReceiveNameTagEvent"/>
+<fullyQualifiedTypeName name="org.kitteh.tag.TagAPI"/>
+<fullyQualifiedTypeName name="org.teamsweq.dpzones.ClassManager"/>
+<fullyQualifiedTypeName name="org.bukkit.event.player.PlayerFishEvent.State"/>
+</qualifiedTypeNameHistroy>
