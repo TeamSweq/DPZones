@@ -1,8 +1,15 @@
 DPZones
 =======
 
-<h3>kicking ass and pvp have never been so gei</h3>
+<h4>Tasks</h4>
+<p><b>chikincows</b> | Spawn, Map Configuration, & Zones Mechanics <br>
+<b>chactation</b> | Classes & Gamemode Ability <br>
+<b>m1vr3pwn</b> | Map Configuration & Lobby <br>
+<b>awesomelemonade</b> | Zones Mechanics, Timer, & Database Management</p>
 =======
+
+<h3>kicking ass and pvp have never been so gei</h3>
+
 <h4>Goal of the Game</h4>
 <p>DPZones is a zone-control type of game. There are classes you can play as to help your team capture as many zones as possible. As long as you own a zone then your team is getting points, and you want to have as many points as possible in case time runs out. The team with the higher amount of points or whichever team reaches the cap first wins the game.</p>
 =======
