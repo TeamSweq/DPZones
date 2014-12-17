@@ -4,7 +4,7 @@ DPZones
 <h4>Tasks</h4>
 <p><b>chikincows</b> | Spawn, Map Configuration, & Zones Mechanics <br>
 <b>chactation</b> | Classes & Gamemode Ability <br>
-<b>m1vr3pwn</b> | Map Configuration & Lobby <br>
+<b>m1v3rpwn</b> | Map Configuration & Lobby <br>
 <b>awesomelemonade</b> | Zones Mechanics, Timer, & Database Management</p>
 =======
 
