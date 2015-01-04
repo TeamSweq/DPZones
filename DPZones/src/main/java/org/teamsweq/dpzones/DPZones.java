@@ -219,4 +219,10 @@ public class DPZones extends JavaPlugin implements Listener {
 		}
 		return true;
 	}
+
+    public static DyeColor[] getTeamColors() {
+        return teamColors;
+    }
+        
+        
 }
