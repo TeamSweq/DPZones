@@ -47,14 +47,14 @@ public class MapConfigReader {
         ConfigurationSection teamSpawnLocations = config.getConfigurationSection("Team Spawn Locations");
         for (int team = 0;
                 team < numberOfTeams; team++) {
-            teamSpawns.add(teamSpawnLocations.getVector(team + "").toLocation(main.getServer().getWorlds().get(0)));
+            teamSpawns.add(teamSpawnLocations.getVector(team + "").toLocation(main.getServer().getWorld(filePath)));
         }
 
         int numberOfZones = config.getInt("Number Of Zones");
         zones = new ArrayList<>(numberOfZones);
         ConfigurationSection zoneLocations = config.getConfigurationSection("Zone Locations");
         for (int zone = 0; zone < numberOfZones; zone++) {
-            zones.add(zoneLocations.getVector(zone + "").toLocation(main.getServer().getWorlds().get(0)));
+            zones.add(zoneLocations.getVector(zone + "").toLocation(main.getServer().getWorld(filePath)));
         }
         return true;
     }
